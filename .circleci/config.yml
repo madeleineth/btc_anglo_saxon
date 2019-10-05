@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/android:api-29
+    steps:
+      - checkout
+      - run:
+          name: Install python
+          command: sudo apt-get update && sudo apt-get install -y python3 python3-virtualenv
+      - run:
+          name: Set up virtualenv
+          command: python3 /usr/lib/python3/dist-packages/virtualenv.py -p python3 venv
