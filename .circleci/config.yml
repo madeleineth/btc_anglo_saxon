@@ -11,3 +11,9 @@ jobs:
       - run:
           name: Set up virtualenv
           command: python3 /usr/lib/python3/dist-packages/virtualenv.py -p python3 venv
+      - run:
+          name: Download python dependencies
+          command: venv/bin/pip install -U -r db/requirements.txt
+      - run:
+          name: Run python static checks and unit tests
+          command: source venv/bin/activate && ./db/test.sh
