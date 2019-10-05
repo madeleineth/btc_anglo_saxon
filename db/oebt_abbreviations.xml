@@ -1,0 +1,6064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE document [
+
+<!ELEMENT document ((source | PAGEBREAK | section_header)+)>
+<!ELEMENT source (spellout+, heading, body)>
+
+<!ELEMENT spellout (#PCDATA)>
+<!ELEMENT heading (#PCDATA)>
+<!ELEMENT body (#PCDATA)>
+<!ELEMENT section_header (#PCDATA)>
+<!ELEMENT PAGEBREAK EMPTY>
+
+
+<!ENTITY AElig "&amp;AElig;">
+<!ENTITY Uuml "&amp;Uuml;">
+<!ENTITY aacute "&amp;aacute;">
+<!ENTITY aelig "&amp;aelig;">
+<!ENTITY aelig-acute "&amp;aelig-acute;">
+<!ENTITY auml "&amp;auml;">
+<!ENTITY eacute "&amp;eacute;">
+<!ENTITY emdash "&amp;emdash;">
+<!ENTITY eth "&amp;eth;">
+<!ENTITY iacute "&amp;iacute;">
+<!ENTITY oacute "&amp;oacute;">
+<!ENTITY ocirc "&amp;ocirc;">
+<!ENTITY oelig "&amp;oelig;">
+<!ENTITY ouml "&amp;ouml;">
+<!ENTITY thorn "&amp;thorn;">
+<!ENTITY uuml "&amp;uuml;">
+<!ENTITY yogh "&amp;yogh;">
+
+<!ATTLIST PAGEBREAK
+        ID CDATA ""
+>
+
+]>
+
+<document>
+
+<source>
+<spellout>A. D.</spellout>
+<heading>A. D.</heading>
+<body>
+Altenglische Dichtungen der MS, H&auml;rl. 2253, herausgegeben von
+K. Boddeker, Berlin, 1878.
+</body>
+</source>
+
+<source>
+<spellout>A. P.</spellout>
+<heading>A. P.</heading>
+<body>
+v. Allit. Pms.
+</body>
+</source>
+
+<source>
+<spellout>A. R.</spellout>
+<heading>A. R.</heading>
+<body>
+The Ancren Riwle, edited for the Camden Society
+(No. lvii.) by J. Morton, 1853. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Abus.</spellout>
+<heading>Abus.</heading>
+<body>
+Codex Junii 23, fol. 60, in the Bodleian Library. See
+Wanley's Catalogue, p. 37, and Engl. Stud. viii. 62.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lf. Ep. lst </spellout>
+<heading>&AElig;lf. Ep. lst </heading>
+<body>
+= L. &AElig;lfc. P. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lf. Test.</spellout>
+<heading>&AElig;lf. Test.</heading>
+<body>
+&AElig;lfric on the Old Testament in Sweet's Anglo-Saxon
+Reader (1st ed.).
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. Gen. Thw.</spellout>
+<heading>&AElig;lfc. Gen. Thw.</heading>
+<body>
+The preface to Genesis in Thwaites'
+edition of the Heptateuch. v. Gen.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. Gl.</spellout>
+<heading>&AElig;lfc. Gl.</heading>
+<body>
+Codex Junii 71, in the Bodleian Library. See
+Wanley's Catalogue, p. 96. Printed by Somner (Som.)
+at the end of his Dictionary, and again by Wright in
+A Volume of Vocabularies (Wrt. Voc.). In the early
+part of the Dictionary the page of the MS., and the page
+and number of the word in Somner and in Wright are
+given, but later the reference is to Wright only (Wrt.
+Voc. i.).
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. Gl. Zup.</spellout>
+<spellout>Zup.</spellout>
+<heading>&AElig;lfc. Gl.; Zup.</heading>
+<body>
+&AElig;lfric's Grammatik und Glossar, herausgegeben
+von Julius Zupitza, Berlin, 1880. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. Gr.</spellout>
+<heading>&AElig;lfc. Gr.</heading>
+<body>
+&AElig;lfric's Grammar, referred to at first in the
+edition by Somner, printed with his Dictionary (Som.),
+later in that of Zupitza (Zup. v. preceding explanation).
+Quoted by section of the Grammar, and by page and
+line of the editions.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. pref. Gen.</spellout>
+<heading>&AElig;lfc. pref. Gen.</heading>
+<body>
+= &AElig;lfc. Gen. Thw.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. T.</spellout>
+<spellout>&AElig;lfc. T. Lisle.</spellout>
+<heading>&AElig;lfc. T. or &AElig;lfc. T. Lisle.</heading>
+<body>
+A Saxon treatise concerning
+the Old and New Testament. . . . Now first published in
+print with English of our times by William L'Isle,
+London, 1623. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. T. Grn.</spellout>
+<heading>&AElig;lfc. T. Grn.</heading>
+<body>
+The same text, in vol. i. of Bibliothek der
+Angels&auml;chsischen Prosa, herausgegeben von Chr. Grein. 1872.
+See also &AElig;lf. Test.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;qu. Vern.</spellout>
+<heading>&AElig;qu. Vern.</heading>
+<body>
+This contraction (used, but not explained, by
+Lye) seems to refer to the Anglo-Saxon abridgement of
+Bede's De Natura Rerum in MS. Cotton. Tiberius,
+B. V. (see Wanley's Catalogue, p. 216). It is printed in
+Popular Treatises on Science, edited for the Historical
+Society of Science by Wright, London, 1841 (Wrt.
+popl. science); and again in the 3rd vol. of Cockayne's
+Leechdoms (Lchdm. III). The later quotations are
+taken from the latter edition. v. Equin. vern.
+</body>
+</source>
+
+<source>
+<spellout>Al.</spellout>
+<heading>Al.</heading>
+<body>
+The Life of St. Alexius, edited by F, J. Furnivall,
+E.E.T.S., No. 69, 1878. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Alb. resp.</spellout>
+<heading>Alb. resp.</heading>
+<body>
+Albini responsa ad Sigewulfi interrogationes.
+For a text and MSS. see Anglia, vol. vii. pp. 1 sqq.
+</body>
+</source>
+
+<source>
+<spellout>Ald.</spellout>
+<heading>Ald.</heading>
+<body>
+Sancti Aldhelmi Opera, edited by J, A. Giles, Oxford,
+1844. Quoted by page.
+</body>
+</source>
+
+<source>
+<spellout>Alex.</spellout>
+<heading>Alex.</heading>
+<body>
+The Alliterative Romance of Alexander, edited by
+J. Stevenson, Roxburghe Club, 1849. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Alex.</spellout>
+<spellout>Alex. Skt.</spellout>
+<heading>Alex. (Skt).</heading>
+<body>
+The same, edited by W. W. Skeat, E.E.T.S.,
+No. lxvii., 1866. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Alis.</spellout>
+<heading>Alis.</heading>
+<body>
+King Alisaunder, in Weber's Metrical Romances, vol. i.,
+Edinburgh, 1810. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Allit. Pms.</spellout>
+<heading>Allit. Pms.</heading>
+<body>
+Early English Alliterative Poems, edited by
+R. Morris, E.E.T.S., No. 1, 1864. Quoted by page and
+line.
+</body>
+</source>
+
+<source>
+<spellout>Am.</spellout>
+<spellout>Amil.</spellout>
+<heading>Am. and Amil.</heading>
+<body>
+Amis and Amiloun, in Weber's Metrical
+Romances, vol. ii.
+</body>
+</source>
+
+<source>
+<spellout>An. Lit.</spellout>
+<heading>An. Lit.</heading>
+<body>
+Anecdota Literaria, edited by Thomas Wright,
+London, 1844. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>An. Th.</spellout>
+<spellout>Anal. Th.</spellout>
+<spellout>Th. An.</spellout>
+<spellout>Th. Anal.</spellout>
+<spellout>Th. Anlct.</spellout>
+<heading>An. (or Anal.) Th. or Th. An. (Anal., Anlct.).</heading>
+<body>
+Analecta
+Anglo-Saxonica, by Benjamin Thorpe, London, 1846.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>And. </spellout>
+<heading>And. </heading>
+<body>
+= St. And. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>Andr. Grm. </spellout>
+<heading>Andr. Grm. </heading>
+<body>
+See Grm[m]. A. u. E.
+</body>
+</source>
+
+<source>
+<spellout>Andr. Kmbl.</spellout>
+<heading>Andr. Kmbl.</heading>
+<body>
+The Poetry of the Codex Vercellensis, edited
+by J. M. Kemble for the &AElig;lfric Society. Part 1. The
+Legend of St. Andrew, London, 1844.
+</body>
+</source>
+
+<PAGEBREAK ID="a0004"/>
+
+<source>
+<spellout>Andr. Recd.</spellout>
+<heading>Andr. Recd.</heading>
+<body>
+The same poem edited for the Record Commission
+by Benjamin Thorpe, but not published. See Glos. Epnl. Recd.
+</body>
+</source>
+
+<source>
+<spellout>Andrews' Old English Manor.</spellout>
+<heading>Andrews' Old English Manor.</heading>
+<body>
+The Old English Manor,
+a study in English Economic History, by Charles McLean
+Andrews, Baltimore, 1892.
+</body>
+</source>
+
+<source>
+<spellout>Anglia.</spellout>
+<heading>Anglia.</heading>
+<body>
+Anglia, Zeitschrift f&uuml;r Englische Philologie. Halle,
+1878-
+</body>
+</source>
+
+<source>
+<spellout>Anlct.</spellout>
+<heading>Anlct.</heading>
+<body>
+v. An. Th.
+</body>
+</source>
+
+<source>
+<spellout>Ap. Th.</spellout>
+<spellout>Apol. Th.</spellout>
+<spellout>Th. Ap.</spellout>
+<spellout>Th. Apol.</spellout>
+<heading>Ap. (Apol.) Th. or Th. Ap. (Apol.).</heading>
+<body>
+The Anglo-Saxon
+Version of the Story of Apollonius of Tyre, from a MS.
+in the Library of C. C. C., Cambridge (v. Wanley's Catalogue,
+p. 146), edited by Benjamin Thorpe, London, 1834.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>App. Scint.</spellout>
+<heading>App. (Lib.) Scint.</heading>
+<body>
+v. Scint.
+</body>
+</source>
+
+<source>
+<spellout>Apstls. Crd.</spellout>
+<heading>Apstls. Crd.</heading>
+<body>
+An interlinear version of the Apostles' Creed
+on folio 199a of the MS. referred to as Ps. Lamb. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>Apstls. Kmbl.</spellout>
+<heading>Apstls. Kmbl.</heading>
+<body>
+The Fates of the Twelve Apostles in The
+Poetry of the Codex Vercellensis, Part II. v. Andr, Kmbl,
+</body>
+</source>
+
+<source>
+<spellout>Apstls. Recd.</spellout>
+<heading>Apstls. Recd.</heading>
+<body>
+The same poem edited for the Record Commission;
+v. Andr. Recd.
+</body>
+</source>
+
+<source>
+<spellout>Arth. and Merl.</spellout>
+<heading>Arth. and Merl.</heading>
+<body>
+Arthour and Merlin, a Metrical Romance
+edited by W. D. Turnbull, Abbotsford Club, 1838. Quoted
+by line.
+</body>
+</source>
+
+<source>
+<spellout>Ass. B.</spellout>
+<heading>Ass. B.</heading>
+<body>
+Assumpcio Beate Marie, edited by J. R. Lumby,
+E.E.T.S., No. 14, 1866. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Ath. Crd.</spellout>
+<spellout>Athan.</spellout>
+<heading>Ath. Crd. or Athan.</heading>
+<body>
+An interlinear version of the Athanasian
+Creed, folios 200a-202b of the MS, referred to as
+Ps. Lamb, (q, v.). Quoted by paragraph.
+</body>
+</source>
+
+<source>
+<spellout>Ayenb.</spellout>
+<heading>Ayenb.</heading>
+<body>
+Dan Michel's Ayenbite of Inwyt, in the Kentish
+Dialect, 1340, edited by R. Morris, E.E.T.S., No, 23,
+1866.
+</body>
+</source>
+
+<source>
+<spellout>Bailey.</spellout>
+<heading>Bailey.</heading>
+<body>
+An Universal Etymological English Dictionary,
+by N. Bailey, 10th edition, London, 1742.
+</body>
+</source>
+
+<source>
+<spellout>Basil admn.</spellout>
+<spellout>Norm.</spellout>
+<heading>Basil admn.; Norm.</heading>
+<body>
+The Anglo-Saxon Remains of St.
+Basil's Admonitio ad filium spiritualem, edited by the
+Rev. Henry W. Norman, 2nd edition, London, 1849.
+Quoted by chapter, and by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Bd. de nat. rm.</spellout>
+<spellout>Bd. de nat. rerum</spellout>
+<heading>Bd. de nat. rm. (rerum).</heading>
+<body>
+See under &AElig;qu. Vern.
+</body>
+</source>
+
+<source>
+<spellout>Bd.</spellout>
+<spellout>M.</spellout>
+<heading>Bd.; M.</heading>
+<body>
+The Old English Version of Bede's Ecclesiastical
+History of the English People, edited by Thomas
+Miller, E.E.T.S., Nos. 95, 96, 1890-1891. Quoted
+by book and chapter, and by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Bd. S.</spellout>
+<heading>Bd. S.</heading>
+<body>
+Baedae Historia Ecclesiastica a gloriosissimo veterum
+Anglo-Saxonum rege Aluredo Saxonice reddita,
+cura et studio Johannis Smith, Cantabrigiae, 1722.
+Quoted as in previous work.
+</body>
+</source>
+
+<source>
+<spellout>Bd.</spellout>
+<spellout>Whel.</spellout>
+<spellout>Whelc.</spellout>
+<spellout>Bd. Whelc.</spellout>
+<heading>Bd.; Whel. (Whelc.).</heading>
+<body>
+Bedae Venerabilis Historia Ecclesiastica Anglorum,
+Anglo-Saxonice ex versione &AElig;lfredi
+Magni Gentis et Latine, cura Abrahami Wheloci, Cantabrigiae,
+1644.
+</body>
+</source>
+
+<source>
+<spellout>Ben.</spellout>
+<heading>Ben.</heading>
+<body>
+Vocabularium Anglo-Saxonicum, opera Th. Benson,
+Oxoniae, 1701.
+</body>
+</source>
+
+<source>
+<spellout>Beo. Kmbl.</spellout>
+<heading>Beo. Kmbl.</heading>
+<body>
+The Anglo-Saxon poems of Beowulf, the Traveller's
+Song and the Battle of Finnesburh, edited by
+John M. Kemble, 2nd edition, London, 1835.
+</body>
+</source>
+
+<source>
+<spellout>Beo. Th.</spellout>
+<heading>Beo. Th.</heading>
+<body>
+The Anglo-Saxon Poem of Beowulf, edited by
+Benjamin Thorpe, Oxford, 1855.
+</body>
+</source>
+
+<source>
+<spellout>Beves.</spellout>
+<heading>Beves.</heading>
+<body>
+Sir Beves of Hamtune, edited by E. K&ouml;lbing,
+E.E.T.S., Nos, xlvi., xlviii., 1885-1886. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Blickl. Gl.</spellout>
+<spellout>Blickl. Gloss.</spellout>
+<heading>Blickl. Gl. (Gloss.).</heading>
+<body>
+Glosses taken from a copy of the
+Roman Psalter in the library at Blickling Hall. Printed
+at the end of the Blickling Homilies. See next paragraph.
+</body>
+</source>
+
+<source>
+<spellout>Blickl. Homl.</spellout>
+<spellout>Homl. Blick.</spellout>
+<heading>Blickl. Homl. or Homl. Blick.</heading>
+<body>
+The Blickling Homilies,
+edited by R. Morris, E.E.T.S., Nos. 58, 63, 1874-1876.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Boutr. Scrd.</spellout>
+<spellout>Btwk. Scrd.</spellout>
+<heading>Boutr. (Btwk.) Scrd.</heading>
+<body>
+Screadunga. Anglo-Saxonica maximam
+partem inedita publicavit C. G. Bouterwek, Elberfeld,
+1858. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Brand.</spellout>
+<heading>Brand.</heading>
+<body>
+Popular Antiquities of Great Britain, edited,
+from the materials collected by John Brand, by W. C.
+Hazlitt. Three vols. London, 1870.
+</body>
+</source>
+
+<source>
+<spellout>Bridfr.</spellout>
+<spellout>Bridf.</spellout>
+<heading>Bridf[r].</heading>
+<body>
+Bridferth's Enchiridion contained in MS. No. 328
+in the Ashmolean Library (see Wanley's Catalogue,
+p. 103). Quoted by folio. This MS. is printed in
+Anglia viii. 298-337, and later references are to this
+edition by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Bt.</spellout>
+<spellout>Fox.</spellout>
+<heading>Bt.; Fox.</heading>
+<body>
+King Alfred's Anglo-Saxon version of Boethius
+de Consolatione Philosophiae, edited by the Rev. S. Fox.
+Bohn's Antiquarian Library, London, 1864. Quoted by
+chapter and paragraph, and by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Bt. Met. Fox</spellout>
+<spellout>Bt. Tupr.</spellout>
+<heading>Bt. Met. Fox and Bt. Tupr.</heading>
+<body>
+The Anglo-Saxon metrical
+version of the metrical portions of Boethius, with a verse
+translation by M. Tupper. At the end of the previous work. Quoted by
+number of metre and line.
+</body>
+</source>
+
+<source>
+<spellout>Bt.</spellout>
+<spellout>Rawl.</spellout>
+<heading>Bt.; Rawl.</heading>
+<body>
+Boethii Consolationis Philosophiae libri v
+Anglo-Saxonice redditi ab &AElig;lfredo; ad Apographum
+Junianum expressos edidit Christophorus Rawlinson,
+Oxoniae, 1698. Quoted by chapter and paragraph, and
+by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Btwk.</spellout>
+<heading>Btwk.</heading>
+<body>
+C&aelig;dmon's Biblische Dichtungen, herausgegeben von
+K. W. Bouterwek. Erster Theil, G&uuml;tersloh, 1854. The
+references are to the Anglo-Saxon piece 'De officiis
+diurnalium et nocturnalium horarum,' preface, pp. cxciv-ccxxii.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Btwk. Scrd.</spellout>
+<heading>Btwk. Scrd.</heading>
+<body>
+v. Boutr. Scrd.
+</body>
+</source>
+
+<source>
+<spellout>Byrht. Th.</spellout>
+<heading>Byrht. Th.</heading>
+<body>
+The poem on the battle of Maldon in Thorpe's
+Analecta Anglo-Saxonica. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>C. L.</spellout>
+<heading>C. L.</heading>
+<body>
+Castel off Love, edited by R. F. Weymouth, Philol.
+Soc., 1864. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>C. M.</spellout>
+<heading>C. M.</heading>
+<body>
+Cursor Mundi, edited by R. Morris, E.E.T.S. Quoted
+by line.
+</body>
+</source>
+
+<source>
+<spellout>C. R. Ben.</spellout>
+<heading>C. R. Ben.</heading>
+<body>
+An Anglo-Saxon version of the Benedictine Rule
+contained in a MS. in the library of Corpus Christi
+College, Cambridge. See Wanley's Catalogue, p. 122.
+Quoted by chapter. In the latter part of the Dictionary
+references are given to the work noticed under R. Ben.,
+in which this MS. is used,
+</body>
+</source>
+
+<source>
+<spellout>Cambr. MS. Ps.</spellout>
+<heading>Cambr. MS. Ps.</heading>
+<body>
+= Ps. Spl. C. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>Canon. Hrs.</spellout>
+<heading>Canon. Hrs.</heading>
+<body>
+Appendix to Hickes' Letters to a Popish
+Priest. Quoted by page and line. The piece is printed
+in Select Monuments of the Doctrine and Worship of
+the Catholic Church in England before the Norman
+Conquest, by E. Thompson, London, 1875 (2nd edition).
+</body>
+</source>
+
+<source>
+<spellout>Cant. Ab.</spellout>
+<spellout>Cant. Abac.</spellout>
+<spellout>Cant. Habac.</spellout>
+<spellout>Cant. Abac. Lamb.</spellout>
+<heading>Cant. Ab. (Abac., Habac., Abac. Lamb.).</heading>
+<body>
+A gloss of
+Habakkuk, 3, 2-19, contained in the same MS. as Ps.
+Lamb. (q. v.) on folios 189-191. Quoted by verse.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Abac. Surt.</spellout>
+<heading>Cant. Abac. Surt.</heading>
+<body>
+A gloss of the same material as the
+preceding, printed in An Anglo-Saxon and Early English
+Psalter, edited by J. Stevenson, Surtees Soc., No. 19.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Cant. An.</spellout>
+<spellout>Cantic. An.</spellout>
+<heading>Cant. (Cantic.) An.</heading>
+<body>
+A gloss of the song of Hannah (I. Sam.
+2, l-10), contained in the same MS. as Ps. Lamb. (q. v.)
+on folios 185b - 186b. Quoted by verse.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Es.</spellout>
+<heading>Cant. Es.</heading>
+<body>
+A gloss of Isaiah 12, 1-6, contained in the same
+MS. as the preceding, on folio 184. Quoted by verse.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Ez.</spellout>
+<spellout>Cant. Ezech. Lamb.</spellout>
+<heading>Cant. Ez. (Cant. Ezech. Lamb.).</heading>
+<body>
+A gloss of Isaiah 38, 10-20,
+contained in the same MS. as the preceding, on
+folios 184b - 185b. Quoted by verse (in some instances
+the folio of the MS. is also given).
+</body>
+</source>
+
+<source>
+<spellout>Cant. M.</spellout>
+<spellout>Cant. Moys.</spellout>
+<spellout>Cant. Moys. Lamb.</spellout>
+<heading>Cant. M. (Moys., Moys. Lamb.).</heading>
+<body>
+A gloss of Exodus 15,
+1-19, contained in the same MS. as the preceding, on
+folios 186b - 189. Quoted as in the preceding.
+</body>
+</source>
+
+<source>
+<spellout>Cant. M. ad fil.</spellout>
+<spellout>Cant. Moys. Isrl. Lamb.</spellout>
+<heading>Cant. M. ad fil. (Moys. Isrl. Lamb.).</heading>
+<body>
+A gloss of Deuteronomy
+32, 1-43, contained in the same MS. as the
+preceding, on folios 191-195. Quoted as in the preceding.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Mar.</spellout>
+<heading>Cant. Mar.</heading>
+<body>
+A gloss of Luke 1, 46-55, contained in the same
+MS. as the preceding, on folios 198-198b. Quoted by
+verse.
+</body>
+</source>
+
+<PAGEBREAK ID="a0005"/>
+
+<source>
+<spellout>Cant. Moys. Ex.</spellout>
+<spellout>Cantic. Moys.</spellout>
+<spellout>Thw.</spellout>
+<spellout>Cant. Moys. Thw.</spellout>
+<heading>Cant. Moys. Ex. (Cantic. Moys.); Thw.: Cant. Moys. Thw.</heading>
+<body>
+A gloss of Exodus 15, 1-19, at the end of
+Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Zach.</spellout>
+<heading>Cant. Zach.</heading>
+<body>
+A gloss of Luke 1, 68-79, contained in the
+same MS. as Ps. Lamb. (q. v.) on folios 197-198. Quoted
+by verse.
+</body>
+</source>
+
+<source>
+<spellout>Cart. Eadgif. R.</spellout>
+<heading>Cart. Eadgif. R.</heading>
+<body>
+A charter of Queen Eadgifu, v. Chart. Th. 201.
+</body>
+</source>
+
+<source>
+<spellout>Cath. Ang.</spellout>
+<spellout>Cath. Angl.</spellout>
+<heading>Cath. Ang. (Angl.).</heading>
+<body>
+Catholicon Anglicum, edited by
+S. J. Herrtage, E.E.T.S., No. 75, 1881. Quoted by
+page.
+</body>
+</source>
+
+<source>
+<spellout>Cd.</spellout>
+<spellout>Th.</spellout>
+<spellout>Cd. Th.</spellout>
+<heading>Cd.; Th. (later Cd. Th.).</heading>
+<body>
+C&aelig;dmon's Metrical Paraphrase
+of parts of the Holy Scripture, in Anglo-Saxon, by
+Benjamin Thorpe, London, 1832. Quoted at first by
+folio, and by page and line, later by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Chart. Erl.</spellout>
+<heading>Chart. Erl.</heading>
+<body>
+A Handbook to the Land Charters, and other
+Saxonic Documents, by John Earle, M.A., Oxford, 1888.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Ch. Th.</spellout>
+<spellout>Chart. Th.</spellout>
+<heading>Chart. (Ch.) Th.</heading>
+<body>
+Diplomatarium Anglicum Aevi Saxonici,
+by Benjamin Thorpe, London, 1865. Quoted by page
+and line.
+</body>
+</source>
+
+<source>
+<spellout>Chauc.</spellout>
+<heading>Chauc.</heading>
+<body>
+The abbreviations used in connexion with Chaucer
+are not given as not requiring explanation.
+</body>
+</source>
+
+<source>
+<spellout>Chr. Erl.</spellout>
+<spellout>Chr.</spellout>
+<spellout>Erl.</spellout>
+<heading>Chr.; Erl.</heading>
+<body>
+Two of the Saxon Chronicles parallel with
+supplementary extracts from the others, edited by John
+Earle, M.A., Oxford, 1865. Quoted by year, and by
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>Chr.</spellout>
+<spellout>Gib.</spellout>
+<heading>Chr.; Gib.</heading>
+<body>
+Chronicon. Saxonicum, Latine et Anglo-
+Saxonice, cum notis Edmundi Gibson, Oxon., 1692.
+</body>
+</source>
+
+<source>
+<spellout>Chr.</spellout>
+<spellout>Ing.</spellout>
+<heading>Chr.; Ing.</heading>
+<body>
+The Saxon Chronicle, with an English translation
+and notes, by the Rev. James Ingram, 1833.
+</body>
+</source>
+
+<source>
+<spellout>Chr. Th.</spellout>
+<spellout>Th.</spellout>
+<heading>Chr.; Th.</heading>
+<body>
+The Anglo-Saxon Chronicle, according to the
+several original authorities. Edited, with a translation,
+by Benjamin Thorpe, Master of the Rolls Series, 1861.
+Quoted by year, and by page, line, and column.
+</body>
+</source>
+
+<source>
+<spellout>Chron. Abing.</spellout>
+<heading>Chron. Abing.</heading>
+<body>
+Chronicon Monasterii de Abingdon. Edited
+by Rev. J. Stevenson, Master of the Rolls Series, 1858.
+</body>
+</source>
+
+<source>
+<spellout>Chron. Vilodun.</spellout>
+<heading>Chron. Vilodun.</heading>
+<body>
+Chronicon Vilodunense, sive de vita et
+miraculis sanctae Edithae, cur. W. H. Black. Quoted
+by line.
+</body>
+</source>
+
+<source>
+<spellout>Cl. and Vig. Dict.</spellout>
+<heading>Cl. and Vig. Dict.</heading>
+<body>
+An Icelandic-English Dictionary, based
+on the MS. collections of the late Richard Cleasby, enlarged
+and completed by Gudbrand Vigfusson, Oxford, 1874.
+</body>
+</source>
+
+<source>
+<spellout>Cod. Dip. B.</spellout>
+<heading>Cod. Dip. B.</heading>
+<body>
+Cartularium Saxonicum: a collection of
+Charters relating to Anglo-Saxon History, by Walter de
+Gray Birch, London, 1883-1893. Quoted by volume,
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>Cod. Dip. Kmbl.</spellout>
+<spellout>Cod. Dipl. Kmbl.</spellout>
+<heading>Cod. Dip. (Dipl.) Kmbl.</heading>
+<body>
+Codex Diplomaticus Aevi
+Saxonici, opera Johannis M. Kemble. Publications of
+the English Historical Society, 1839-1848. Quoted by
+volume, page and line.
+</body>
+</source>
+
+<source>
+<spellout>Cod. Exon.</spellout>
+<heading>Cod. Exon.</heading>
+<body>
+v. Exon. Th.
+</body>
+</source>
+
+<source>
+<spellout>Coll. Monast.</spellout>
+<spellout>Coll. Monast. Wrt.</spellout>
+<heading>Coll. Monast. Th. or Wrt</heading>
+<body>
+Colloquium ad pueros linguae
+Latinae locutione exercendos ab &AElig;lfrico compilatum.
+Printed in Thorpe's Analecta (v. An. Th.), or in Wright's
+Vocabularies (v. Wrt. Voc. i.). Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Confess. Pecc.</spellout>
+<spellout>Confess. Peccat.</spellout>
+<heading>Confess. Pecc. (Peccat.).</heading>
+<body>
+A gloss of a 'Confessio pro
+peccatis ad Deum,' contained in the same MS. as Ps.
+Lamb, (q.v.) on folios 182b - 183 b.
+</body>
+</source>
+
+<source>
+<spellout>Corp. Gl. Hessels.</spellout>
+<spellout>Corp. Gl. ed. Hessels.</spellout>
+<spellout>Corp. Gl. H.</spellout>
+<heading>Corp. Gl. (ed.) Hessels.</heading>
+<body>
+An eighth-century Latin-Anglo-Saxon
+Glossary preserved in the Library of Corpus
+Christi College, Cambridge, edited by J. H. Hessels,
+Cambridge, 1890. Quoted by page and number of word.
+</body>
+</source>
+
+<source>
+<spellout>Cot.</spellout>
+<heading>Cot.</heading>
+<body>
+In the earlier part of the Dictionary several glossaries
+found among the Cotton MSS. are referred to by this
+abbreviation. These glossaries are printed in Wrt. Voc.
+i., ii., to which works later references are given; in
+a supplement to the Dictionary similar references will be
+found to replace the abbreviation in question.
+</body>
+</source>
+
+<source>
+<spellout>D. Arth.</spellout>
+<heading>D. Arth.</heading>
+<body>
+Morte Arthure; or the Death of Arthur, edited by
+Edm. Brock, E.E.T.S., No. 8, 1871. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Dep. Rich.</spellout>
+<heading>Dep. Rich.</heading>
+<body>
+Richard the Redeles, an Alliterative Poem on
+the Deposition of Richard II, edited by W. W. Skeat,
+E.E.T.S., No. 54, 1873. Quoted by passus and line.
+</body>
+</source>
+
+<source>
+<spellout>Destr. Tr.</spellout>
+<heading>Destr. Tr.</heading>
+<body>
+The Gest Historiale of the Destruction of Troy,
+edited by G. A. Panton and D. Donaldson, E.E.T.S.,
+Nos. 39, 56. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Deut.</spellout>
+<heading>Deut.</heading>
+<body>
+The Anglo-Saxon version of Deuteronomy in Thw.
+Hept. (q.v.) or in Bibliothek der Angels&auml;chsischen
+Prosa, herausgegeben von Chr. Wilh. Mich. Grein,
+erster Band, 1872. Quoted by chapter and verse.
+</body>
+</source>
+
+<source>
+<spellout>Dial.</spellout>
+<heading>Dial.</heading>
+<body>
+v. Gr. Dial.
+</body>
+</source>
+
+<source>
+<spellout>Dief.</spellout>
+<heading>Dief.</heading>
+<body>
+Vergleichendes W&ouml;rterbuch der Gothischen Sprache,
+von Dr. Lorenz Diefenbach, 1851.
+</body>
+</source>
+
+<source>
+<spellout>Dietr.</spellout>
+<heading>Dietr.</heading>
+<body>
+Dietrich's Commentatio de Kynewulfi poetae aetate,
+Marburg, 1859 - 1860.
+</body>
+</source>
+
+<source>
+<spellout>D&oacute;m. L.</spellout>
+<heading>D&oacute;m. L.</heading>
+<body>
+Be D&oacute;mes D&aelig;ge, an Old English version of the
+Latin poem ascribed to Bede. Edited with other short
+poems from the MS. in the Library of Corpus Christi
+College, Cambridge, by J. R. Lumby, E.E.T.S., No. 65,
+1876. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>E. D. S.</spellout>
+<heading>E. D. S. (Publ.).</heading>
+<body>
+The publications of the English Dialect Society.
+</body>
+</source>
+
+<source>
+<spellout>E. E. T. S.</spellout>
+<heading>E. E. T. S.</heading>
+<body>
+The publications of the Early English Text Society.
+</body>
+</source>
+
+<source>
+<spellout>E. G.</spellout>
+<heading>E. G.</heading>
+<body>
+English Gilds, edited by Miss L. Toulmin Smith,
+E.E.T.S., No. 40, 1870. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Earle A. S. Lit.</spellout>
+<heading>Earle A. S. Lit.</heading>
+<body>
+Anglo-Saxon Literature. By John Earle.
+London: Society for Promoting Christian Knowledge,
+1884.
+</body>
+</source>
+
+<source>
+<spellout>Ecclus.</spellout>
+<heading>Ecclus.</heading>
+<body>
+The book of Ecclesiasticus.
+</body>
+</source>
+
+<source>
+<spellout>Elen. Grm.</spellout>
+<heading>Elen. Grm.</heading>
+<body>
+v. Grmm. A. u. E.
+</body>
+</source>
+
+<source>
+<spellout>Elen. Kmbl.</spellout>
+<heading>Elen. Kmbl.</heading>
+<body>
+The Poetry of the Codex Vercellensis, edited
+for the &AElig;lfric Society by J. M. Kemble. Part II. Elene
+and Minor Poems, London, 1856.
+</body>
+</source>
+
+<source>
+<spellout>Engl. Stud.</spellout>
+<heading>Engl. Stud.</heading>
+<body>
+Englische Studien. Organ f&uuml;r englische
+Philologie. Herausgegeben von Dr. Eugen K&ouml;lbing.
+</body>
+</source>
+
+<source>
+<spellout>Ep. Gl.</spellout>
+<spellout>Gloss. Ep.</spellout>
+<heading>Ep. Gl. (Gloss. Ep.).</heading>
+<body>
+The Epinal Glossary, Latin and Old-English
+of the eighth century. Edited by Henry Sweet.
+Printed for the Philological and Early English Text
+Societies, 1883. Quoted by page, column and line.
+</body>
+</source>
+
+<source>
+<spellout>Equin. vern.</spellout>
+<heading>Equin. vern.</heading>
+<body>
+An Anglo-Saxon summary of Bede's De
+Temporibus, referred to in Wanley's Catalogue under
+the heading De equinoctio vernali. It is printed in
+Lchdm. iii. pp. 232-280, and the quotations from the
+work are, except in the earlier part of the Dictionary,
+from this printed form. v. &AElig;qu. Vern.
+</body>
+</source>
+
+<source>
+<spellout>Erf. Gl.</spellout>
+<heading>Erf. Gl.</heading>
+<body>
+A Latin-Anglo-Saxon Glossary contained in a MS.
+preserved in the Amplomian library at Erfurt. Printed
+in the oldest English Texts, edited by Henry Sweet,
+E.E.T.S., No. 83, 1885.
+</body>
+</source>
+
+<source>
+<spellout>Ettm.</spellout>
+<heading>Ettm.</heading>
+<body>
+Lexicon Anglosaxonicum, edidit Ludovicus Ettm&uuml;llerus.
+Quedlinburgii. et Lipsiae, 1851.
+</body>
+</source>
+
+<source>
+<spellout>Ettm. Poet.</spellout>
+<heading>Ettm. Poet.</heading>
+<body>
+Anglosaxonum poetae atque scriptores prosaici.
+Edidit Ludovicus Ettm&uuml;llerus. Quedlinburgii et Lipsiae, 1850.
+</body>
+</source>
+
+<source>
+<spellout>Ex.</spellout>
+<heading>Ex.</heading>
+<body>
+The Anglo-Saxon version of Exodus, v. Deut.
+</body>
+</source>
+
+<source>
+<spellout>Exod. Thw.</spellout>
+<heading>Exod. Thw.</heading>
+<body>
+v. preceding.
+</body>
+</source>
+
+<source>
+<spellout>Exon.</spellout>
+<spellout>Th.</spellout>
+<spellout>Exon. Th.</spellout>
+<heading>Exon.; Th. (later Exon. Th.).</heading>
+<body>
+Codex Exoniensis. A
+Collection of Anglo-Saxon poetry, from a MS. in the
+library of the Dean and Chapter of Exeter, by Benjamin
+Thorpe, London, 1842; Quoted at first by folio, and by
+page and line, later by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Fer.</spellout>
+<heading>Fer.</heading>
+<body>
+Sir Ferumbras, edited by S. J. Herrtage, E.E.T.S.,
+No. xxiv., 1879. Quoted by line.
+</body>
+</source>
+
+<PAGEBREAK ID="a0006"/>
+
+<source>
+<spellout>Fins. Th.</spellout>
+<heading>Fins. Th.</heading>
+<body>
+The Anglo-Saxon poem of the Fight at Finnesburg,
+edited by Benjamin Thorpe. In the same volume
+with Beo. Th. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>Fl. a. Bl.</spellout>
+<heading>Fl. a. Bl.</heading>
+<body>
+Floriz and Blauncheflur, edited by J. R. Lumby,
+E.E.T.S., No. 14, 1866. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Frag. Kmbl.</spellout>
+<heading>Frag. Kmbl.</heading>
+<body>
+A Fragment, Moral and Religious, contained
+in the Poetry of the Codex Vercellensis, edited by J. M.
+Kemble (v. Elen. Kmbl.).
+</body>
+</source>
+
+<source>
+<spellout>Frag. Phlps.</spellout>
+<heading>Frag. Phlps.</heading>
+<body>
+Fragment of &AElig;lfric's Grammar, &AElig;lfric's
+Glossary, and a Poem on the Soul and the Body, in the
+orthography of the twelfth century, edited by Sir T.
+Phillipps, London, 1838.
+</body>
+</source>
+
+<source>
+<spellout>Frag. Recd.</spellout>
+<heading>Frag. Recd.</heading>
+<body>
+The same poem as Frag. Kmbl., printed with
+Andr. Recd. (q. v.).
+</body>
+</source>
+
+<source>
+<spellout>Fulg.</spellout>
+<heading>Fulg.</heading>
+<body>
+S. Fulgentii Regulae Monachorum, an Anglo-Saxon
+gloss of the Latin work contained in MS. Cott. Tib. A. 3
+(see Wanley's Catalogue, p. 91).
+</body>
+</source>
+
+<source>
+<spellout>Gam.</spellout>
+<heading>Gam.</heading>
+<body>
+The Tale of Gamelin, edited by W. W. Skeat, Oxford,
+1884. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Gaw.</spellout>
+<heading>Gaw.</heading>
+<body>
+Sir Gawayne and the Green Knight, edited by
+R. Morris, E.E.T.S., No. 4, 1864. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Gen.</spellout>
+<heading>Gen.</heading>
+<body>
+The Anglo-Saxon version of Genesis. v. Deut.
+</body>
+</source>
+
+<source>
+<spellout>Gen. and Ex.</spellout>
+<heading>Gen. and Ex.</heading>
+<body>
+The Story of Genesis and Exodus, edited
+by R. Morris, E.E.T.S., No. 7, 1865. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Gen. pref. Thw.</spellout>
+<heading>Gen. pref. Thw.</heading>
+<body>
+The Anglo-Saxon preface to Genesis in
+Thw. Hept. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Germ.</spellout>
+<heading>Germ.</heading>
+<body>
+Die Bouloneser Angels&auml;chsischen Glossen zu Prudentius.
+Herausgegeben von Dr. Alfred Holder. In
+vol. xi. (new series) of Germania. Quoted by page and
+number preceding the gloss, v. Gl. Prud., Gl. Prud. H.,
+Glos. Prudent. Recd.
+</body>
+</source>
+
+<source>
+<spellout>Gl. Amplon.</spellout>
+<heading>Gl. Amplon.</heading>
+<body>
+Glossae Amplonianae, ed. Oehler in Jahn's
+Jahrb. 13, 1847,
+</body>
+</source>
+
+<source>
+<spellout>Gl. E.</spellout>
+<heading>Gl. E.</heading>
+<body>
+A Latin-Anglo-Saxon Glossary contained in MS.
+Cott. Cleopatra A III. (v. Wanley's Catalogue, p. 238).
+Printed in Wrt. Voc. ii. pp. 70 sqq., whence, except at
+the beginning, quotations are taken.
+</body>
+</source>
+
+<source>
+<spellout>Gl. M.</spellout>
+<heading>Gl. M.</heading>
+<body>
+An Anglo-Saxon Gloss of Aldhelm's De laude
+virginitatis, published in Mone's Quellen und Forschungen,
+Leipzig, 1830. Quoted by page. See Hpt. Gl.,
+where the same gloss is referred to.
+</body>
+</source>
+
+<source>
+<spellout>Gl. Mett.</spellout>
+<heading>Gl. Mett.</heading>
+<body>
+Glossae Mettenses in Mone Anzeiger, 1839.
+</body>
+</source>
+
+<source>
+<spellout>Gl. Prud.</spellout>
+<heading>Gl. Prud.</heading>
+<body>
+(1). Glosses to Prudentius in Mone Anzeiger,
+1839. Quoted by number of gloss. From the same M.S.
+as that given under Germ.
+</body>
+</source>
+
+<source>
+<spellout>Gl. Prud.</spellout>
+<heading>Gl. Prud.</heading>
+<body>
+(2). The same abbreviation as the preceding has
+also sometimes been used for another work, Which elsewhere
+is referred to as Glos. Prud. (q.v.) or simply
+Prud. The quotations, however, in this case are by
+paragraph.
+</body>
+</source>
+
+<source>
+<spellout>Gl. Prud. H.</spellout>
+<heading>Gl. Prud. H.</heading>
+<body>
+This is the gloss given under Germ. (q.v.).
+The quotations are by folio instead of by page.
+</body>
+</source>
+
+<source>
+<spellout>Gl. W&uuml;lck.</spellout>
+<heading>Gl. W&uuml;lck.</heading>
+<body>
+v. W&uuml;lck.
+</body>
+</source>
+
+<source>
+<spellout>Glos. Brux. Recd.</spellout>
+<heading>Glos. Brux. Recd.</heading>
+<body>
+An Anglo-Saxon Vocabulary taken
+from a MS. in the Royal Library at Brussels. It is
+printed in Wrt. Voc. i. pp. 62 sqq., and to this edition
+alone, except in the earlier part of the Dictionary,
+references are given.
+</body>
+</source>
+
+<source>
+<spellout>Glos. Epnl. Recd.</spellout>
+<heading>Glos. Epnl. Recd.</heading>
+<body>
+The Epinal Glossary printed (but not
+published) in Appendix B of An Account of the most
+important Public Records of Great Britain (Publications
+of the Record Commissioners), London, 1836.
+</body>
+</source>
+
+<source>
+<spellout>Glos. Prud.</spellout>
+<spellout>Prud.</spellout>
+<heading>Glos. Prud. or Prud.</heading>
+<body>
+Englische &Uuml;bersetzungen der lateinischen
+Erkl&auml;rungen von Bildern zur Psychomachie des
+Prudentius entlehnt: (A) einer Hs. im Britischen
+Museum, Cotton. Cleop. C. viii, (B) einer Cambridger
+Hs., Corpus Christi College 23, published by J. Zupitza in
+Zeitschrift f&uuml;r deutsches Alterthum, vol. 8 (new series),
+1876. Quoted by paragraph and MS.
+</body>
+</source>
+
+<source>
+<spellout>Glos. Prudent. Recd.</spellout>
+<heading>Glos. Prudent. Recd.</heading>
+<body>
+The glosses given under Germ.,
+printed in the same work as the Glos. Epnl. Recd.
+</body>
+</source>
+
+<source>
+<spellout>Gloss. Ep.</spellout>
+<heading>Gloss. Ep.</heading>
+<body>
+v. Ep. Gl.
+</body>
+</source>
+
+<source>
+<spellout>Glostr. Frag.</spellout>
+<heading>Glostr. Frag.</heading>
+<body>
+Legends of Saint Swi&eth;un and Sancta Maria
+&AElig;gyptiaca, published by John Earle, M.A., London,
+1861.
+</body>
+</source>
+
+<source>
+<spellout>Gospel of Nicodemus.</spellout>
+<heading>Gospel of Nicodemus.</heading>
+<body>
+Quoted from The Apocryphal New
+Testament. Printed for William Hone, 1820. Tenth
+edition, London, 1872.
+</body>
+</source>
+
+<source>
+<spellout>Goth.</spellout>
+<heading>Goth.</heading>
+<body>
+Gothic; the text referred to has been Die Gothischen
+Sprachdenkm&auml;ler, herausgegeben von H. F. Massmann.
+v. Dief.
+</body>
+</source>
+
+<source>
+<spellout>Gow.</spellout>
+<heading>Gow.</heading>
+<body>
+Confessio Amantis of John Gower, edited by
+R. Pauli, London, 1857. Quoted by volume, page and
+line.
+</body>
+</source>
+
+<source>
+<spellout>Greg.</spellout>
+<heading>Greg.</heading>
+<body>
+Die englische Gregorlegende, herausgegeben von
+F. Schulz, K&ouml;nigsberg, 1876. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Gr. Dial.</spellout>
+<spellout>Greg. Dial.</spellout>
+<heading>Gr. (Greg.) Dial.</heading>
+<body>
+The Anglo-Saxon version of Gregory's
+Dialogues. Quoted from Lye. v. Wanley's Catalogue,
+p. 71.
+</body>
+</source>
+
+<source>
+<spellout>Grff.</spellout>
+<heading>Grff.</heading>
+<body>
+Althochdeutscher Sprachschatz von Dr. E. G. Graff.
+Berlin, 1834-1842.
+</body>
+</source>
+
+<source>
+<spellout>Grm.</spellout>
+<spellout>Grmm. Gr.</spellout>
+<spellout>Gr.</spellout>
+<heading>Grm. (Grmm. Gr.).</heading>
+<body>
+Deutsche Grammatik von Dr. Jacob
+Grimm. 2. Ausgabe.
+</body>
+</source>
+
+<source>
+<spellout>Grm. A. u. E.</spellout>
+<spellout>Grm. And. u. El.</spellout>
+<spellout>Grmm. A. u. E.</spellout>
+<spellout>Grmm. And. u. El.</spellout>
+<heading>Grm[m]. A. u. E. (And. u. El.).</heading>
+<body>
+Andreas und Elene.
+Herausgegeben von Jacob Grimm. Cassel, 1840.
+</body>
+</source>
+
+<source>
+<spellout>Grm. D. M.</spellout>
+<spellout>Grmm. D. M.</spellout>
+<heading>Grm[m]. D. M.</heading>
+<body>
+Deutsche Mythologie, von Jacob Grimm.
+Zweite Ausgabe, G&ouml;ttingen, 1844.
+</body>
+</source>
+
+<source>
+<spellout>Grm. Gesch. D. S.</spellout>
+<spellout>Grmm. Gesch. D. S.</spellout>
+<spellout>Grm. Gsch.</spellout>
+<heading>Grm[m]. Gesch. D. S. (Gsch.).</heading>
+<body>
+Geschichte der deutschen
+Sprache, von Jacob Grimm. 3. (2.) Ausgabe, Leipzig,
+1868
+</body>
+</source>
+
+<source>
+<spellout>Grm. Mythol.</spellout>
+<heading>Grm. Mythol.</heading>
+<body>
+The first edition of Grmm. D. M.
+</body>
+</source>
+
+<source>
+<spellout>Grm. R. A.</spellout>
+<spellout>Grmm. R. A.</spellout>
+<heading>Grm[m]. R. A.</heading>
+<body>
+Deutsche Rechtsalterth&uuml;mer, von Jacob
+Grimm. 2. Ausgabe, G&ouml;ttingen, 1854.
+</body>
+</source>
+
+<source>
+<spellout>Guthl.</spellout>
+<spellout>Gu.</spellout>
+<spellout>Gdwin.</spellout>
+<heading>Guthl. (Gu.); Gdwin.</heading>
+<body>
+The Anglo-Saxon version of the
+Life of St. Guthlac, Hermit of Crowland, edited by
+C. W. Goodwin, London, 1848. Quoted by chapter
+(Guthl.) and by page and line (Gdwin.).
+</body>
+</source>
+
+<source>
+<spellout>H. de visione Isaiae.</spellout>
+<spellout>K. de visione Isaiae.</spellout>
+<heading>H. (K.) de visione Isaiae.</heading>
+<body>
+The reference is to Wanley's
+Catalogue, p. 27, l. 9; the passage will be found Wulfst. 44, 23.
+</body>
+</source>
+
+<source>
+<spellout>H. M.</spellout>
+<heading>H. M.</heading>
+<body>
+Hali Meidenhad, edited by O. Cockayne, E.E.T.S.,
+No. 18, 1866. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>H. R.</spellout>
+<heading>H. R.</heading>
+<body>
+Legends of the Holy Rood, edited by R. Morris,
+E.E.T.S., No. 46, 1871. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>H. S.</spellout>
+<heading>H. S.</heading>
+<body>
+Robert of Brunne's Handling Sinne, edited by F. J.
+Furnivall, Roxburghe Club, 1862. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>H. Z.</spellout>
+<spellout>Hpt.</spellout>
+<spellout>Hpt. Zeit.</spellout>
+<spellout>Hpt. Zeitsch.</spellout>
+<heading>H. Z. (Hpt., Hpt. Zeit[sch].).</heading>
+<body>
+Zeitschrift f&uuml;r deutsches
+Alterthum, herausgegeben von Moritz Haupt.
+</body>
+</source>
+
+<source>
+<spellout>Hall. Dict.</spellout>
+<spellout>Halliw. Dict.</spellout>
+<spellout>Halwl. Dict.</spellout>
+<heading>Hall. (Halliw., Halwl.) Dict.</heading>
+<body>
+A Dictionary of Archaic
+and Provincial Words, by J. O. Halliwell. Seventh
+edition, London, 1872.
+</body>
+</source>
+
+<source>
+<spellout>Handl. Synne.</spellout>
+<heading>Handl. Synne.</heading>
+<body>
+v. H. S.
+</body>
+</source>
+
+<source>
+<spellout>Harl. Gl. 978.</spellout>
+<heading>Harl. Gl. 978.</heading>
+<body>
+This glossary is printed at p. 139 of Wrt.
+Voc. i.
+</body>
+</source>
+
+<source>
+<spellout>Havel.</spellout>
+<heading>Havel.</heading>
+<body>
+The Lay of Havelok the Dane, edited by W. W.
+Skeat, E.E.T.S., No. iv., 1868. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>H&eacute;l.</spellout>
+<heading>H&eacute;l.</heading>
+<body>
+H&eacute;liand. Herausgegeben von Moritz Heyne. Paderborn,
+1866.
+</body>
+</source>
+
+<source>
+<spellout>Heli. Schmel.</spellout>
+<heading>Heli. Schmel.</heading>
+<body>
+Heliand. Poema Saxonicum seculi noni.
+Edidit J. A. Schmeller, 1830.
+</body>
+</source>
+
+<source>
+<spellout>Hem.</spellout>
+<spellout>Heming.</spellout>
+<heading>Hem. (Heming.).</heading>
+<body>
+Hemingi Chartularium Eccl. Wigor-
+niensis, edidit T. Hearne, Oxon., 1723. Tom. ii.
+</body>
+</source>
+
+<source>
+<spellout>Herb.</spellout>
+<spellout>Lchdm. i.</spellout>
+<heading>Herb.; Lchdm. i.</heading>
+<body>
+An Anglo-Saxon Herbarium printed in
+Lchdm. i. Quoted by section and paragraph (Herb.),
+and by page and line. See Lchdm.
+</body>
+</source>
+
+<source>
+<spellout>Hexam.</spellout>
+<spellout>Hex.</spellout>
+<spellout>Norm.</spellout>
+<heading>Hexam. (Hex.); Norm.</heading>
+<body>
+The Anglo-Saxon version of the
+Hexameron of St. Basil, edited by H. W. Norman.
+2nd edition, London, 1849. Quoted by chapter (Hexam.),
+and by page and line (Norm.).
+</body>
+</source>
+
+<PAGEBREAK ID="a0007"/>
+
+<source>
+<spellout>Hick. Thes.</spellout>
+<heading>Hick. Thes.</heading>
+<body>
+Linguarum veterum septentrionalium thesaurus,
+auctore G. Hickesio, Oxpniae, 1705.
+</body>
+</source>
+
+<source>
+<spellout>Hick. Diss. Ep.</spellout>
+<spellout>Hickes' Diss.</spellout>
+<heading>Hick. Diss. Ep. (Hickes' Diss.),</heading>
+<body>
+G. Hickesii de antiquae
+litteraturae septentriorialis utilitate dissertatio epistolaris,
+Oxoniae, 1703. Contained in vol. i. of the preceding.
+</body>
+</source>
+
+<source>
+<spellout>Hom.</spellout>
+<heading>Hom.</heading>
+<body>
+= O. E. Homl.
+</body>
+</source>
+
+<source>
+<spellout>Hom. de Comp. Cord.</spellout>
+<heading>Hom. de Comp. Cord.</heading>
+<body>
+Cited by Dr. Bosworth from Lye.
+</body>
+</source>
+
+<source>
+<spellout>Hom. 8 Cal. Jan.</spellout>
+<heading>Hom. 8 Cal. Jan.</heading>
+<body>
+This homily is printed in Homl. Th.
+i. 28. [v. ge-&thorn;ryle, the reference to which = Homl. Th.
+i 34, 34.]
+</body>
+</source>
+
+<source>
+<spellout>Homl. As.</spellout>
+<spellout>Homl. Ass.</spellout>
+<heading>Homl. As[s].</heading>
+<body>
+Angels&auml;chsische Homilien und Heiligenleben,
+herausgegeben von Bruno Assman, Kassel, 1889.
+[Bibliothek der Angels&auml;chsischen Prosa, begr&uuml;ndet von
+C. W. M. Grein, 3. Band.] Quoted by page and line
+of section.
+</body>
+</source>
+
+<source>
+<spellout>Homl. Blick.</spellout>
+<heading>Homl. Blick.</heading>
+<body>
+v. Blickl. Homl.
+</body>
+</source>
+
+<source>
+<spellout>Homl. in nat. Innoc.</spellout>
+<heading>Homl. in nat. Innoc.</heading>
+<body>
+This homily is printed in Homl. Th.
+i. 76. [v. &aelig-acute;rst, the reference to which = Homl. Th. i.
+78, 18.]
+</body>
+</source>
+
+<source>
+<spellout>Homl. Pasc. Daye.</spellout>
+<heading>Homl. Pasc. Daye.</heading>
+<body>
+A Sermon of the Paschall Lambe to
+be spoken unto the people at Easter. Imprinted (with
+other works of &AElig;lfric) at London by John Daye, 1567.
+</body>
+</source>
+
+<source>
+<spellout>Homl. Pasc. Lisl.</spellout>
+<heading>Homl. Pasc. Lisl.</heading>
+<body>
+The same homily as the preceding,
+published in 1623 by Lisle. The homily is printed in
+Homl. Th. ii. 262.
+</body>
+</source>
+
+<source>
+<spellout>Homl. Skt.</spellout>
+<heading>Homl. Skt.</heading>
+<body>
+&AElig;lfric's Metrical Lives of Saints, edited by
+W. W. Skeat, E.E.T.S., Nos. 76, 82, 94, 1881-85-90.
+Quoted by volume, homily and line.
+</body>
+</source>
+
+<source>
+<spellout>Homl. Th.</spellout>
+<heading>Homl. Th.</heading>
+<body>
+The Homilies of &AElig;lfric, edited by B. Thorpe
+for the &AElig;lfric Society, London, 1844-1846. Quoted by
+volume, page and line.
+</body>
+</source>
+
+<source>
+<spellout>Horn</spellout>
+<spellout>K. Horn</spellout>
+<spellout>King Horn</spellout>
+<heading>Horn (K[ing] Horn).</heading>
+<body>
+King Horn, edited by J. R. Lumby,
+E.E.T.S., No. 14, 1866. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Hpt.</spellout>
+<heading>Hpt.</heading>
+<body>
+v. H. Z.
+</body>
+</source>
+
+<source>
+<spellout>Hpt. Gl.</spellout>
+<heading>Hpt. Gl.</heading>
+<body>
+Die Angels&auml;chsischen Glossen in dem Br&uuml;sseler
+Codex von Aldhelms Schrift De Virginitate, published in
+vol. ix. of Haupt's Zeitschrift, by K. Bouterwek. Quoted
+by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Hpt. Zeit.</spellout>
+<spellout>Hpt. Zeitsch.</spellout>
+<heading>Hpt. Zeit[sch].</heading>
+<body>
+v. H. Z.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. ad Mat.</spellout>
+<heading>Hymn. ad Mat.</heading>
+<body>
+Hymnus ad Matutinos Dies Dominicos, contained
+in fols. 195-196 of Ps. Lamb. Quoted by verse.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. in Dedic. Eccles.</spellout>
+<spellout>Hymn.</spellout>
+<heading>Hymn. in Dedic. Eccles. (Hymn.).</heading>
+<body>
+The piece referred to
+will be found printed in Homl. Th. ii. 576 sqq.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. L.</spellout>
+<heading>Hymn. L.</heading>
+<body>
+= Hymn. ad Mat.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. Lye</spellout>
+<heading>Hymn. Lye</heading>
+<body>
+= Hymnarium in Cott. MS. Jul. A. 6.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. Surt.</spellout>
+<heading>Hymn. Surt.</heading>
+<body>
+Anglo-Saxon Hymnarium, edited by Rev. J.
+Stevenson, Surtees Society, vol. xxiii., 1851. Quoted by
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. T. P.</spellout>
+<heading>Hymn. T. P.</heading>
+<body>
+An Anglo-Saxon gloss of Dan. 3, 57-88, contained
+in the same MS. as Ps. Lamb, on folios 196-197.
+Quoted by verse.
+</body>
+</source>
+
+<source>
+<spellout>Icel.</spellout>
+<heading>Icel.</heading>
+<body>
+Icelandic; the forms are taken from Cleasby and
+Vigfusson's Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Invent. Crs. Recd.</spellout>
+<heading>Invent. Crs. Recd.</heading>
+<body>
+The poem in the Codex Vercellensis on
+the finding of the Cross (v. Elen. Kmbl.), edited for the
+Record Commission by Benjamin Thorpe, but not
+published. See Andr. Recd.
+</body>
+</source>
+
+<source>
+<spellout>Jamieson.</spellout>
+<heading>Jamieson.</heading>
+<body>
+Jamieson's Dictionary of the Scottish Language,
+abridged by J. Johnstone. A new edition by J. Longmuir
+Edinburgh, 1877.
+</body>
+</source>
+
+<source>
+<spellout>Japx.</spellout>
+<heading>Japx.</heading>
+<body>
+Gysbert Japicx, a Friesian poet, who wrote about 1650.
+</body>
+</source>
+
+<source>
+<spellout>Jellinghaus.</spellout>
+<heading>Jellinghaus.</heading>
+<body>
+Die Westf&auml;lischen Ortsnamen nach ihren
+Grundw&ouml;rtern, von H. Jeilinghaus. Kiel und Leipzig,
+1896.
+</body>
+</source>
+
+<source>
+<spellout>Jn.</spellout>
+<heading>Jn.</heading>
+<body>
+The Gospel of St. John. v. Mt.
+</body>
+</source>
+
+<source>
+<spellout>Job Thw.</spellout>
+<heading>Job Thw.</heading>
+<body>
+A portion of &AElig;lfric's homily on Job (v. Homl.
+Th. ii. 446) printed in Thw. Hept. Quoted by page and
+line.
+</body>
+</source>
+
+<source>
+<spellout>Jos.</spellout>
+<heading>Jos.</heading>
+<body>
+(1). The Anglo-Saxon version of the book of Joshua.
+v. Deut.
+</body>
+</source>
+
+<source>
+<spellout>Jos.</spellout>
+<heading>Jos.</heading>
+<body>
+(2). (Jos. of Arith.). Joseph of Arimathie, edited by
+W. W. Skeat, E.E.T.S., No. 44, 1871.
+</body>
+</source>
+
+<source>
+<spellout>Josc.</spellout>
+<heading>Josc.</heading>
+<body>
+For the passage under sliten cited from Joscelin by
+Lye, see Lk. Spt. p. 2, 11. For Joscelin's Dictionary see
+Wanl. Cat. p. 101.
+</body>
+</source>
+
+<source>
+<spellout>Jud.</spellout>
+<heading>Jud.</heading>
+<body>
+(1). The Anglo-Saxon Version of the book of Judges.
+v. Deut.
+</body>
+</source>
+
+<source>
+<spellout>Jud.</spellout>
+<heading>Jud.</heading>
+<body>
+(2) (Jud. Thw.). Where the quotation is by page and
+line the reference is to the matter printed in Thw. Hept.
+at the end of the book of Judges.
+</body>
+</source>
+
+<source>
+<spellout>Jud.</spellout>
+<heading>Jud.</heading>
+<body>
+(3); See under the contractions used in Grein's
+Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Jud. Civ. Lund.</spellout>
+<heading>Jud. Civ. Lund.</heading>
+<body>
+Judicia Civitatis Lundoniae. L. Ath. v.;
+Th. i. 228.
+</body>
+</source>
+
+<source>
+<spellout>Judth.</spellout>
+<spellout>Thw.</spellout>
+<heading>Judth.; Thw.</heading>
+<body>
+(later Judth. Thw.). The poem of Judith
+printed at the end of Thw. Hept. Quoted by section
+(Judth.), and by page and line (Thw.).
+</body>
+</source>
+
+<source>
+<spellout>Jul.</spellout>
+<heading>Jul.</heading>
+<body>
+(Juliana). The Liflade of St. Juliana, edited by
+O. Cockayne and T. Brock, E.E.T.S., No. 51, 1872.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>K. Alis.</spellout>
+<heading>K. Alis.</heading>
+<body>
+v. Alis.
+</body>
+</source>
+
+<source>
+<spellout>Kath.</spellout>
+<heading>Kath.</heading>
+<body>
+The Life of Saint Katherine; in the earlier part of
+the Dictionary reference is to the edition of Rev. J.
+Morton, later to that of Dr. E. Einenkel, E.E.T.S., No.
+80, 1884. Quoted by line. The correspondence of lines
+in the two editions is marked in the later.
+</body>
+</source>
+
+<source>
+<spellout>Kent. Gl.</spellout>
+<heading>Kent. Gl.</heading>
+<body>
+Kentische Glossen des neunten Jahrhunderts,
+published in Zeitschrift f&uuml;r deutsches Alterthum, vol. ix.,
+new series, by J. Zupitza. These glosses, from MS. Cott.
+Vesp. D 6, are on the book of Proverbs, and in the
+earlier part of the Dictionary the abbreviation used is
+Prov.; in this case the quotation is by chapter, in the
+other by the number of the gloss.
+</body>
+</source>
+
+<source>
+<spellout>Ker.</spellout>
+<heading>Ker.</heading>
+<body>
+Kero, the name assumed to be that of the author of
+a glossary, and of a gloss of the Benedictine Rule, in the
+Alemannic dialect.
+</body>
+</source>
+
+<source>
+<spellout>Kil.</spellout>
+<heading>Kil.</heading>
+<body>
+Etymologicum Teutonicae linguae, sive dictionarium
+Teutonico-Latinum, studio et opera Corn. Kiliani Dufflaei,
+Antverpiae, 1599.
+</body>
+</source>
+
+<source>
+<spellout>King Horn.</spellout>
+<heading>King Horn.</heading>
+<body>
+v. Horn.
+</body>
+</source>
+
+<source>
+<spellout>Kmbl. Cod. Dipl.</spellout>
+<heading>Kmbl. Cod. Dipl.</heading>
+<body>
+v. Cod. Dipl. Kmbl.
+</body>
+</source>
+
+<source>
+<spellout>Kmbl. Sal. and Sat.</spellout>
+<heading>Kmbl. Sal. and Sat.</heading>
+<body>
+v. Salm. Kmbl.
+</body>
+</source>
+
+<source>
+<spellout>L.</spellout>
+<spellout>Th.</spellout>
+<heading>L.; Th.</heading>
+<body>
+The following contractions refer to the matter contained
+in Ancient Laws and Institutes of England, edited
+by Benjamin Thorpe, and printed under the direction of
+the Commissioners on the Public Records of the Kingdom,
+1840. Quoted by (section and) paragraph (L. &emdash;),
+and by volume, page and line (Th.) :&emdash;
+</body>
+</source>
+
+<source>
+<spellout>L. A. G.</spellout>
+<heading>L. A. G.</heading>
+<body>
+Alfred and Guthrum's Peace.
+</body>
+</source>
+
+<source>
+<spellout>L. &AElig;lfc. C.</spellout>
+<heading>L. &AElig;lfc. C.</heading>
+<body>
+Canons of &AElig;lfric.
+</body>
+</source>
+
+<source>
+<spellout>L. &AElig;lfc. E.</spellout>
+<heading>L. &AElig;lfc. E.</heading>
+<body>
+&AElig;lfric's Epistle, 'Quando dividis Chrisma.'
+</body>
+</source>
+
+<source>
+<spellout>L. &AElig;lfc. P.</spellout>
+<heading>L. &AElig;lfc. P.</heading>
+<body>
+&AElig;lfric's Pastoral Epistle.
+</body>
+</source>
+
+<source>
+<spellout>L. &AElig;&eth;elb.</spellout>
+<heading>L. &AElig;&eth;elb.</heading>
+<body>
+= L. Ethb.
+</body>
+</source>
+
+<source>
+<spellout>L. &AElig;&eth;elst.</spellout>
+<heading>L. &AElig;&eth;elst.</heading>
+<body>
+= L. Ath.
+</body>
+</source>
+
+<source>
+<spellout>L. Alf.</spellout>
+<heading>L. Alf.</heading>
+<body>
+Extracts from Exodus, prefixed to Alfred's Laws.
+</body>
+</source>
+
+<source>
+<spellout>L. Alf. pol.</spellout>
+<heading>L. Alf. pol.</heading>
+<body>
+Laws of King Alfred.
+</body>
+</source>
+
+<source>
+<spellout>L. Ath. i.</spellout>
+<spellout>L. Ath. ii.</spellout>
+<spellout>L. Ath. iii.</spellout>
+<spellout>L. Ath. iv.</spellout>
+<heading>L. Ath. i-v.</heading>
+<body>
+Laws of King Athelstan.
+</body>
+</source>
+
+<source>
+<spellout>L. C. E.</spellout>
+<heading>L. C. E.</heading>
+<body>
+Ecclesiastical Laws of King Cnut.
+</body>
+</source>
+
+<source>
+<spellout>L. C. F.</spellout>
+<heading>L. C. F.</heading>
+<body>
+Constitutiones de Foresta of King Cnut.
+</body>
+</source>
+
+<source>
+<spellout>L. C. S.</spellout>
+<heading>L. C. S.</heading>
+<body>
+Secular Laws of King Cnut.
+</body>
+</source>
+
+<source>
+<spellout>L. de Cf.</spellout>
+<heading>L. de Cf.</heading>
+<body>
+De Confessione (Canons enacted under King
+Edgar).
+</body>
+</source>
+
+<source>
+<spellout>L. E. B.</spellout>
+<heading>L. E. B.</heading>
+<body>
+Ecclesiastical Compensations (B&ocirc;t).
+</body>
+</source>
+
+<PAGEBREAK ID="a0008"/>
+
+<source>
+<spellout>L. Ecg. C.</spellout>
+<heading>L. Ecg. C.</heading>
+<body>
+Ecgberti Confessionale.
+</body>
+</source>
+
+<source>
+<spellout>L. Ecg. E.</spellout>
+<heading>L. Ecg. E.</heading>
+<body>
+Excerptiones Ecgberti.
+</body>
+</source>
+
+<source>
+<spellout>L. Ecg. P. i.</spellout>
+<spellout>L. Ecg. P. ii.</spellout>
+<spellout>L. Ecg. P. iii.</spellout>
+<spellout>L. Ecg. P. iv.</spellout>
+<heading>L. Ecg. P. i-iv.</heading>
+<body>
+Ecgberti Poenitentiale (libri iv.).
+</body>
+</source>
+
+<source>
+<spellout>L. Ecg. P. addit.</spellout>
+<heading>L. Ecg. P. addit.</heading>
+<body>
+Additamenta to the preceding.
+</body>
+</source>
+
+<source>
+<spellout>L. E. G.</spellout>
+<heading>L. E. G.</heading>
+<body>
+Laws of Edward and Guthrum.
+</body>
+</source>
+
+<source>
+<spellout>L. E. I.</spellout>
+<heading>L. E. I.</heading>
+<body>
+Ecclesiastical Institutes.
+</body>
+</source>
+
+<source>
+<spellout>L. Ed.</spellout>
+<heading>L. Ed.</heading>
+<body>
+Laws of King Edward.
+</body>
+</source>
+
+<source>
+<spellout>L. Ed. C.</spellout>
+<heading>L. Ed. C.</heading>
+<body>
+Laws of King Edward the Confessor.
+</body>
+</source>
+
+<source>
+<spellout>L. Edg. i.</spellout>
+<spellout>L. Edg. ii.</spellout>
+<heading>L. Edg. i, ii.</heading>
+<body>
+Laws of King Edgar, (i) ecclesiastical, (ii)
+secular.
+</body>
+</source>
+
+<source>
+<spellout>L. Edg. C.</spellout>
+<heading>L. Edg. C.</heading>
+<body>
+Canons enacted under King Edgar.
+</body>
+</source>
+
+<source>
+<spellout>L. Edg. H.</spellout>
+<heading>L. Edg. H.</heading>
+<body>
+Laws of King Edgar (How the Hundred shall
+be held).
+</body>
+</source>
+
+<source>
+<spellout>L. Edg. S.</spellout>
+<heading>L. Edg. S.</heading>
+<body>
+Supplement to King Edgar's Laws.
+</body>
+</source>
+
+<source>
+<spellout>L. Edm. B.</spellout>
+<heading>L. Edm. B.</heading>
+<body>
+Laws of King Edmund (of betrothing a woman).
+</body>
+</source>
+
+<source>
+<spellout>L. Edm. C.</spellout>
+<heading>L. Edm. C.</heading>
+<body>
+Laws of King Edmund (Concilium Culintonense).
+</body>
+</source>
+
+<source>
+<spellout>L. Edm. E.</spellout>
+<heading>L. Edm. E.</heading>
+<body>
+Laws of King Edmund (Ecclesiastical).
+</body>
+</source>
+
+<source>
+<spellout>L. Edm. S.</spellout>
+<heading>L. Edm. S.</heading>
+<body>
+Laws of King Edmund (Secular).
+</body>
+</source>
+
+<source>
+<spellout>L. Eth. i.</spellout>
+<spellout>L. Eth. ii.</spellout>
+<spellout>L. Eth. iii.</spellout>
+<spellout>L. Eth. iv.</spellout>
+<spellout>L. Eth. v.</spellout>
+<spellout>L. Eth. vi.</spellout>
+<spellout>L. Eth. vii.</spellout>
+<spellout>L. Eth. viii.</spellout>
+<spellout>L. Eth. ix.</spellout>
+<heading>L. Eth. i-ix.</heading>
+<body>
+Laws of King Ethelred.
+</body>
+</source>
+
+<source>
+<spellout>L. Ethb.</spellout>
+<heading>L. Ethb.</heading>
+<body>
+Laws of King &AElig;thelbirht of Kent.
+</body>
+</source>
+
+<source>
+<spellout>L. Ff.</spellout>
+<heading>L. Ff.</heading>
+<body>
+Of Forfang.
+</body>
+</source>
+
+<source>
+<spellout>L. H.</spellout>
+<heading>L. H.</heading>
+<body>
+Laws of King Henry I.
+</body>
+</source>
+
+<source>
+<spellout>L. H. E.</spellout>
+<heading>L. H. E.</heading>
+<body>
+Laws of Hlothh&aelig;re and Eadric.
+</body>
+</source>
+
+<source>
+<spellout>L. I. P.</spellout>
+<heading>L. I. P.</heading>
+<body>
+Institutes of Polity.
+</body>
+</source>
+
+<source>
+<spellout>L. In.</spellout>
+<heading>L. In.</heading>
+<body>
+Laws of King Ine.
+</body>
+</source>
+
+<source>
+<spellout>L. M. I. P.</spellout>
+<heading>L. M. I. P.</heading>
+<body>
+Modus Imponendi Poenitentiam.
+</body>
+</source>
+
+<source>
+<spellout>L. M. L.</spellout>
+<heading>L. M. L.</heading>
+<body>
+Mercian Law.
+</body>
+</source>
+
+<source>
+<spellout>L. N. P. L.</spellout>
+<heading>L. N. P. L.</heading>
+<body>
+Law of the Northumbrian Priests.
+</body>
+</source>
+
+<source>
+<spellout>L. O.</spellout>
+<heading>L. O.</heading>
+<body>
+Oaths.
+</body>
+</source>
+
+<source>
+<spellout>L. O. D.</spellout>
+<heading>L. O. D.</heading>
+<body>
+Ordinance respecting the D&uuml;ns&aelig-acute;tas.
+</body>
+</source>
+
+<source>
+<spellout>L. P. M.</spellout>
+<heading>L. P. M.</heading>
+<body>
+Of Powerful Men.
+</body>
+</source>
+
+<source>
+<spellout>L. Pen.</spellout>
+<heading>L. Pen.</heading>
+<body>
+Of Penitents.
+</body>
+</source>
+
+<source>
+<spellout>L. R.</spellout>
+<heading>L. R.</heading>
+<body>
+Ranks.
+</body>
+</source>
+
+<source>
+<spellout>L. R. S.</spellout>
+<heading>L. R. S.</heading>
+<body>
+Rectitudines Singularum Personarum.
+</body>
+</source>
+
+<source>
+<spellout>L. Th. C.</spellout>
+<heading>L. Th. C.</heading>
+<body>
+Theodori Capitula et Fragmenta.
+</body>
+</source>
+
+<source>
+<spellout>L. Th. P.</spellout>
+<heading>L. Th. P.</heading>
+<body>
+Theodori Liber Poenitentialis.
+</body>
+</source>
+
+<source>
+<spellout>L. Wg.</spellout>
+<heading>L. Wg.</heading>
+<body>
+Wergilds.
+</body>
+</source>
+
+<source>
+<spellout>L. Wih.</spellout>
+<heading>L. Wih.</heading>
+<body>
+Laws of King Wihtr&aelig;d.
+</body>
+</source>
+
+<source>
+<spellout>L. Wil. i.</spellout>
+<spellout>L. Wil. ii.</spellout>
+<spellout>L. Wil. iii.</spellout>
+<spellout>L. Wil. iv.</spellout>
+<heading>L. Wil. i-iv.</heading>
+<body>
+Laws of William the Conqueror.
+</body>
+</source>
+
+<source>
+<spellout>L. Const. W.</spellout>
+<heading>L. Const. W.</heading>
+<body>
+Wilkins' (v. Wilk.) edition of the text cited as
+L. I. P. in Thorpe's Laws.
+</body>
+</source>
+
+<source>
+<spellout>L. E&aacute;dg.</spellout>
+<spellout>L. E&aacute;dg. Suppl.</spellout>
+<spellout>L. Eccles.</spellout>
+<spellout>L. Ecg. P. A.</spellout>
+<heading>L. E&aacute;dg., L. E&aacute;dg. Suppl., L. Eccles., L. Ecg. P. A.</heading>
+<body>
+= L. Edg., L. Edg. S., L. E. I. L. Ecg. P. addit.
+</body>
+</source>
+
+<source>
+<spellout>L. Edw. Conf. Schmid.</spellout>
+<heading>L. Edw. Conf. Schmid.</heading>
+<body>
+The Laws of King Edward the
+Confessor in Schmid's A. S. Gesetz. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>L. H. R.</spellout>
+<heading>L. H. R.</heading>
+<body>
+= H. R.
+</body>
+</source>
+
+<source>
+<spellout>L. Lund.</spellout>
+<heading>L. Lund.</heading>
+<body>
+= L. Ath. v.
+</body>
+</source>
+
+<source>
+<spellout>L. M. 1</spellout>
+<spellout>L. M. 2</spellout>
+<spellout>L. M. 3</spellout>
+<heading>L. M. 1, 2, 3.</heading>
+<body>
+Three books on medicine, contained in
+Lchdm. ii. Quoted by book and section; in the latter
+part of the Dictionary the references are to Lchdm. only.
+</body>
+</source>
+
+<source>
+<spellout>L. Med. ex Quadr.</spellout>
+<heading>L. Med. ex Quadr.</heading>
+<body>
+= Med. ex Quadr.
+</body>
+</source>
+
+<source>
+<spellout>L. N. F.</spellout>
+<heading>L. N. F.</heading>
+<body>
+Altenglische Legenden, neue Folge, herausgegeben
+von C. Horstmann, Heilbronn, 1881. Quoted by page
+and line.
+</body>
+</source>
+
+<source>
+<spellout>L. S.</spellout>
+<heading>L. S.</heading>
+<body>
+Lives of Saints, edited by C, Hortsmann, E.E.T.S., No.
+87, 1887. Quoted by page and line of poem.
+</body>
+</source>
+
+<source>
+<spellout>L. Th.</spellout>
+<heading>L. Th.</heading>
+<body>
+Thorpe's edition of the Laws given under L.; Th.
+</body>
+</source>
+
+<source>
+<spellout>Lambd.</spellout>
+<heading>Lambd.</heading>
+<body>
+Lambard's edition of the Laws printed in 1568.
+</body>
+</source>
+
+<source>
+<spellout>Laym.</spellout>
+<heading>Laym.</heading>
+<body>
+La&yogh;amon's Brut, edited by F. Madden, Society of
+Antiquaries, London, 1847. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Lchdm.</spellout>
+<heading>Lchdm.</heading>
+<body>
+Leechdoms, Wortcunning, and Starcraft of early
+England, edited by O. Cockayne, Master of the Rolls
+Series, 3 vols. London, 1864-1866. Quoted by volume,
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>Leo A. S. Names.</spellout>
+<heading>Leo A. S. Names.</heading>
+<body>
+A treatise on the local nomenclature
+of the Anglo-Saxons, translated from the German of
+Prof. H. Leo, London, 1852.
+</body>
+</source>
+
+<source>
+<spellout>Leo A. Sax. Gl.</spellout>
+<heading>Leo A. Sax. Gl.</heading>
+<body>
+Angels&auml;chsisches Glossar von H. Leo,
+Halle, 1877.
+</body>
+</source>
+
+<source>
+<spellout>Lev.</spellout>
+<heading>Lev.</heading>
+<body>
+The Anglo-Saxon version of the book of Leviticus.
+v. Deut.
+</body>
+</source>
+
+<source>
+<spellout>Lk.</spellout>
+<heading>Lk.</heading>
+<body>
+The Gospel of St. Luke. v. Mt.
+</body>
+</source>
+
+<source>
+<spellout>LL. Th.</spellout>
+<heading>LL. Th.</heading>
+<body>
+= L. Th.
+</body>
+</source>
+
+<source>
+<spellout>Lupi Serm.</spellout>
+<heading>Lupi Serm.</heading>
+<body>
+v. Wulfst.
+</body>
+</source>
+
+<source>
+<spellout>Lye.</spellout>
+<heading>Lye.</heading>
+<body>
+Dictionarium Saxonico- et Gothico-Latinum. Auctore
+Eduardo Lye. Edidit Owen Manning, London, 1772.
+</body>
+</source>
+
+<source>
+<spellout>M. H.</spellout>
+<heading>M. H.</heading>
+<body>
+The MS. so quoted has now been printed, v. Homl.
+Skt.
+</body>
+</source>
+
+<source>
+<spellout>Man. ed. Furn.</spellout>
+<spellout>Man. ed. F.</spellout>
+<heading>Man. ed. Furn. (F).</heading>
+<body>
+Robert Manning's History of England,
+edited by F. J. Furnivall, Rolls Series, London,
+1887. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Mand.</spellout>
+<heading>Mand.</heading>
+<body>
+The Voiage and Travaile of Sir John Maundeville,
+edited by J. O. Halliwell, London, 1883.
+</body>
+</source>
+
+<source>
+<spellout>Manip. Vocab.</spellout>
+<heading>Manip. Vocab.</heading>
+<body>
+Levins' Manipulus Vocabulorum, a riming
+Dictionary, 1570, edited by H. B. Wheatley, E.E.T.S.,
+No. 27, 1867.
+</body>
+</source>
+
+<source>
+<spellout>Mann.</spellout>
+<heading>Mann.</heading>
+<body>
+Manning's edition of Lye's A. S. Dict., particularly
+the Supplement.
+</body>
+</source>
+
+<source>
+<spellout>Mapes.</spellout>
+<heading>Mapes.</heading>
+<body>
+The Latin Poems commonly attributed to Walter
+Map, edited by T. Wright, Camderi Soc., No. xvi., 1841.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>March.</spellout>
+<heading>March.</heading>
+<body>
+A comparative grammar of the Anglo-Saxon
+language, by F. A. March, New York, 1873.
+</body>
+</source>
+
+<source>
+<spellout>Marg.</spellout>
+<heading>Marg.</heading>
+<body>
+Seinte Margarete, edited by O. Cockayne (in the
+same volume as the next). Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Marh.</spellout>
+<heading>Marh.</heading>
+<body>
+Seinte Marherete, &thorn;e meiden ant martyr, edited
+by O. Cockayne, E.E.T.S., No. 13, 1866. Quoted by
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>Martyr.</spellout>
+<spellout>Martyrol.</spellout>
+<heading>Martyr. (Martyrol.).</heading>
+<body>
+Martyrologium in Bibl. C. C. C.
+Cant. D. 5. v. Wanl. Catal. p. 106. Alterum exemplar,
+mutilum licet, multa tamen continens quae in superiori
+desiderantur, occurrit in Bibl. Cott. Jul. A. 10, v. Wanl.
+Catal. p. 185. The MSS. thus referred to by Lye are
+used by Cockayne in Shrn. pp. 44-156, and from this
+edition most passages are taken in the Dictionary. The
+quotation by month and day of Martyr. makes reference
+to Shrn. easy.
+</body>
+</source>
+
+<source>
+<spellout>Med. ex Quadr.</spellout>
+<heading>Med. ex Quadr.</heading>
+<body>
+An Anglo-Saxon version of the Medicina
+de Quadrupedis of Sextus Placitus, printed in Lchdm. i.
+Quoted by section and paragraph.
+</body>
+</source>
+
+<source>
+<spellout>Med. Pec.</spellout>
+<heading>Med. Pec.</heading>
+<body>
+For the passage given under &aacute;gotenes with this
+abbreviation see L. Ecg. C. 2; Th. ii. 136, 20.
+</body>
+</source>
+
+<source>
+<spellout>Menol. Fox.</spellout>
+<heading>Menol. Fox.</heading>
+<body>
+Menologium seu Calendarium Poeticum, ex
+Hickesiano Thesauro, edited by S. Fox, London, 1830.
+Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Met. Homl.</spellout>
+<spellout>Metr. Homl.</spellout>
+<heading>Met[r]. Homl.</heading>
+<body>
+English Metrical Homilies from MSS. of
+the 14th century, edited by J. Small, Edinburgh, 1862.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Mid. York. Gl.</spellout>
+<heading>Mid. York. Gl.</heading>
+<body>
+A glossary of words pertaining to the
+dialect of Mid-Yorkshire, by C. C. Robinson, E.D.S.,
+1876.
+</body>
+</source>
+
+<source>
+<spellout>Migne.</spellout>
+<heading>Migne.</heading>
+<body>
+Lexicon Manuale ad Scriptores mediae et infimae.
+Latinitatis, par M. L'Abbe Migne, Paris, 1866.
+</body>
+</source>
+
+<source>
+<spellout>Min.</spellout>
+<heading>Min.</heading>
+<body>
+The Poems of Laurence Minot, edited by J. Hall,
+Oxford, 1887. Quoted by number of poem (or of page)
+and line.
+</body>
+</source>
+
+<source>
+<spellout>Mirc.</spellout>
+<heading>Mirc.</heading>
+<body>
+Instructions for Parish Priests by John Myrc, edited
+by E. Peacock, E.E.T.S., No. 31, 1868. Quoted by
+line.
+</body>
+</source>
+
+<source>
+<spellout>Misc.</spellout>
+<heading>Misc.</heading>
+<body>
+An Old English Miscellany, edited by R. Morris.
+E.E.T.S., No. 49, 1872. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Mk.</spellout>
+<heading>Mk.</heading>
+<body>
+The Gospel of St. Mark. v. Mt.
+</body>
+</source>
+
+<source>
+<spellout>Mobr.</spellout>
+<heading>Mobr.</heading>
+<body>
+Venerabilis Baedae Historia Ecclesiae Gentis
+Anglorum, cura G. H. Moberly, Oxon., 1869.
+</body>
+</source>
+
+<PAGEBREAK ID="a0009"/>
+
+<source>
+<spellout>Mod. Confit.</spellout>
+<heading>Mod. Confit.</heading>
+<body>
+Confessio et oratio ad Deum, MS. Cott. Tib.
+A. 3, fol. 44, v. Wanl. Cat. p. 195. See an edition of this
+piece, Anglia xi. 112-115.
+</body>
+</source>
+
+<source>
+<spellout>Mod. Lang. Notes.</spellout>
+<heading>Mod. Lang. Notes.</heading>
+<body>
+Modern Language Notes, Baltimore.
+</body>
+</source>
+
+<source>
+<spellout>Mone.</spellout>
+<heading>Mone.</heading>
+<body>
+Mone's Quellen und Forschungen zur Geschichte
+der teutschen Literatur und Sprache, Leipzig, 1830.
+</body>
+</source>
+
+<source>
+<spellout>Mone A.</spellout>
+<heading>Mone A.</heading>
+<body>
+A copy of the same glossary as Glos. Brux. Recd.
+printed in Mone.
+</body>
+</source>
+
+<source>
+<spellout>Mone B.</spellout>
+<heading>Mone B.</heading>
+<body>
+A copy of the same glossary as Hpt. Gl. printed
+in Mone.
+</body>
+</source>
+
+<source>
+<spellout>Morris Spec. i.</spellout>
+<heading>Morris Spec. i.</heading>
+<body>
+Specimens of Early English, edited by
+R. Morris, Part I. Oxford, 1882. Quoted by page and
+line of section.
+</body>
+</source>
+
+<source>
+<spellout>Mort A.</spellout>
+<heading>Mort A.</heading>
+<body>
+Morte Arthure, edited by E. Brock, E.E.T.S., No.
+8, 1865. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Morte Arthure</spellout>
+<heading>Morte Arthure (Halliwell).</heading>
+<body>
+From a MS. quoted in Halliwell's Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Mt.</spellout>
+<heading>Mt.</heading>
+<body>
+The Gospel of St. Matthew. Several editions of
+various versions of the Gospels are referred to, for a
+detailed notice of which see Prof. Skeat's preface to
+his edition of St. Mark's Gospel in the series noted
+below under Kmbl.
+</body>
+</source>
+
+<source>
+<spellout>Bos.</spellout>
+<heading>Bos.</heading>
+<body>
+The Gothic and Anglo-Saxon Gospels with the
+versions of Wycliffe and Tyndale, edited by J. Bosworth,
+London, 1865.
+</body>
+</source>
+
+<source>
+<spellout>Foxe.</spellout>
+<heading>Foxe.</heading>
+<body>
+The Gospels of the fower Euangelistes, translated
+in the olde Saxon tyme out of Latin into the Vulgare
+toung of the Saxons, London, printed by John Daye,
+1571. This work was published by Fox, the Martyrologist.
+</body>
+</source>
+
+<source>
+<spellout>Hat.</spellout>
+<heading>Hat.</heading>
+<body>
+The Hatton MS. in the Bodleian Library, at
+Oxford, marked 38. See Wanl. Cat. p. 76.
+</body>
+</source>
+
+<source>
+<spellout>Jun.</spellout>
+<heading>Jun.</heading>
+<body>
+Quatuor D. N. Jesu Christi Euangeliorum versiones
+perantiquae duae, Gothica scil. et Anglo-Saxonica;
+illam ex Codice Argenteo depromsit
+Franciscus Junins, hanc curavit Thomas
+Mareschallus, Dordrechti, 1665.
+</body>
+</source>
+
+<source>
+<spellout>Kmbl.</spellout>
+<heading>Kmbl.</heading>
+<body>
+The Gospel according to Saint Matthew in
+Anglo-Saxon and Northumbrian Versions. Cambridge,
+1858. The work was begun by J. M. Kemble
+and completed by Mr. Hardwick. The other Gospels
+were edited by Prof. Skeat, who in 1887 edited this
+Gospel also.
+</body>
+</source>
+
+<source>
+<spellout>Lind.</spellout>
+<heading>Lind.</heading>
+<body>
+MS. Cott. Nero D. 4. The Latin Text was
+written in the island of Lindisfarne. See Wanl. Cat.
+p. 250.
+</body>
+</source>
+
+<source>
+<spellout>Rl.</spellout>
+<heading>Rl.</heading>
+<body>
+MS. Bibl. Reg. I. A. xiv. See Wanl. Cat. p. 181.
+</body>
+</source>
+
+<source>
+<spellout>Rush.</spellout>
+<heading>Rush.</heading>
+<body>
+MS. Auct. D. ii. 19, in the Bodleian Library at
+Oxford. The MS. was at one time in the possession
+of John Rushworth, deputy-clerk to the House of
+Commons during the Long Parliament, and was by
+him presented to the Bodleian Library. See Wanl.
+Cat. p. 31.
+</body>
+</source>
+
+<source>
+<spellout>Skt.</spellout>
+<heading>Skt.</heading>
+<body>
+v. Kmbl.
+</body>
+</source>
+
+<source>
+<spellout>Stv.</spellout>
+<heading>Stv.</heading>
+<body>
+An edition of the Lindisfarne and Rushworth
+Gospels was published by the Surtees Society (Nos.
+28, 39, 43, 48, 1854-1865), the first volume being
+edited by Rev. J. Stevenson, the last three by
+G. Waring.
+</body>
+</source>
+
+<source>
+<spellout>Th.</spellout>
+<heading>Th.</heading>
+<body>
+The Anglo-Saxon version of the Holy Gospels,
+edited by B. Thorpe, London and Oxford, 1842.
+</body>
+</source>
+
+<source>
+<spellout>War.</spellout>
+<heading>War.</heading>
+<body>
+v. Stv.
+</body>
+</source>
+
+<source>
+<spellout>N.</spellout>
+<heading>N.</heading>
+<body>
+Dictionarium Saxonico-Anglicum Laurentii Noelli, in
+the Bodleian Library. See Wanl. Cat. p. 102.
+</body>
+</source>
+
+<source>
+<spellout>N. P.</spellout>
+<heading>N. P.</heading>
+<body>
+Nugae Poeticae. Select pieces of Old English
+popular poetry, edited by J. O. Halliwell, London, 1844.
+Quoted by page.
+</body>
+</source>
+
+<source>
+<spellout>Nar.</spellout>
+<heading>Nar.</heading>
+<body>
+Narratiunculae Anglice conscriptae, edited by O.
+Cockayne, London, 1861. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Nat. S. Greg. Els.</spellout>
+<heading>Nat. S. Greg. Els.</heading>
+<body>
+An English-Saxon Homily on the
+Birthday of St. Gregory, translated into Modern English
+by Elizabeth Elstob, London, 1709 (cf. Homl. Th.
+ii. 116). Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Nath.</spellout>
+<spellout>Nathan.</spellout>
+<heading>Nath. (Nathan).</heading>
+<body>
+Nathanis Judaei legatio ad Tiberium
+Caesarem. It is contained in a MS. preserved in the
+University Library at Cambridge, described in Wanl.
+Cat. p. 152, and has been edited in Publications of the
+Cambridge Antiquarian Society by C. W. Goodwin,
+Cambridge, 1851. v. St. And., under which abbreviation
+references by page and line are given except in the
+earlier part of the Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Nicod.</spellout>
+<spellout>Nic.</spellout>
+<spellout>Thw.</spellout>
+<spellout>Nicod. Thw.</spellout>
+<heading>Nicod. (Nic.); Thw. (Nicod. Thw.).</heading>
+<body>
+An Anglo-Saxon version
+of the Gospel of Nicodemus, printed in Thw. Hept.
+</body>
+</source>
+
+<source>
+<spellout>Num.</spellout>
+<heading>Num.</heading>
+<body>
+The Anglo-Saxon version of the book of Numbers.
+v. Deut.
+</body>
+</source>
+
+<source>
+<spellout>O. and N.</spellout>
+<heading>O. and N.</heading>
+<body>
+An Old English poem of the Owl and the
+Nightingale, edited by F. H. Stratmann, Krefeld, 1868.
+Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>O. E. Homl.</spellout>
+<spellout>O. Engl. Homl.</spellout>
+<heading>O. E[ngl.] Homl.</heading>
+<body>
+Old English Homilies, edited by R.
+Morris, E.E.T.S., first series, Nos. 29, 32; second series,
+No. 53, 1867-1868, 1873. Quoted by series, page and line.
+</body>
+</source>
+
+<source>
+<spellout>O. E. Misc.</spellout>
+<heading>O. E. Misc.</heading>
+<body>
+= Misc.
+</body>
+</source>
+
+<source>
+<spellout>O. Frs.</spellout>
+<heading>O. Frs.</heading>
+<body>
+Old Frisian; the forms are taken from Altfriesisches
+Worterbuch von Karl von Richthofen, G&auml;ttingen,
+1840.
+</body>
+</source>
+
+<source>
+<spellout>O. H. Ger.</spellout>
+<heading>O. H. Ger.</heading>
+<body>
+Old High German, v. Grff.
+</body>
+</source>
+
+<source>
+<spellout>O. L. Ger.</spellout>
+<heading>O. L. Ger.</heading>
+<body>
+Old Low German; the references are mostly to Kleinere
+altniederdeutsehe Denkm&auml;ler, herausgegeben
+von M. Heyne, Paderborn, 1877.
+</body>
+</source>
+
+<source>
+<spellout>O. Nrs.</spellout>
+<heading>O. Nrs.</heading>
+<body>
+v. Icel.
+</body>
+</source>
+
+<source>
+<spellout>O. Sax.</spellout>
+<heading>O. Sax.</heading>
+<body>
+v. H&eacute;l.
+</body>
+</source>
+
+<source>
+<spellout>Obs. Lun.</spellout>
+<heading>Obs. Lun.</heading>
+<body>
+De obseruatione lune, printed from MS. Cott.
+Tib. A. iii. fol. 30b in Lchdm. iii. 184.
+</body>
+</source>
+
+<source>
+<spellout>Octo Vit. cap.</spellout>
+<spellout>Octo Vit. capit.</spellout>
+<heading>Octo Vit. cap[it].</heading>
+<body>
+A homily De octo vitiis et de xii.
+abusivis, in a MS. of the Bodleian, Cod. Jun. 24, p. 329
+(Wanl. Cat. p. 42). It is printed in O. E. Homl. i, 296-304.
+Cf. also Homl, Skt. i. 16, 246-384.
+</body>
+</source>
+
+<source>
+<spellout>Octov.</spellout>
+<heading>Octov.</heading>
+<body>
+Octovian Imperator in Weber's Metrical Romances,
+vol. iii., 1810. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Off. episc.</spellout>
+<spellout>Off. episcop.</spellout>
+<heading>Off. episc[op].</heading>
+<body>
+The reference seems to be to the matter
+printed in Thorpe's Laws from Cod. Juni 121, and
+referred to as L. I. P. (e. g. &aacute;-wildian will be found, Th.
+ii. 322, 15).
+</body>
+</source>
+
+<source>
+<spellout>Off. reg.</spellout>
+<spellout>Off. regum.</spellout>
+<heading>Off. reg[um].</heading>
+<body>
+The same MS. as the preceding seems sometimes
+to be referred to, e.g. efen-wel occurs Th.
+ii. 324, 2: but b&aelig;c-slitol I have noted only Wulfst. 72,
+16, where the MS. is Cod. Jun. 99 (Wanl. Cat. p. 27).
+</body>
+</source>
+
+<source>
+<spellout>Orm.</spellout>
+<heading>Orm.</heading>
+<body>
+The Ormulum, edited by R. M. White, Oxford, 1852.
+Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Ors.</spellout>
+<spellout>Bos.</spellout>
+<heading>Ors.; Bos.</heading>
+<body>
+King Alfred's Anglo-Saxon version of the compendious
+history of the world by Orosius, edited by
+J. Bosworth, London, 1859. Quoted by book and chapter
+(Ors.), and by page and line (Bos.).
+</body>
+</source>
+
+<source>
+<spellout>Ors. Hav.</spellout>
+<heading>Ors. Hav.</heading>
+<body>
+The edition of Orosius by Havercamp, Leyden,
+1738.
+</body>
+</source>
+
+<source>
+<spellout>Ors.</spellout>
+<spellout>Swt.</spellout>
+<heading>Ors.; Swt.</heading>
+<body>
+King Alfred's Orosius, edited by H. Sweet,
+E.E.T.S., No, 79, 1883. Quoted by book and chapter
+(Ors.), and by page and line (Swt.).
+</body>
+</source>
+
+<source>
+<spellout>Ottf.</spellout>
+<heading>Ottf.</heading>
+<body>
+Otfrid's Krist, edited by E. G. Graff, K&ouml;nigsberg,
+1831.
+</body>
+</source>
+
+<source>
+<spellout>P. B.</spellout>
+<heading>P. B.</heading>
+<body>
+Beitr&auml;ge zur Geschichte der deutschen Sprache und
+Literatur, herausgegeben von H. Paul und W. Braune.
+</body>
+</source>
+
+<source>
+<spellout>P. L. S.</spellout>
+<heading>P. L. S.</heading>
+<body>
+Early English Poems and Lives of Saints, edited
+by F. J. Furnivall, Philol. Soc., 1862. Quoted by
+number of piece and line (or stanza).
+</body>
+</source>
+
+<source>
+<spellout>P. R. L. P.</spellout>
+<heading>P. R. L. P.</heading>
+<body>
+Political, Religious, and Love Poems, edited
+by F. J. Furnivall, E.E.T.S., No. 15, 1866. Quoted by
+page and line.
+</body>
+</source>
+
+<PAGEBREAK ID="a0010"/>
+
+<source>
+<spellout>P. S.</spellout>
+<heading>P. S.</heading>
+<body>
+The Political Songs of England, from the reign of
+John to that of Edward II, edited by T. Wright,
+Camden Soc., No. vi., 1839. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Palgrv. Eng. Com.</spellout>
+<heading>Palgrv. Eng. Com.</heading>
+<body>
+Palgrave's Rise and Progress of the
+English Commonwealth, London, 1834.
+</body>
+</source>
+
+<source>
+<spellout>Pall.</spellout>
+<heading>Pall.</heading>
+<body>
+Palladius on Husbondrie, edited by B. Lodge and
+S. T. Herrtage, E.E.T.S., Nos. 52 and 72, 1872 and
+1879. Quoted by page and line of book.
+</body>
+</source>
+
+<source>
+<spellout>Parten.</spellout>
+<heading>Parten.</heading>
+<body>
+The Romans of Partenay, edited by W. W. Skeat,
+E.E.T.S., No. 22, 1866. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Past.</spellout>
+<spellout>Hat.</spellout>
+<heading>Past.; Hat.</heading>
+<body>
+An Anglo-Saxon version of Gregory's Pastoral
+Care, contained in a MS. (Hatton 20) preserved in the
+Bodleian Library. Quoted by chapter and paragraph
+of an edition of the Cura Pastoralis by J. Stephen,
+London, 1629 (Past.), and by folio and line of MS.
+(Hat.).
+</body>
+</source>
+
+<source>
+<spellout>Past.</spellout>
+<spellout>Swt.</spellout>
+<heading>Past.; Swt.</heading>
+<body>
+The Anglo-Saxon version of Gregory's Pastoral
+Care from the Hatton MS. and the Cotton MSS.,
+edited by H. Sweet, E.E.T.S., Nos. 45 and 50, 1871-1872.
+Quoted by chapter (Past.), and by page and line (Swt.).
+</body>
+</source>
+
+<source>
+<spellout>Peccat. Medic.</spellout>
+<spellout>Peccatorum Medicina</spellout>
+<heading>Peccat[orum] Medic[ina]</heading>
+<body>
+= L. Pen. (e. g. &aacute;sp&iacute;wan may be
+found L. Pen. 5; Th. ii. 278, 22).
+</body>
+</source>
+
+<source>
+<spellout>Pegge's Kenticisms.</spellout>
+<heading>Pegge's Kenticisms.</heading>
+<body>
+An Alphabet of Kenticisms by
+Samuel Pegge, 1735. E. D. S., 1876.
+</body>
+</source>
+
+<source>
+<spellout>Piers</spellout>
+<spellout>P.</spellout>
+<heading>Piers [P.],</heading>
+<body>
+The Vision of William concerning Piers the
+Plowman (Text B), E.E.T. S., No. 38, 1869. [Texts
+A and C are Nos. 28 and 54.] Quoted by passus and
+line.
+</body>
+</source>
+
+<source>
+<spellout>Piers P. Crede.</spellout>
+<heading>Piers P. Crede.</heading>
+<body>
+Pierce the Ploughman's Crede, edited by
+W. W. Skeat, E.E.T.S., No. 30, 1867. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Pl. Cr.</spellout>
+<heading>Pl. Cr.</heading>
+<body>
+= Piers P. Crede.
+</body>
+</source>
+
+<source>
+<spellout>Pol. Songs Wrt.</spellout>
+<heading>Pol. Songs Wrt.</heading>
+<body>
+= P. S.
+</body>
+</source>
+
+<source>
+<spellout>Pr. C.</spellout>
+<heading>Pr. C.</heading>
+<body>
+The Pricke of Conscience, by R. Rolle de Hampole,
+edited by R. Morris, Philol. Soc., 1863. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Pref. Thw.</spellout>
+<spellout>Pref. &AElig;lfc. Thw.</spellout>
+<heading>Pref. [&AElig;lfc.]. Thw.</heading>
+<body>
+&AElig;lfric's preface to Genesis in Thw.
+Hept. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Pref. R. Conc.</spellout>
+<spellout>Pref. R. Concord.</spellout>
+<spellout>Proc&oelig;m. R. Conc.</spellout>
+<spellout>Proc&oelig;m. R. Concord.</spellout>
+<heading>Pref. (Proc&oelig;m.) R. Conc[ord].</heading>
+<body>
+Prohemium regularis concordie
+Anglicae nationis monachorum (MS. Cott. Tib.
+A. 3, v, Wanl. Cat., p. 193). This is edited in Anglia,
+vol. xiii. p. 365, and in the later part of the Dictionary
+this edition is referred to.
+</body>
+</source>
+
+<source>
+<spellout>Prehn's R&auml;tsel des Exeterbuches.</spellout>
+<heading>Prehn's R&auml;tsel des Exeterbuches.</heading>
+<body>
+Komposition und
+Quellen der R&auml;tsel des Exeterbuches, von Dr. August
+Prehn, Paderborn, 1883.
+</body>
+</source>
+
+<source>
+<spellout>Proclam. H. III.</spellout>
+<heading>Proclam. H. III.</heading>
+<body>
+The only English Proclamation of
+Henry III, edited by Alex. J. Ellis, Philol. Soc., 1868.
+</body>
+</source>
+
+<source>
+<spellout>Prompt.</spellout>
+<spellout>Prompt. Parv.</spellout>
+<heading>Prompt. [Parv.].</heading>
+<body>
+Promptorium Parvulorum, sive Clericorum,
+dictionarius Anglo-Latinus princeps, auctore
+fratre Galfrido, recensuit Albertus Way, Camden Soc.,
+Nos. xxv., liv., lxxxix., 1843-1865. Quoted by page.
+</body>
+</source>
+
+<source>
+<spellout>Prov.</spellout>
+<heading>Prov.</heading>
+<body>
+Glosses on the book of Proverbs, which are printed
+as noticed under Kent. Gl. Quoted by. chapter (and
+verse).
+</body>
+</source>
+
+<source>
+<spellout>Prov. Kmbl.</spellout>
+<heading>Prov. Kmbl.</heading>
+<body>
+Anglo-Saxon Apothegms in S&auml;lm. Kmbl.
+(q. v.) Part III. pp. 258-268. Quoted by number.
+</body>
+</source>
+
+<source>
+<spellout>Prud.</spellout>
+<heading>Prud.</heading>
+<body>
+v. Gl. Prud. (2).
+</body>
+</source>
+
+<source>
+<spellout>Ps.</spellout>
+<heading>Ps.</heading>
+<body>
+An Early English Psalter, edited by J. Stevenson, Surtees
+Soc., Nos. 16, 19, 1843-1847. Quoted by psalm and
+verse.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Grn.</spellout>
+<heading>Ps. Grn.</heading>
+<body>
+The edition of the metrical version of Psalms 51-150
+in Grein's Bibliothek der Angels&auml;chsischen Poesie.
+2. Band. G&ouml;ttingen, 1858.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Lamb.</spellout>
+<heading>Ps. Lamb.</heading>
+<body>
+An interlinear version of the Psalms in a MS.
+preserved in the library of Lambeth Palace. It is thus
+described by Wanley: Psalterium D. Hieronymi Gallicum,
+Astericis et obolis, punctisque Musicis subjectis
+notatum, una cum interlineata Versione Saxonica, Catalogue,
+p. 268.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Spl.</spellout>
+<heading>Ps. Spl.</heading>
+<body>
+Psalterium Davidis Latino-Saxonicum vetus. A
+Johanne Spelmanno D. Hen. fil. editum. E vetustissimo
+exemplari MS. in Bibliotheca ipsius Henrici, et cum
+tribus aliis non multo minus vetustis collatum, Londini,
+1640. The MS. used by Spelman subsequently
+was in the library at Stowe, and has been described by
+Dr. O'Conor in his account of that library. Afterwards
+it passed into the possession of Lord Ashburnham. Of
+the three collated MSS., which Spelman refers to under
+the letters C, T, M, the first is in the University Library
+at Cambridge, see Wanl. Cat. p. 152; the second is in the
+library of Trin. Coll. Camb., and has been edited by
+F. Harsley, E.E.T.S., No. 92, 1889 (Eadwine's Canterbury
+Psalter); the third is Arundel MS. No. 60 in the
+British Museum. The printed edition, as regards C
+and T, was collated with those MSS. for Dr. Bosworth
+by Dr. Aldis Wright, and many corrections were made.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Stev.</spellout>
+<spellout>Ps. Surt.</spellout>
+<heading>Ps. Stev. or Surt.</heading>
+<body>
+An Anglo-Saxon Psalter (printed from
+MS. Cott. Vesp. A. 1), edited by J. Stevenson, Surtees
+Soc., Nos. 16, 19, 1843-1847.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Th.</spellout>
+<heading>Ps. Th.</heading>
+<body>
+Libri Psalmorum versio antiqua Latina; cum
+paraphrasi Anglo-Saxonica, partim soluta oratione,
+partim metrice composita. E Cod. MS. in Bibl. Regia
+Parisiensi adservato descripsit et edidit B. Thorpe,
+Oxonii, 1835.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Trin. Camb.</spellout>
+<heading>Ps. Trin. Camb.</heading>
+<body>
+= Ps. Spl. T.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Vos.</spellout>
+<spellout>Ps. Vossii.</spellout>
+<heading>Ps. Vos[sii].</heading>
+<body>
+An interlinear version of the Psalms in a MS.
+given by Isaac Vossius to Francis Junius (MS. Bodl.
+Junius 27). See Wanl. Cat. p. 76.
+</body>
+</source>
+
+<source>
+<spellout>R.</spellout>
+<spellout>Lye.</spellout>
+<heading>R., Lye.</heading>
+<body>
+&AElig;lfric's Vocabulary, transcribed by or for Junius
+from a MS. in the possession of Reubens the painter,
+v. Wanl. Cat. p. 96. It was printed by Somner at the
+end of his Dictionary, and will be found in Wrt. Voc.
+i. 15.
+</body>
+</source>
+
+<source>
+<spellout>R. Ben.</spellout>
+<heading>R. Ben.</heading>
+<body>
+Die Angels&auml;chsische Prosabearbeitung der Benedictinerregel,
+herausgegeben von A. Schr&ouml;er, Kassel,
+1885. Quoted (at first by chapter, later) by page and
+line.
+</body>
+</source>
+
+<source>
+<spellout>R. Ben. Interl.</spellout>
+<heading>R. Ben. Interl.</heading>
+<body>
+The Rule of S. Benet. Latin and Anglo-Saxon
+interlinear version. Edited by H. Logeman,
+E.E.T.S., No. 90, 1888. Quoted (at first by chapter,
+later) by page and line.
+</body>
+</source>
+
+<source>
+<spellout>R. Brun.</spellout>
+<spellout>R. Brunne</spellout>
+<heading>R. Brun[ne].</heading>
+<body>
+Peter Langtoft's Chronicle (as illustrated
+and improved by Robert of Brunne), published by Thomas
+Hearne, Oxford, 1725. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>R. Conc.</spellout>
+<spellout>Reg. Concord.</spellout>
+<heading>R[eg.] Conc[ord].</heading>
+<body>
+v. Pref. R. Conc.
+</body>
+</source>
+
+<source>
+<spellout>R. Glouc.</spellout>
+<heading>R. Glouc.</heading>
+<body>
+Robert of Gloucester's Chronicle, published by
+Thomas Hearne, Oxford, 1724. Quoted by page and
+line.
+</body>
+</source>
+
+<source>
+<spellout>R. R.</spellout>
+<heading>R. R.</heading>
+<body>
+The Romaunt of the Rose, formerly attributed to
+Chaucer. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>R. S.</spellout>
+<heading>R. S.</heading>
+<body>
+Religious Songs, edited by Thomas Wright, Percy
+Soc., vol. xi., 1843. Quoted by number of piece and line.
+</body>
+</source>
+
+<source>
+<spellout>Rask Hald.</spellout>
+<heading>Rask Hald.</heading>
+<body>
+Bj&ouml;rn Halld&oacute;rsson's Icelandic-Latin Dictionary,
+edited by Rask, 1814.
+</body>
+</source>
+
+<source>
+<spellout>Recd.</spellout>
+<spellout>Wrt. Voc.</spellout>
+<heading>Recd.; Wrt. Voc.</heading>
+<body>
+v. Glos. Brux. Recd.
+</body>
+</source>
+
+<source>
+<spellout>Rel. Ant.</spellout>
+<spellout>Reliq. Antiq.</spellout>
+<heading>Rel[iq.] Ant[iq.].</heading>
+<body>
+Reliquiae Antiquae. Scraps from Ancient
+Manuscripts, edited by T. Wright and J. O. Halliwell.
+2 vols., London, 1845. Quoted by volume, page and
+line.
+</body>
+</source>
+
+<source>
+<spellout>Rich.</spellout>
+<heading>Rich.</heading>
+<body>
+Richard Coer de Lion, in Weber's Metrical Romances,
+vol. ii. 3-278. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Rol. H.</spellout>
+<heading>Rol. H.</heading>
+<body>
+Richard Rolle of Hampole and his followers,
+edited by C. Horstmann. 2 vols., London, 1895. Quoted
+by volume, page and line.
+</body>
+</source>
+
+<source>
+<spellout>Rood Kmbl.</spellout>
+<heading>Rood Kmbl.</heading>
+<body>
+The Holy Rood, a poem in the Vercelli MS.,
+published with Elen. Kmbl. (q. v.).
+</body>
+</source>
+
+<source>
+<spellout>Rood Recd.</spellout>
+<heading>Rood Recd.</heading>
+<body>
+The same poem as the preceding, printed as
+Andr. Recd. (q.v.).
+</body>
+</source>
+
+<source>
+<spellout>Rtl.</spellout>
+<heading>Rtl.</heading>
+<body>
+Rituale Ecclesiae Dunelmensis (Latin and interlinear
+Anglo-Saxon versions), Surtees Soc., No. 10, 1839.
+Quoted by page and line.
+</body>
+</source>
+
+<PAGEBREAK ID="a0011"/>
+
+<source>
+<spellout>Runic Inscrip. Kmbl.</spellout>
+<heading>Runic Inscrip. Kmbl.</heading>
+<body>
+On Anglo-Saxon Runes. By
+J. M. Kemble. Archaeologia, published by the Society
+of Antiquaries, vol. xxviii., London, 1846. Quoted by
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>Runic pm. Kmbl.</spellout>
+<heading>Runic pm. Kmbl.</heading>
+<body>
+A poem printed in the above paper. Quoted by
+page and line.
+</body>
+</source>
+
+<source>
+<spellout>S. de Fide Cathol.</spellout>
+<heading>S. de Fide Cathol.</heading>
+<body>
+This homily is printed Homl. Th.
+i. 274.
+</body>
+</source>
+
+<source>
+<spellout>Salm. Kmbl.</spellout>
+<heading>Salm. Kmbl.</heading>
+<body>
+Anglo-Saxon Dialogues of Salomon and
+Saturn, by J. M. Kemble. Printed for the &AElig;lfric Society,
+London, 1845-1848. The poetical part is quoted by line,
+the prose by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Sax. Engl.</spellout>
+<heading>Sax. Engl.</heading>
+<body>
+The Saxons in England. A History of the
+English Commonwealth till the period of the Norman
+Conquest, by J. M. Kemble. 2 vols., London, 1876.
+</body>
+</source>
+
+<source>
+<spellout>Schmid A. S. Gesetz.</spellout>
+<spellout>Schmid</spellout>
+<heading>Schmid [A. S. Gesetz].</heading>
+<body>
+Die Gesetze der Angelsachsen.
+Herausgegeben von Dr. R. Schmid, Leipzig, 1858.
+</body>
+</source>
+
+<source>
+<spellout>Scint.</spellout>
+<heading>Scint.</heading>
+<body>
+Defensoris Liber Scintillarum, with an interlinear
+Anglo-Saxon version, edited by E. W. Rhodes, E.E.T.S.,
+No. 93, 1889. Quoted (at first by chapter, later) by page
+and line of the interlinear version. App. [Lib.] Scint.
+refers to the matter in pp. 223 - 236 of this edition.
+</body>
+</source>
+
+<source>
+<spellout>Scint. de Praedest.</spellout>
+<heading>Scint. de Praedest.</heading>
+<body>
+= Scint., pp. 226 - 228.
+</body>
+</source>
+
+<source>
+<spellout>Sc&oacute;p. Th.</spellout>
+<heading>Sc&oacute;p. Th.</heading>
+<body>
+The Sc&oacute;p or Gleeman's Tale printed in Beo. Th.
+</body>
+</source>
+
+<source>
+<spellout>Scot.</spellout>
+<heading>Scot.</heading>
+<body>
+Scottish. v. Jamieson.
+</body>
+</source>
+
+<source>
+<spellout>Seebohm Vill. Comm.</spellout>
+<heading>Seebohm Vill. Comm.</heading>
+<body>
+The English Village Community
+examined in its relations to the Manorial and Tribal
+Systems, by F. Seebohm, London, 1890.
+</body>
+</source>
+
+<source>
+<spellout>Serm. Creat.</spellout>
+<heading>Serm. Creat.</heading>
+<body>
+= Homl. Th. i. 8-28. (v. ge-d&aelig;man, where
+read ge-cl&aelig-acute;man.)
+</body>
+</source>
+
+<source>
+<spellout>Shor.</spellout>
+<spellout>Shoreham.</spellout>
+<heading>Shor[eham].</heading>
+<body>
+The Religious Poems of William de Shoreham,
+edited by T. Wright, Percy Soc. vol. xxviii., 1849.
+Quoted by page.
+</body>
+</source>
+
+<source>
+<spellout>Shrn.</spellout>
+<heading>Shrn.</heading>
+<body>
+The Shrine. A Collection of occasional papers on
+dry subjects, by O. Cockayne, London, 1864-1870.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Skt. Dict.</spellout>
+<heading>Skt. Dict.</heading>
+<body>
+An Etymological Dictionary of the English
+Language, by W. W. Skeat, Oxford, 1879-1882.
+</body>
+</source>
+
+<source>
+<spellout>Solil.</spellout>
+<heading>Solil.</heading>
+<body>
+Soliloquia Augustini Selecta et Saxonice reddita ab
+&AElig;lfredo Rege, MS. Cott. Vitell. A. 15, fol. I. (Printed
+in Shrn. pp. 163-204.) v. Wanl. Cat. p. 218.
+</body>
+</source>
+
+<source>
+<spellout>Som.</spellout>
+<heading>Som.</heading>
+<body>
+Dictionarium Saxonico-Latino-Anglicum, by E. Somner,
+Oxon., 1659.
+</body>
+</source>
+
+<source>
+<spellout>Somn.</spellout>
+<heading>Somn.</heading>
+<body>
+De somniorum diuersitate (MS. Cott. Tib. A. iii.
+fol. 25 b) and De somniorum eventu (v. Wanl. Cat.
+p. 40). The two pieces are printed Lchdm, iii. pp. 198-
+214, 168-176. Quoted by number of paragraph in the
+two combined. (In the later part of the Dictionary the
+references are to Lchdm. iii.)
+</body>
+</source>
+
+<source>
+<spellout>Soul Kmbl.</spellout>
+<heading>Soul Kmbl.</heading>
+<body>
+The departed soul's address to the body,
+a poem in the Vercelli MS. published with Elen. Kmbl.
+(q. v.).
+</body>
+</source>
+
+<source>
+<spellout>Soul Recd.</spellout>
+<heading>Soul Recd.</heading>
+<body>
+The same poem as the preceding, printed with
+Andr. Recd. (q. v.).
+</body>
+</source>
+
+<source>
+<spellout>Spec.</spellout>
+<heading>Spec.</heading>
+<body>
+Specimens of Lyric Poetry composed in England in
+the reign of Edward I, edited by T. Wright, Percy Soc.,
+vol. iv., 1.842. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>St. And.</spellout>
+<heading>St. And.</heading>
+<body>
+Anglo-Saxon Legends of St. Andrew and St.
+Veronica, Cambridge Antiquarian Society, Cambridge,
+1851.
+</body>
+</source>
+
+<source>
+<spellout>Swt. A. S. Prim.</spellout>
+<heading>Swt. A. S. Prim.</heading>
+<body>
+An Anglo-Saxon Primer by H. Sweet, Oxford, 1882.
+</body>
+</source>
+
+<source>
+<spellout>Swt. Rdr.</spellout>
+<spellout>Swt. A. S. Rdr.</spellout>
+<heading>Swt. [A. S.] Rdr.</heading>
+<body>
+An Anglo-Saxon Reader, in prose and
+verse, by H. Sweet, Oxford, 1876.
+</body>
+</source>
+
+<source>
+<spellout>Techm.</spellout>
+<heading>Techm.</heading>
+<body>
+Internationale Zeitschrift f&uuml;r allgemeine Sprachwissenschaft,
+begr&uuml;ndet und herausgegeben von F.
+Techmer, Leipzig. Quoted by volume, page and line.
+</body>
+</source>
+
+<source>
+<spellout>Te Dm. Lamb.</spellout>
+<spellout>Te Deum</spellout>
+<spellout>Lamb.</spellout>
+<heading>Te Dm. Lamb. (Te Deum; Lamb.).</heading>
+<body>
+An interlinear version
+of the Te Deum in the same MS. as Ps. Lamb. It is
+also cited as Hymn ad Mat.
+</body>
+</source>
+
+<source>
+<spellout>Te Dm. Lye.</spellout>
+<heading>Te Dm. Lye.</heading>
+<body>
+v. Wanl. Cat. p. 222.
+</body>
+</source>
+
+<source>
+<spellout>Te Dm. Thomson.</spellout>
+<heading>Te Dm. Thomson.</heading>
+<body>
+A version of the same in Thomson's
+Select Monuments of the Doctrine and Worship of the
+Catholic Church in England before the Norman Conquest, 1849.
+</body>
+</source>
+
+<source>
+<spellout>Text. Rof.</spellout>
+<heading>Text. Rof.</heading>
+<body>
+Textus de Ecclesia Roffensi. v. Wanl. Cat.
+p. 273.
+</body>
+</source>
+
+<source>
+<spellout>Th. An.</spellout>
+<spellout>Th. Anal.</spellout>
+<spellout>Anlct.</spellout>
+<spellout>Th. Anlct.</spellout>
+<heading>Th. An[al.] (Anlct.).</heading>
+<body>
+v. An. Th.
+</body>
+</source>
+
+<source>
+<spellout>Th. Ap.</spellout>
+<spellout>Th. Apol.</spellout>
+<heading>Th. Ap[ol.].</heading>
+<body>
+v. Ap. Th.
+</body>
+</source>
+
+<source>
+<spellout>Th. Ch.</spellout>
+<spellout>Th. Chart.</spellout>
+<spellout>Th. Diplm.</spellout>
+<heading>Th. Ch[art] (Diplm.).</heading>
+<body>
+v. Chart. Th.
+</body>
+</source>
+
+<source>
+<spellout>Th. Lapbg.</spellout>
+<heading>Th. Lapbg.</heading>
+<body>
+A History of England under the Anglo-Saxon
+Kings, translated from the German of Dr. J. M. Lappen-
+berg by B. Thorpe, London, 1845.
+</body>
+</source>
+
+<source>
+<spellout>Th. Ll.</spellout>
+<heading>Th. Ll.</heading>
+<body>
+v. L.; Th.
+</body>
+</source>
+
+<source>
+<spellout>Thw. Hept.</spellout>
+<heading>Thw. Hept.</heading>
+<body>
+Heptateuchus, Liber Job, et Evangelium
+Nicodemi; Anglo-Saxonice. Historiae Judith Fragmentum;
+Dano-Saxonice. Edidit Edwardus Thwaites,
+Oxoniae, 1698. v. Wanl. Cat. pp. 67-68, 152.
+</body>
+</source>
+
+<source>
+<spellout>Torrent of Portugal.</spellout>
+<heading>Torrent of Portugal.</heading>
+<body>
+An English Metrical Romance,
+edited by J. O. Halliwell, London, 1842.
+</body>
+</source>
+
+<source>
+<spellout>Tr. and Cr.</spellout>
+<heading>Tr. and Cr.</heading>
+<body>
+Chaucer's Troilus and Creseyde. Quoted by
+book and line.
+</body>
+</source>
+
+<source>
+<spellout>Tract. de Spir. Septif.</spellout>
+<heading>Tract. de Spir. Septif.</heading>
+<body>
+A homily De Septiformi Spiritu.
+See Wulfst. 50-56.
+</body>
+</source>
+
+<source>
+<spellout>Trev.</spellout>
+<heading>Trev.</heading>
+<body>
+Polychronicon Ranulphi Higden, with the English
+translation of John Trevisa. Rolls Series, 1865-1886.
+Quoted by volume, page and line.
+</body>
+</source>
+
+<source>
+<spellout>Trist.</spellout>
+<heading>Trist.</heading>
+<body>
+Die Nordische und die Englische Version der
+Tristan-Saga, herausgegeben von E. K&ouml;lbing, Heilbronn,
+1882-1883. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Txts.</spellout>
+<heading>Txts.</heading>
+<body>
+The Oldest English Texts, edited by H. Sweet,
+E.E.T.S., No. 83, 1885. Quoted by page and number
+of gloss (or by line).
+</body>
+</source>
+
+<source>
+<spellout>Tynd.</spellout>
+<heading>Tynd.</heading>
+<body>
+Tyndal's version of the New Testament.
+</body>
+</source>
+
+<source>
+<spellout>V. Ps.</spellout>
+<heading>V. Ps.</heading>
+<body>
+= Ps. Vos.
+</body>
+</source>
+
+<source>
+<spellout>Vit. Swith.</spellout>
+<heading>Vit. Swith.</heading>
+<body>
+See either Glostr. Frag. or Homl. Skt. i. 21.
+</body>
+</source>
+
+<source>
+<spellout>W. Cat.</spellout>
+<heading>W. Cat.</heading>
+<body>
+= Wanl. Cat.
+</body>
+</source>
+
+<source>
+<spellout>W. F.</spellout>
+<spellout>Wells Frag.</spellout>
+<heading>W. F. (Wells Frag.).</heading>
+<body>
+MS. of the A. S. version of the Benedictine
+Rule in the possession of the Chapter at Wells,
+printed in R. Ben.
+</body>
+</source>
+
+<source>
+<spellout>W. S.</spellout>
+<heading>W. S.</heading>
+<body>
+West-Saxon.
+</body>
+</source>
+
+<source>
+<spellout>Wald.</spellout>
+<heading>Wald.</heading>
+<body>
+Two leaves of King Waldere's Lay, published by
+George Stevens, Copenhagen. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Wanl. Cat.</spellout>
+<spellout>Wanl. Catal.</spellout>
+<heading>Wanl. Cat[al.].</heading>
+<body>
+Wanley's Catalogue of Anglo-Saxon MSS.,
+forming the third volume of Hickes' Thesaurus, Oxoniae,
+1705.
+</body>
+</source>
+
+<source>
+<spellout>Wht. Dict.</spellout>
+<heading>Wht. Dict.</heading>
+<body>
+White and Riddle's Latin-English Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Wick.</spellout>
+<heading>Wick.</heading>
+<body>
+v. Wyc.
+</body>
+</source>
+
+<source>
+<spellout>Wicklif Select Wrks.</spellout>
+<heading>Wicklif Select Wrks.</heading>
+<body>
+Select English Works of John
+Wyclif, edited by T. Arnold, Oxford, 1869-1871. Quoted
+by volume and page.
+</body>
+</source>
+
+<source>
+<spellout>Wilk.</spellout>
+<heading>Wilk.</heading>
+<body>
+Leges Anglo-Saxonicae Ecclesiasticae et Civiles,
+edited by D. Wilkins, London, 1721. Quoted by page
+and line.
+</body>
+</source>
+
+<source>
+<spellout>Will.</spellout>
+<heading>Will.</heading>
+<body>
+The Romance of William of Palerne, edited by
+W. W. Skeat, E.E.T.S., No. i., 1867. Quoted by line.
+</body>
+</source>
+
+<source>
+<spellout>Wrt. Biog. Brit. A. Sax.</spellout>
+<heading>Wrt. Biog. Brit. A. Sax.</heading>
+<body>
+Biographia Britannica Literaria;
+or Biography of Literary Characters of Great Britain
+and Ireland. Anglo-Saxon Period. By Thomas Wright,
+London, 1842.
+</body>
+</source>
+
+<source>
+<spellout>Wrt. Popl. Science.</spellout>
+<heading>Wrt. Popl. Science.</heading>
+<body>
+Popular Treatises on Science written
+during the Middle Ages, edited by Thomas Wright,
+London, 1841. Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Wrt. Provncl.</spellout>
+<heading>Wrt. Provncl.</heading>
+<body>
+Dictionary of Obsolete and Provincial
+English, compiled by Thomas Wright, London, 1837.
+</body>
+</source>
+
+<PAGEBREAK ID="a0012"/>
+
+<source>
+<spellout>Wrt. Spec.</spellout>
+<heading>Wrt. Spec.</heading>
+<body>
+v. Spec.
+</body>
+</source>
+
+<source>
+<spellout>Wrt. Voc.</spellout>
+<spellout>Wrt. Voc. i.</spellout>
+<heading>Wrt. Voc. [i.].</heading>
+<body>
+A volume of Vocabularies, edited by
+Thomas Wright. Privately printed, 1857. Quoted by
+page and number of gloss.
+</body>
+</source>
+
+<source>
+<spellout>Wrt. Voc. ii.</spellout>
+<heading>Wrt. Voc. ii.</heading>
+<body>
+A second volume of Vocabularies, edited
+by Thomas Wright. Privately printed, 1873. Quoted
+by page and line.
+</body>
+</source>
+
+<source>
+<spellout>W&uuml;lck.</spellout>
+<spellout>W&uuml;lck. Gl.</spellout>
+<heading>W&uuml;lck. [Gl.].</heading>
+<body>
+Anglo-Saxon and Old English Vocabularies,
+by Thomas Wright. Second edition, edited by R. P.
+W&uuml;lcker, London, 1884. Quoted by column and line.
+</body>
+</source>
+
+<source>
+<spellout>Wulfst.</spellout>
+<heading>Wulfst.</heading>
+<body>
+Wulfstan. Sammlung der ihm zugeschriebenen
+Homilien, herausgegeben von A. Napier, Berlin, 1883.
+Quoted by page and line.
+</body>
+</source>
+
+<source>
+<spellout>Wyc.</spellout>
+<heading>Wyc.</heading>
+<body>
+The Holy Bible in the earliest English versions made
+from the Latin Vulgate by John Wycliffe, edited by
+Forshall and Madden, Oxford, 1850.
+</body>
+</source>
+
+<source>
+<spellout>York. Gl.</spellout>
+<heading>York. Gl.</heading>
+<body>
+A Glossary of words pertaining to the Dialect
+of Mid-Yorkshire. E. D. S. Pub., 1876.
+</body>
+</source>
+
+<source>
+<spellout>Zacher.</spellout>
+<heading>Zacher.</heading>
+<body>
+Das Gothische Alphabet Ulfilas und das Runenalphabet.
+Eine sprachwissenschaftliche Untersuchung
+von Julius Zacher, Leipzig, 1855.
+</body>
+</source>
+
+<PAGEBREAK ID="a0013"/>
+
+<source>
+<spellout>&AElig;lfc. Gl.</spellout>
+<spellout>Som.</spellout>
+<spellout>Wrt. Voc.</spellout>
+<heading>&AElig;lfc. Gl; Som; Wrt. Voc.</heading>
+<body>
+&AElig;lfric's Glossary given at the end of
+Somner's Dictionary, and in A Volume of Vocabularies, edited by
+Thomas Wright (First Series, 1857).
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. Gr</spellout>
+<spellout>Som.</spellout>
+<heading>&AElig;lfc. Gr; Som.</heading>
+<body>
+&AElig;lfric's Grammar, at the end of Somner's Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;lfc. T. Grn.</spellout>
+<heading>&AElig;lfc. T. Grn.</heading>
+<body>
+&AElig;lfric de veteri et de novo testamento, in Grein's
+edition of the Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Alis.</spellout>
+<heading>Alis.</heading>
+<body>
+King Alisaunder, in Weber's Metrical Romances.
+</body>
+</source>
+
+<source>
+<spellout>Andr. Kmbl.</spellout>
+<heading>Andr. Kmbl.</heading>
+<body>
+The Legend of St. Andrew, edited by Kemble for the
+&AElig;lfric Society.
+</body>
+</source>
+
+<source>
+<spellout>An. Lit.</spellout>
+<heading>An. Lit.</heading>
+<body>
+Anecdota Literaria, by T. Wright.
+</body>
+</source>
+
+<source>
+<spellout>Apstls. Kmbl.</spellout>
+<heading>Apstls. Kmbl.</heading>
+<body>
+The Fates of the Twelve Apostles; a fragment, in
+Part II. of The Poetry of the Codex Vercellensis, edited by Kemble
+for the &AElig;lfric Society.
+</body>
+</source>
+
+<source>
+<spellout>A. R.</spellout>
+<heading>A. R.</heading>
+<body>
+The Ancren Riwle, edited for the Camden Society by J. Morton.
+</body>
+</source>
+
+<source>
+<spellout>Ayenb.</spellout>
+<heading>Ayenb.</heading>
+<body>
+Dan Michel's Ayenbite of Inwyt, edited for the Early English
+Text Society by R. Morris.
+</body>
+</source>
+
+<source>
+<spellout>Basil admn.</spellout>
+<heading>Basil admn.</heading>
+<body>
+The Anglo-Saxon remains of St. Basil's Admonitio ad
+filium spiritualem, edited by H. W. Norman.
+</body>
+</source>
+
+<source>
+<spellout>Bd. S.</spellout>
+<heading>Bd; S.</heading>
+<body>
+The Anglo-Saxon version of Bede's Ecclesiastical History,
+edited by Smith.
+</body>
+</source>
+
+<source>
+<spellout>Beo. Th.</spellout>
+<heading>Beo. Th.</heading>
+<body>
+The Anglo-Saxon poem of Beowulf, edited by Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Blickl. Gl.</spellout>
+<heading>Blickl. Gl.</heading>
+<body>
+Blickling Glosses, at the end of the Blickling Homilies.
+</body>
+</source>
+
+<source>
+<spellout>Blickl. Homl.</spellout>
+<heading>Blickl. Homl.</heading>
+<body>
+The Blickling Homilies, edited for the Early English
+Text Society by R. Morris.
+</body>
+</source>
+
+<source>
+<spellout>Boutr. Scrd.</spellout>
+<heading>Boutr. Scrd.</heading>
+<body>
+Screadunga, edited by C. G. Bouterwek.
+</body>
+</source>
+
+<source>
+<spellout>Bt.</spellout>
+<spellout>Fox</spellout>
+<heading>Bt; Fox.</heading>
+<body>
+King Alfred's Anglo-Saxon version of Boethius De Consola-
+tione Philosophi&aelig;, edited by Fox (in Bonn's Antiquarian Library).
+</body>
+</source>
+
+<source>
+<spellout>Bt. Met. Fox.</spellout>
+<heading>Bt. Met. Fox.</heading>
+<body>
+The Anglo-Saxon version of the Metres of Boethius,
+at the end of the previous work.
+</body>
+</source>
+
+<source>
+<spellout>Byrht. Th.</spellout>
+<heading>Byrht. Th.</heading>
+<body>
+The Battle of Maldon, in Thorpe's Analecta Anglo-
+Saxonica.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Abac.</spellout>
+<heading>Cant. Abac.</heading>
+<body>
+Canticum Abacuc Prophet&aelig;, in Ps. Lamb., q. v.
+</body>
+</source>
+
+<source>
+<spellout>Cant. Moys.</spellout>
+<heading>Cant. Moys.</heading>
+<body>
+Canticum Moysis, at the end of Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Cd.</spellout>
+<spellout>Th.</spellout>
+<heading>Cd; Th.</heading>
+<body>
+C&aelig;dmon's Metrical Paraphrases of parts of the Holy Scriptures,
+edited by Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Chart. Th.</spellout>
+<heading>Chart. Th.</heading>
+<body>
+Diplomatarium Anglicum &AElig;vi Saxonici, edited by Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Chauc.</spellout>
+<heading>Chauc.</heading>
+<body>
+Chaucer.
+</body>
+</source>
+
+<source>
+<spellout>Chr.</spellout>
+<spellout>Erl.</spellout>
+<heading>Chr; Erl.</heading>
+<body>
+Two of the Saxon Chronicles, edited by Earle.
+</body>
+</source>
+
+<source>
+<spellout>Cod. Dipl. Kmbl.</spellout>
+<heading>Cod. Dipl. Kmbl.</heading>
+<body>
+Codex Diplomatics &AElig;vi Saxonici, edited by
+Kemble.
+</body>
+</source>
+
+<source>
+<spellout>Coll. Monast. Th.</spellout>
+<heading>Coll. Monast. Th.</heading>
+<body>
+&AElig;lfric's Colloquy, in Thorpe's Analecta Anglo-Saxonica.
+</body>
+</source>
+
+<source>
+<spellout>Confess. Peccat.</spellout>
+<heading>Confess. Peccat.</heading>
+<body>
+Confessio Peccatorum, in Ps. Lamb., q. v.
+</body>
+</source>
+
+<source>
+<spellout>Cot. Lye.</spellout>
+<heading>Cot. Lye.</heading>
+<body>
+A MS. of the Cotton Library quoted by Lye in his Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Deut.</spellout>
+<heading>Deut.</heading>
+<body>
+Deuteronomy, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>E. D. S.</spellout>
+<heading>E. D. S.</heading>
+<body>
+English Dialect Society.
+</body>
+</source>
+
+<source>
+<spellout>Elen. Kmbl.</spellout>
+<heading>Elen. Kmbl.</heading>
+<body>
+Elene, or the Recovery of the Cross, edited by Kemble
+for the &AElig;lfric Society.
+</body>
+</source>
+
+<source>
+<spellout>Ex.</spellout>
+<heading>Ex.</heading>
+<body>
+Exodus, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Exon. Th.</spellout>
+<heading>Exon. Th.</heading>
+<body>
+Codex Exoniensis, edited by Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Fins. Th.</spellout>
+<heading>Fins. Th.</heading>
+<body>
+The Fight at Finnesburg, at the end of Thorpe's Beowulf.
+</body>
+</source>
+
+<source>
+<spellout>Frag. Kmbl.</spellout>
+<heading>Frag. Kmbl.</heading>
+<body>
+A Fragment, Moral and Religious, in Part II. of The
+Poetry of the Codex Vercellensis, edited by Kemble.
+</body>
+</source>
+
+<source>
+<spellout>Gen.</spellout>
+<heading>Gen.</heading>
+<body>
+Genesis, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Grff.</spellout>
+<heading>Grff.</heading>
+<body>
+Althochdeutscher Sprachschatz von Graff.
+</body>
+</source>
+
+<source>
+<spellout>Grmm. A. u. E.</spellout>
+<heading>Grmm. A. u. E.</heading>
+<body>
+Andreas und Elene, herausgegeben von Jacob Grimm.
+</body>
+</source>
+
+<source>
+<spellout>Grmm. D. M.</spellout>
+<heading>Grmm. D. M.</heading>
+<body>
+Deutsche Mythologie von Jacob Grimm. Zweite ausgabe.
+</body>
+</source>
+
+<source>
+<spellout>Grmm. Gesch. D. S.</spellout>
+<heading>Grmm. Gesch. D. S.</heading>
+<body>
+Geschichte der Deutschen Sprache von Jacob
+Grimm. Dritte auflage.
+</body>
+</source>
+
+<source>
+<spellout>Grn. R. A.</spellout>
+<heading>Grn. R. A.</heading>
+<body>
+Deutsche Rechtsalterth&uuml;mer von Jacob Grimm. Zweite
+ausgabe.
+</body>
+</source>
+
+<source>
+<spellout>Guthl.</spellout>
+<spellout>Gdwin.</spellout>
+<heading>Guthl; Gdwin.</heading>
+<body>
+The Anglo-Saxon version of the Life of St. Guthlac,
+edited by C. W. Goodwin.
+</body>
+</source>
+
+<source>
+<spellout>Halliw. Dict. H</spellout>
+<heading>Halliw. Dict. H</heading>
+<body>
+alliwell's Dictionary of archaic and provincial words.
+</body>
+</source>
+
+<source>
+<spellout>Herb.</spellout>
+<heading>Herb.</heading>
+<body>
+Herbarium in Vol. I. of Saxon Leechdoms.
+</body>
+</source>
+
+<source>
+<spellout>Hexam. Norm.</spellout>
+<heading>Hexam. Norm.</heading>
+<body>
+The Anglo-Saxon version of the Hexameron of St.
+Basil, edited by H. W. Norman.
+</body>
+</source>
+
+<source>
+<spellout>Homl. Skt.</spellout>
+<heading>Homl. Skt.</heading>
+<body>
+&AElig;lfric's Lives of Saints, edited for the Early English Text
+Society by W. W. Skeat.
+</body>
+</source>
+
+<source>
+<spellout>Homl. Th.</spellout>
+<heading>Homl. Th.</heading>
+<body>
+The Homilies of &AElig;lfric, edited for the &AElig;lfric Society by B.
+Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Hpt. Gl.</spellout>
+<heading>Hpt. Gl.</heading>
+<body>
+Angels&auml;chsische Glossen, von Bouterwek mitgetheilt in Haupts
+Zeitschrift ix. (quoted from Leo's Angels&auml;chsische Glossar).
+</body>
+</source>
+
+<source>
+<spellout>H. R.</spellout>
+<heading>H. R.</heading>
+<body>
+Legends of the Holy Rood, edited for the Early English Text Society
+by R. Morris.
+</body>
+</source>
+
+<source>
+<spellout>Hymn. Surt.</spellout>
+<heading>Hymn. Surt.</heading>
+<body>
+The Latin Hymns of the Anglo-Saxon Church, edited
+for the Surtees Society by J. Stevenson.
+</body>
+</source>
+
+<source>
+<spellout>Icel.</spellout>
+<heading>Icel.</heading>
+<body>
+Icelandic; the references being to Cleasby and Vigfusson's Icelandic
+Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Jn. Skt.</spellout>
+<heading>Jn. Skt.</heading>
+<body>
+The Gospel of St. John, edited by Skeat. v. Mk. Skt.
+</body>
+</source>
+
+<source>
+<spellout>Jos.</spellout>
+<heading>Jos.</heading>
+<body>
+Joshua, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Jud.</spellout>
+<heading>Jud.</heading>
+<body>
+Judges, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Judth.</spellout>
+<spellout>Thw.</spellout>
+<heading>Judth; Thw.</heading>
+<body>
+The poem of Judith, at the end of Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Jul.</spellout>
+<heading>Jul.</heading>
+<body>
+The Liflade of St. Juliana, edited for the Early English Text Society
+by Cockayne.
+</body>
+</source>
+
+<source>
+<spellout>L. Alf.</spellout>
+<spellout>Th.</spellout>
+<heading>L. Alf; Th.</heading>
+<body>
+The Laws of King Alfred, in Thorpe's Ancient Laws and
+Institutes. The other contractions, being the same as those used by
+Thorpe, are not given here.
+</body>
+</source>
+
+<source>
+<spellout>Laym.</spellout>
+<heading>Laym.</heading>
+<body>
+The Brut of La&yogh;amon, edited by Sir F. Madden.
+</body>
+</source>
+
+<source>
+<spellout>Lchdm. i.</spellout>
+<spellout>Lchdm. ii.</spellout>
+<spellout>Lchdm. iii.</spellout>
+<heading>Lchdm. i. ii. iii.</heading>
+<body>
+Leechdoms, Wortcunning and Starcraft of Early England,
+edited by Cockayne (Master of the Rolls' series, 3 vols.).
+</body>
+</source>
+
+<source>
+<spellout>Lev.</spellout>
+<heading>Lev.</heading>
+<body>
+Leviticus, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Lk. Skt.</spellout>
+<heading>Lk. Skt.</heading>
+<body>
+The Gospel of St. Luke, edited by Skeat. v. Mk. Skt.
+</body>
+</source>
+
+<source>
+<spellout>L. M.</spellout>
+<spellout>Lchdm.</spellout>
+<heading>L. M; Lchdm.</heading>
+<body>
+v. Lchdm. (L. M. = Liber Medicinalis.)
+</body>
+</source>
+
+<source>
+<spellout>L. Med. ex Quadr.</spellout>
+<spellout>Lchdm.</spellout>
+<heading>L. Med. ex Quadr; Lchdm.</heading>
+<body>
+v. Lchdm.
+</body>
+</source>
+
+<source>
+<spellout>Menol. Fox.</spellout>
+<heading>Menol. Fox.</heading>
+<body>
+Menologium or Poetical Calendar of the Anglo-Saxons,
+edited by Fox.
+</body>
+</source>
+
+<source>
+<spellout>Met. Homl.</spellout>
+<heading>Met. Homl.</heading>
+<body>
+English Metrical Homilies from MSS. of 14th century,
+edited by J. Small.
+</body>
+</source>
+
+<source>
+<spellout>Mk. Skt. Lind.</spellout>
+<spellout>Mk. Skt. Rush.</spellout>
+<heading>Mk. Skt. Lind. or Rush.</heading>
+<body>
+The Gospel of St. Mark in Anglo-Saxon and
+Northumbrian versions, edited for the Syndics of the University Press
+by W. W. Skeat. (Lind. = Lindisfarne MS. Rush. = Rushworth MS.)
+</body>
+</source>
+
+<source>
+<spellout>Mt. Kmbl. Lind.</spellout>
+<spellout>Mt. Kmbl. Rush.</spellout>
+<heading>Mt. Kmbl. Lind. or Rush.</heading>
+<body>
+The Gospel of St. Matthew, in Anglo-Saxon
+and Northumbrian versions, edited by Kemble. v. preceding.
+</body>
+</source>
+
+<source>
+<spellout>Nar.</spellout>
+<heading>Nar.</heading>
+<body>
+Narratiuncul&aelig; Anglice Conscript&aelig;, edited by Cockayne.
+</body>
+</source>
+
+<source>
+<spellout>Nicod.</spellout>
+<spellout>Thw.</spellout>
+<heading>Nicod; Thw.</heading>
+<body>
+The Anglo-Saxon version of the Gospel of Nicodemus,
+at the end of Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>Num.</spellout>
+<heading>Num.</heading>
+<body>
+Numbers, in Thwaites' Heptateuch.
+</body>
+</source>
+
+<source>
+<spellout>O. and N.</spellout>
+<heading>O. and N.</heading>
+<body>
+An Old English poem of the Owl and the Nightingale, edited
+by Stratmann.
+</body>
+</source>
+
+<source>
+<spellout>O. E. Homl.</spellout>
+<heading>O. E. Homl.</heading>
+<body>
+Old English Homilies, edited for the Early English Text
+Society by R. Morris.
+</body>
+</source>
+
+<source>
+<spellout>O. Frs.</spellout>
+<heading>O. Frs.</heading>
+<body>
+refers to Altfriesisches W&ouml;rterbuch von Dr. Karl Freiherrn von
+Richthofen.
+</body>
+</source>
+
+<source>
+<spellout>O. H. Ger.</spellout>
+<heading>O. H. Ger.</heading>
+<body>
+v. Grff.
+</body>
+</source>
+
+<source>
+<spellout>Orm.</spellout>
+<heading>Orm.</heading>
+<body>
+The Ormulum, edited by Dr. White.
+</body>
+</source>
+
+<source>
+<spellout>Ors. Swt.</spellout>
+<spellout>Ors. Bos.</spellout>
+<heading>Ors; Swt. or Bos.</heading>
+<body>
+The Anglo-Saxon version of Orosius, edited by Sweet or by
+Bosworth.
+</body>
+</source>
+
+<source>
+<spellout>O. Sax.</spellout>
+<heading>O. Sax.</heading>
+<body>
+The Old Saxon poem of the Heliand.
+</body>
+</source>
+
+<source>
+<spellout>Past.</spellout>
+<spellout>Swt.</spellout>
+<heading>Past; Swt.</heading>
+<body>
+King Alfred's version of Gregory's Pastoral Care, edited
+for the Early English Text Society by Sweet.
+</body>
+</source>
+
+<source>
+<spellout>Piers P.</spellout>
+<heading>Piers P.</heading>
+<body>
+The Vision concerning Piers the Plowman, B-text, edited for
+the Early English Text Society by W. W. Skeat.
+</body>
+</source>
+
+<source>
+<spellout>P. L. S.</spellout>
+<heading>P. L. S.</heading>
+<body>
+Early English Poems and Lives of Saints, edited by F. J. Furnivall.
+</body>
+</source>
+
+<source>
+<spellout>Prompt. Parv.</spellout>
+<heading>Prompt. Parv.</heading>
+<body>
+Promptorium parvulorum sive clericorum, lexicon
+Anglo-latinum princeps, edited for the Camden Society by Way.
+</body>
+</source>
+
+<PAGEBREAK ID="a0014"/>
+
+<source>
+<spellout>Prov. Kmbl.</spellout>
+<heading>Prov. Kmbl.</heading>
+<body>
+Anglo-Saxon Apothegms given by Kemble in Anglo-Saxon
+Dialogues of Salomon and Saturn, Part III. (&AElig;lfric Society's
+publications).
+</body>
+</source>
+
+<source>
+<spellout>Ps. Lamb.</spellout>
+<heading>Ps. Lamb.</heading>
+<body>
+Lambeth Psalter. The references are taken from the copy
+made under Dr. Bosworth's direction.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Spl.</spellout>
+<heading>Ps. Spl.</heading>
+<body>
+Psalterium Davidis Latino-Saxonicum vetus, a Johanne Spelmanno
+editum. (Dr. Bosworth's copy has been collated with the
+original MSS. and has thus been corrected in many places.)
+</body>
+</source>
+
+<source>
+<spellout>Ps. Surt.</spellout>
+<heading>Ps. Surt.</heading>
+<body>
+Anglo-Saxon and Early English Psalter, edited for the Surtees
+Society by Stevenson.
+</body>
+</source>
+
+<source>
+<spellout>Ps. Th.</spellout>
+<heading>Ps. Th.</heading>
+<body>
+Libri Psalmorum versio antiqua Latina; cum paraphrasi Anglo-Saxonica,
+edidit Benjamin Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>R. Ben.</spellout>
+<heading>R. Ben.</heading>
+<body>
+Anglo-Saxon version of the Benedictine Rule (quoted from
+Lye).
+</body>
+</source>
+
+<source>
+<spellout>R. Brun.</spellout>
+<heading>R. Brun.</heading>
+<body>
+Peter Langtoft's Chronicle translated and continued by Robert
+Manning of Brunne, edited by Hearne.
+</body>
+</source>
+
+<source>
+<spellout>Rel. Ant.</spellout>
+<heading>Rel. Ant.</heading>
+<body>
+Reliqui&aelig; Antiqu&aelig;, edited by Wright and Halliwell.
+</body>
+</source>
+
+<source>
+<spellout>R. Glouc.</spellout>
+<heading>R. Glouc.</heading>
+<body>
+Robert of Gloucester's Chronicle, edited by Hearne.
+</body>
+</source>
+
+<source>
+<spellout>Rood Kmbl.</spellout>
+<heading>Rood Kmbl.</heading>
+<body>
+The Holy Rood; a Dream, in Part II. of The Poetry of
+the Codex Vercellencis, edited for the &AElig;lfric Society by Kemble.
+</body>
+</source>
+
+<source>
+<spellout>Rtl.</spellout>
+<heading>Rtl.</heading>
+<body>
+Rituile Ecclesi&aelig; Dunelmensis, edited for the Surtees Society by
+Stevenson. (Compare Skeat's collation in the Philological Society's
+Transactions.)
+</body>
+</source>
+
+<source>
+<spellout>Runic pm. Kmbl.</spellout>
+<heading>Runic pm. Kmbl.</heading>
+<body>
+Runic poem printed by Kemble in Arch&aelig;ologia,
+vol. 28.
+</body>
+</source>
+
+<source>
+<spellout>Salm. Kmbl.</spellout>
+<heading>Salm. Kmbl.</heading>
+<body>
+Anglo-Saxon Dialogues of Salomon and Saturn, edited for
+the &AElig;lfric Society by Kemble.
+</body>
+</source>
+
+<source>
+<spellout>Schmid. A. S. Ges.</spellout>
+<heading>Schmid. A. S. Ges.</heading>
+<body>
+Die gesetze der Angelsachsen, herausgegeben von
+Reinh. Schmid.
+</body>
+</source>
+
+<source>
+<spellout>Scot.</spellout>
+<heading>Scot.</heading>
+<body>
+Scottish; the references being to Jamieson's
+Dictionary.
+</body>
+</source>
+
+<source>
+<spellout>Shrn.</spellout>
+<heading>Shrn.</heading>
+<body>
+The Shrine; a collection of occasional papers on dry subjects, by
+Cockayne.
+</body>
+</source>
+
+<source>
+<spellout>Soul Kmbl.</spellout>
+<heading>Soul Kmbl.</heading>
+<body>
+The Departed Soul's Address to the Body, in Part II. of
+The Poetry of the Codex Vercellensis, edited for the &AElig;lfric Society
+by Kemble.
+</body>
+</source>
+
+<source>
+<spellout>St. And.</spellout>
+<heading>St. And.</heading>
+<body>
+Anglo-Saxon Legends of St. Andrew and St. Veronica (Publications
+of the Cambridge Antiquarian Society).
+</body>
+</source>
+
+<source>
+<spellout>Swt. A. S. Rdr.</spellout>
+<heading>Swt. A. S. Rdr.</heading>
+<body>
+An Anglo-Saxon Reader in prose and verse, by Henry
+Sweet.
+</body>
+</source>
+
+<source>
+<spellout>Th. An.</spellout>
+<heading>Th. An.</heading>
+<body>
+Analecta Anglo-Saxonica, by Benjamin Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Th. Ap.</spellout>
+<heading>Th. Ap.</heading>
+<body>
+The Anglo-Saxon version of the story of Apollonius of Tyre,
+edited by Thorpe.
+</body>
+</source>
+
+<source>
+<spellout>Trev.</spellout>
+<heading>Trev.</heading>
+<body>
+Polychronicon Ranulphi Higden, with the English translation of
+John Trevisa (Master of the Rolls' series).
+</body>
+</source>
+
+<source>
+<spellout>Will.</spellout>
+<heading>Will.</heading>
+<body>
+The romance of William of Palerne, edited by W. W. Skeat (Early
+English Text Society).
+</body>
+</source>
+
+<source>
+<spellout>Wrt. popl. Science.</spellout>
+<heading>Wrt. popl. Science.</heading>
+<body>
+Popular Treatises on Science written during the
+Middle Ages, edited by Wright.
+</body>
+</source>
+
+<source>
+<spellout>Wrt. Voc.</spellout>
+<heading>Wrt. Voc.</heading>
+<body>
+A Volume of Vocabularies, edited by Wright. (First Series,
+Liverpool, 1857.)
+</body>
+</source>
+
+<section_header>
+CONTRACTIONS USED BY GREIN.
+</section_header>
+
+<source>
+<spellout>&AElig;lf. Tod.</spellout>
+<heading>&AElig;lf. Tod.</heading>
+<body>
+Poem on the death of Alfred, son of Ethelred, given in the
+Chronicle under the year 1036.
+</body>
+</source>
+
+<source>
+<spellout>&AElig;&eth;elst.</spellout>
+<heading>&AElig;&eth;elst.</heading>
+<body>
+Poem on the victory of Athelstan, taken from the Chronicle.
+</body>
+</source>
+
+<source>
+<spellout>Alm.</spellout>
+<heading>Alm.</heading>
+<body>
+Almosen, from the Codex Exoniensis, p. 467.
+</body>
+</source>
+
+<source>
+<spellout>An.</spellout>
+<heading>An.</heading>
+<body>
+The legend of St. Andrew.
+</body>
+</source>
+
+<source>
+<spellout>Ap.</spellout>
+<heading>Ap.</heading>
+<body>
+The fates of the Apostles, from the Codex Vercellensis.
+</body>
+</source>
+
+<source>
+<spellout>Az.</spellout>
+<heading>Az.</heading>
+<body>
+Azarias, from the Codex Exoniensis, p. 183.
+</body>
+</source>
+
+<source>
+<spellout>B.</spellout>
+<heading>B.</heading>
+<body>
+Beowulf.
+</body>
+</source>
+
+<source>
+<spellout>Bo.</spellout>
+<heading>Bo.</heading>
+<body>
+Botschaft des Gemahls, from the Codex Exoniensis, p. 472.
+</body>
+</source>
+
+<source>
+<spellout>By.</spellout>
+<heading>By.</heading>
+<body>
+The death of Byrhtnoth.
+</body>
+</source>
+
+<source>
+<spellout>Cr&auml;.</spellout>
+<heading>Cr&auml;.</heading>
+<body>
+Manna cr&aelig;ftas, from the Codex Exoniensis, p. 392.
+</body>
+</source>
+
+<source>
+<spellout>Cri.</spellout>
+<heading>Cri.</heading>
+<body>
+Cynewulfs Crist, from the Codex Exoniensis, p. I.
+</body>
+</source>
+
+<source>
+<spellout>Dan.</spellout>
+<heading>Dan.</heading>
+<body>
+Daniel, in Thorpe's C&aelig;dmon; p. 216.
+</body>
+</source>
+
+<source>
+<spellout>De&oacute;r.</spellout>
+<heading>De&oacute;r.</heading>
+<body>
+Deors Klage, from Codex Exoniensis, p. 377.
+</body>
+</source>
+
+<source>
+<spellout>D&oacute;m.</spellout>
+<heading>D&oacute;m.</heading>
+<body>
+Domes d&aelig;g, from Codex Exoniensis, p. 445.
+</body>
+</source>
+
+<source>
+<spellout>Edg.</spellout>
+<heading>Edg.</heading>
+<body>
+E&aacute;dg&aacute;r; poems from the Chronicle, under the years 973, 975.
+</body>
+</source>
+
+<source>
+<spellout>Edm.</spellout>
+<heading>Edm.</heading>
+<body>
+E&aacute;dmund, from the Chronicle, under the year 942.
+</body>
+</source>
+
+<source>
+<spellout>Edw.</spellout>
+<heading>Edw.</heading>
+<body>
+E&aacute;dweard, from the Chronicle, under the year 1065.
+</body>
+</source>
+
+<source>
+<spellout>El.</spellout>
+<heading>El.</heading>
+<body>
+Elene, from the Codex Vercellensis.
+</body>
+</source>
+
+<source>
+<spellout>Exod.</spellout>
+<heading>Exod.</heading>
+<body>
+Exodus, in Thorpe's C&aelig;dmon, p. 177.
+</body>
+</source>
+
+<source>
+<spellout>F&auml;.</spellout>
+<heading>F&auml;.</heading>
+<body>
+F&aelig;der l&aacute;rcwidas, in Codex Exoniensis, p. 300.
+</body>
+</source>
+
+<source>
+<spellout>Fin.</spellout>
+<heading>Fin.</heading>
+<body>
+The fight at Finnsburg.
+</body>
+</source>
+
+<source>
+<spellout>Gen.</spellout>
+<heading>Gen.</heading>
+<body>
+Genesis, in Thorpes' Caedmon, p. 1.
+</body>
+</source>
+
+<source>
+<spellout>Gn. C.</spellout>
+<heading>Gn. C.</heading>
+<body>
+Versus gnomici (Cotton MS.).
+</body>
+</source>
+
+<source>
+<spellout>Gn. Ex.</spellout>
+<heading>Gn. Ex.</heading>
+<body>
+Versus gnomici, from Codex Exoniensis, p. 333.
+</body>
+</source>
+
+<source>
+<spellout>G&uuml;.</spellout>
+<heading>G&uuml;.</heading>
+<body>
+Legend of St. Guthlac, from Codex Exoniensis, p. 104.
+</body>
+</source>
+
+<source>
+<spellout>H&ouml;.</spellout>
+<heading>H&ouml;.</heading>
+<body>
+H&ouml;llenfahrt Christi, from Codex Exoniensis, p. 459.
+</body>
+</source>
+
+<source>
+<spellout>Hy.</spellout>
+<heading>Hy.</heading>
+<body>
+Hymnen und Gebete.
+</body>
+</source>
+
+<source>
+<spellout>Jud.</spellout>
+<heading>Jud.</heading>
+<body>
+The poem of Judith.
+</body>
+</source>
+
+<source>
+<spellout>Jul.</spellout>
+<heading>Jul.</heading>
+<body>
+The legend of St. Juliana, in Codex Exoniensis, p. 242.
+</body>
+</source>
+
+<source>
+<spellout>Kl.</spellout>
+<heading>Kl.</heading>
+<body>
+Klage der Frau, in Codex Exoniensis, p. 442.
+</body>
+</source>
+
+<source>
+<spellout>Kr.</spellout>
+<heading>Kr.</heading>
+<body>
+Das heilige Kreuz, from the Codex Vercellensis.
+</body>
+</source>
+
+<source>
+<spellout>Le&aacute;s.</spellout>
+<heading>Le&aacute;s.</heading>
+<body>
+B&iacute; manna le&aacute;se, from the Codex Vercellensis.
+</body>
+</source>
+
+<source>
+<spellout>Men.</spellout>
+<heading>Men.</heading>
+<body>
+Menologium.
+</body>
+</source>
+
+<source>
+<spellout>Met.</spellout>
+<heading>Met.</heading>
+<body>
+The metres of Alfred.
+</body>
+</source>
+
+<source>
+<spellout>M&oacute;d.</spellout>
+<heading>M&oacute;d.</heading>
+<body>
+Manna m&oacute;d, in the Codex Exoniensis, p. 313.
+</body>
+</source>
+
+<source>
+<spellout>Pa.</spellout>
+<heading>Pa.</heading>
+<body>
+Panther, in the Codex Exoniensis, p. 355.
+</body>
+</source>
+
+<source>
+<spellout>Ph.</spellout>
+<heading>Ph.</heading>
+<body>
+Ph&ouml;nix, in the Codex Exoniensis, p. 197.
+</body>
+</source>
+
+<source>
+<spellout>Phar.</spellout>
+<heading>Phar.</heading>
+<body>
+Pharao, in the Codex Exoniensis, p. 468.
+</body>
+</source>
+
+<source>
+<spellout>Ps.</spellout>
+<heading>Ps.</heading>
+<body>
+Psalms, from Thorpe's edition.
+</body>
+</source>
+
+<source>
+<spellout>Ps. C.</spellout>
+<heading>Ps. C.</heading>
+<body>
+The 50th psalm, from one of the Cotton MSS.
+</body>
+</source>
+
+<source>
+<spellout>R&auml;.</spellout>
+<heading>R&auml;.</heading>
+<body>
+Riddles from the Codex Exoniensis.
+</body>
+</source>
+
+<source>
+<spellout>Reb.</spellout>
+<heading>Reb.</heading>
+<body>
+Rebhuhn, from the Codex Exoniensis, p. 365.
+</body>
+</source>
+
+<source>
+<spellout>Reim.</spellout>
+<heading>Reim.</heading>
+<body>
+Reimlied, from the Codex Exoniensis, p. 352.
+</body>
+</source>
+
+<source>
+<spellout>Ruin.</spellout>
+<heading>Ruin.</heading>
+<body>
+Ruine, from the Codex Exoniensis, p. 476.
+</body>
+</source>
+
+<source>
+<spellout>R&uuml;n.</spellout>
+<heading>R&uuml;n.</heading>
+<body>
+Runenlied, in Arch&aelig;ologia, vol. 28.
+</body>
+</source>
+
+<source>
+<spellout>Sal.</spellout>
+<heading>Sal.</heading>
+<body>
+Salomo und Saturn; see above Salm. Kmbl.
+</body>
+</source>
+
+<source>
+<spellout>Sat.</spellout>
+<heading>Sat.</heading>
+<body>
+Crist und Satan, in Thorpe's C&aelig;dmon, p. 265.
+</body>
+</source>
+
+<source>
+<spellout>Seef.</spellout>
+<heading>Seef.</heading>
+<body>
+Seefahrer, in the Codex Exoniensis, p. 306.
+</body>
+</source>
+
+<source>
+<spellout>Seel.</spellout>
+<heading>Seel.</heading>
+<body>
+Reden der Seelen, in the Codex Exoniensis, p. 367; see also above,
+Soul Kmbl.
+</body>
+</source>
+
+<source>
+<spellout>Sch.</spellout>
+<heading>Sch.</heading>
+<body>
+Wunder der Sch&ouml;pfung, in the Codex Exoniensis, p. 346.
+</body>
+</source>
+
+<source>
+<spellout>V&iacute;d.</spellout>
+<heading>V&iacute;d.</heading>
+<body>
+V&iacute;ds&iacute;&eth;, in Codex Exoniensis, p. 318.
+</body>
+</source>
+
+<source>
+<spellout>Vy.</spellout>
+<heading>Vy.</heading>
+<body>
+Manna wyrde, in Codex Exoniensis, p. 327.
+</body>
+</source>
+
+<source>
+<spellout>Wal.</spellout>
+<heading>Wal.</heading>
+<body>
+Walfisch, in Codex Exoniensis, p. 360.
+</body>
+</source>
+
+<source>
+<spellout>Wand.</spellout>
+<heading>Wand.</heading>
+<body>
+Wanderer, in Codex Exoniensis, p. 286.
+</body>
+</source>
+
+</document>

@@ -1,11 +1,11 @@
 ## License for the Bosworth–Toller/Charles Anglo-Saxon Dictionary
 
-The file `db/oe_bosworthtoller.txt.bz2` is from the [Germanic Lexicon
+The files `db/oe_bosworthtoller.txt.bz2` and `db/oebt_abbreviations.xml` are
+from the [Germanic Lexicon
 Project](https://www.ling.upenn.edu/~kurisuto/germanic/language_resources.html).
 The scanning was done by Jason Burton, B. Dan Fairchild, Margaret Hoyt, Grace
 Mrowicki, Michael O'Keefe, Sarah Hartman, Finlay Logan, Sean Crist, Thomas
-McFadden, David Harrison, and Sean Crist; that data is in the public
-domain.
+McFadden, David Harrison, and Sean Crist; that data is in the public domain.
 
 Everything else this repository itself is released under the MIT license:
 
