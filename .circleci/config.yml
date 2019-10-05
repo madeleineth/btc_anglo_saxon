@@ -18,8 +18,8 @@ jobs:
           name: Run python static checks and unit tests
           command: source venv/bin/activate && ./db/test.sh
       - run:
-          name: Smoke-test parse_scanned_by.py
-          command: source venv/bin/activate && bzip2 -ckd db/oe_bosworthtoller.txt.bz2 | db/parse_scanned_bt.py > /dev/null
-      - run:
           name: Fetch inflections
           command: db/download_inflections.sh
+      - run:
+          name: Build test database
+          command: source venv/bin/activate && DICT_LIMIT_LINES=1000 ./db/build_dict_db.sh
