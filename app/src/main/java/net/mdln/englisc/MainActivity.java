@@ -1,8 +1,14 @@
 package net.mdln.englisc;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
@@ -11,6 +17,11 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -56,6 +67,49 @@ public class MainActivity extends AppCompatActivity {
         });
 
         search.requestFocus();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.main_menu_info:
+                HtmlDialog.create(this, getString(R.string.long_app_name), readUtf8Resource(R.raw.info));
+                return true;
+            case R.id.main_menu_feedback:
+                sendFeedback();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private String readUtf8Resource(int id) {
+        try (InputStream stream = getResources().openRawResource(id)) {
+            return new String(Streams.toByteArray(stream), StandardCharsets.UTF_8);
+        } catch (IOException e) {
+            throw new RuntimeException("can't load raw resource " + id, e);
+        }
+    }
+
+    private void sendFeedback() {
+        Uri uri = Uri.parse("mailto:" + getString(R.string.feedback_email));
+        String body = getString(R.string.type_feedback_here) + "\n\n" +
+                "Hardware: " + Build.BRAND + " / " + Build.MODEL + "\n" +
+                "Android version: " + Build.VERSION.RELEASE + "\n" +
+                "App version: " + BuildConfig.VERSION_NAME + "\n" +
+                "Current search text: " + search.getQuery().toString();
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
+        String subject = String.format(getString(R.string.feedback_subject), getString(R.string.long_app_name));
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
+        startActivity(Intent.createChooser(emailIntent, "Send feedback email..."));
     }
 
     @SuppressLint("StaticFieldLeak")

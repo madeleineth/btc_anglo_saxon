@@ -1,13 +1,16 @@
 package net.mdln.englisc;
 
+import android.content.Context;
 import android.widget.EditText;
 
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
 import org.junit.Rule;
 import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -33,6 +36,15 @@ public class MainActivityTest {
         // Click on the one search result.
         onView(withId(R.id.results_row)).perform(click());
         // If it worked, there should be a dialog with a "Close" button on the screen. Click it.
+        onView(withText("Close")).inRoot(isDialog()).perform(click());
+    }
+
+    @Test
+    public void aboutMenuItem() {
+        // Open the action bar menu, open the "About" box, and then close it.
+        Context ctx = InstrumentationRegistry.getInstrumentation().getTargetContext();
+        openActionBarOverflowOrOptionsMenu(ctx);
+        onView(withText("About")).perform(click());
         onView(withText("Close")).inRoot(isDialog()).perform(click());
     }
 }
