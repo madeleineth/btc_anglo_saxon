@@ -1,7 +1,9 @@
+*.iml
 *.swp
-build
 .gradle
+.idea
 .mypy_cache
 __pycache__
+build
 local.properties
 venv
