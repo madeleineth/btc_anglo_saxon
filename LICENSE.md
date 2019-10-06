@@ -36,7 +36,11 @@ The BT pennant logo was created by David Correll. In addition to the MIT
 license, it may also be used under the [CC BY 4.0
 license](https://creativecommons.org/licenses/by/4.0/).
 
-The build process for the app pulls in data from the [Tichý OE
-Generator](https://github.com/madeleineth/tichy_oe_generator), which uses a [CC
-BY-NC 4.0 license](https://creativecommons.org/licenses/by-nc/4.0/). So, a
-default build of the app may not be reproduced for commercial purposes.
+The build process for the app depends on data or code from:
+
+- [Tichý OE Generator](https://github.com/madeleineth/tichy_oe_generator),
+  which is under a [CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
+- [Google Auto Value](https://github.com/google/auto), which is under an
+  [Apache 2.0 license](https://github.com/google/auto/blob/master/LICENSE).
+- [AndroidX](https://developer.android.com/jetpack/androidx/), which is under an [Apache 2.0
+  license](https://android.googlesource.com/platform/frameworks/support/+/refs/heads/androidx-master-dev/LICENSE.txt).

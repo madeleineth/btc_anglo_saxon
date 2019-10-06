@@ -1,4 +1,5 @@
 #!/bin/bash -e
+# DO NOT ADD THE -x FLAG, A KEY IS USED IN THIS SCRIPT.
 
 # Rebuild the word database without a size limit.
 # shellcheck source=/dev/null
