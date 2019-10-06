@@ -15,7 +15,7 @@ public class DictDBTest {
 
     /**
      * Check that we can get a handle to the dictionary and query for a word we know should be there.
-     *
+     * <p>
      * More serious testing is done in {@link DictTest}.
      */
     @Test
