@@ -24,5 +24,8 @@ jobs:
           name: Build test database
           command: source venv/bin/activate && DICT_LIMIT_LINES=1000 ./db/build_dict_db.sh
       - run:
+          name: Download Android dependencies
+          command: ./gradlew androidDependencies
+      - run:
           name: Build Android app
           command: ./gradlew build
