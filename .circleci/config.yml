@@ -29,3 +29,6 @@ jobs:
       - run:
           name: Build Android app
           command: ./gradlew build
+      - run:
+          name: Maybe run emulator tests
+          command: if [ "$CIRCLE_BRANCH" = master ] ; then ./emulator_tests.sh ; else echo "Not on master, not running emulator tests." ; fi
