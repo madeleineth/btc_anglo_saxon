@@ -1,5 +1,7 @@
 *.swp
+build
 .gradle
 .mypy_cache
 __pycache__
+local.properties
 venv

@@ -39,4 +39,4 @@ license](https://creativecommons.org/licenses/by/4.0/).
 The build process for the app pulls in data from the [Tichý OE
 Generator](https://github.com/madeleineth/tichy_oe_generator), which uses a [CC
 BY-NC 4.0 license](https://creativecommons.org/licenses/by-nc/4.0/). So, a
-default build of the app may not be reproduced for commerical purposes.
+default build of the app may not be reproduced for commercial purposes.
