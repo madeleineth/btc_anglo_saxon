@@ -23,3 +23,6 @@ jobs:
       - run:
           name: Build test database
           command: source venv/bin/activate && DICT_LIMIT_LINES=1000 ./db/build_dict_db.sh
+      - run:
+          name: Build Android app
+          command: ./gradlew build

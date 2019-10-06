@@ -7,6 +7,9 @@ The scanning was done by Jason Burton, B. Dan Fairchild, Margaret Hoyt, Grace
 Mrowicki, Michael O'Keefe, Sarah Hartman, Finlay Logan, Sean Crist, Thomas
 McFadden, David Harrison, and Sean Crist; that data is in the public domain.
 
+The `gradle` directory and the `gradlew` file are from Gradle, which is
+licensed under the Apache License version 2.0.
+
 Everything else this repository itself is released under the MIT license:
 
     Copyright 2019 Madeleine Thompson
