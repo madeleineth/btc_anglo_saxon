@@ -128,7 +128,7 @@ final class Dict {
      * {@code limit} HTML phrase matches are considered. If there are any spaces in {@code query},
      * we can't be matching a word, so we do a phrase search. If there are no spaces, we do a word
      * search of "html" and a prefix search in "terms".
-     *
+     * <p>
      * Returns a list of terms in descending score order.
      */
     List<Term> search(@NotNull String query, int limit) {
