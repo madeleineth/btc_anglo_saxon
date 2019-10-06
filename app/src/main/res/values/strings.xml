@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Anglo-Saxon</string>
+    <string name="close_button">Close</string>
 </resources>
