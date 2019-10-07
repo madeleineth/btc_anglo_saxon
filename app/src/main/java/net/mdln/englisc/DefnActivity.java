@@ -89,8 +89,10 @@ public class DefnActivity extends AppCompatActivity {
 
     @Override
     protected void onStop() {
-        dict.close();
-        dict = null;
+        if (dict != null) {
+            dict.close();
+            dict = null;
+        }
         super.onStop();
     }
 
