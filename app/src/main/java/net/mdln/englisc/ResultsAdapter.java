@@ -1,6 +1,7 @@
 package net.mdln.englisc;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +69,7 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    openFullDefinitionDialog(ctx);
+                    openFullDefinition(ctx);
                 }
             });
         }
@@ -78,11 +79,13 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
             view.setText(HtmlCompat.fromHtml(term.html(), HtmlCompat.FROM_HTML_MODE_COMPACT));
         }
 
-        private void openFullDefinitionDialog(Context ctx) {
+        private void openFullDefinition(Context ctx) {
             if (term == null) {
                 return;
             }
-            HtmlDialog.create(ctx, term.title(), term.html());
+            Intent intent = new Intent(ctx, DefnActivity.class);
+            intent.putExtra(DefnActivity.EXTRA_BTC_URL, DefnActivity.BTC_URL_PREFIX + term.nid());
+            ctx.startActivity(intent);
         }
     }
 }

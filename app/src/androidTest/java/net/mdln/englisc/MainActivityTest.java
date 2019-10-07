@@ -16,6 +16,7 @@ import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -35,8 +36,8 @@ public class MainActivityTest {
         onView(isAssignableFrom(EditText.class)).perform(typeText("rimere"), closeSoftKeyboard());
         // Click on the one search result.
         onView(withId(R.id.results_row)).perform(click());
-        // If it worked, there should be a dialog with a "Close" button on the screen. Click it.
-        onView(withText("Close")).inRoot(isDialog()).perform(click());
+        // If it worked, there should be a DefnActivity with "up" navigation. Click it.
+        onView(withContentDescription("Navigate up")).perform(click());
     }
 
     @Test
