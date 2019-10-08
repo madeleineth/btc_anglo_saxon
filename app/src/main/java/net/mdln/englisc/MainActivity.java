@@ -24,14 +24,9 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class MainActivity extends AppCompatActivity {
-    // We may need to copy a large dictionary resource to the file system before we can use a Dict,
-    // so when the activity is created, start a background task to do that if necessary. We will
-    // only refer to the result of this task in a background search task.
-    private AsyncTask<?, ?, Dict> dict = null;
-
+    private LazyDict dict = null;
     private ResultsAdapter results = null;
     private SearchView search = null;
 
@@ -48,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         rv.setAdapter(results);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        dict = dictTask();
+        dict = new LazyDict(this);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -67,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         search.requestFocus();
+    }
+
+    @Override
+    protected void onDestroy() {
+        dict.close();
+        super.onDestroy();
     }
 
     @Override
@@ -113,34 +114,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("StaticFieldLeak")
-    private AsyncTask<?, ?, Dict> dictTask() {
-        return (new AsyncTask<Void, Void, Dict>() {
-            @Override
-            protected Dict doInBackground(Void... params) {
-                return new Dict(DictDB.get(MainActivity.this));
-            }
-        }).execute();
-    }
-
-    @SuppressLint("StaticFieldLeak")
     private void searchInBackground() {
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
                 String q = search.getQuery().toString();
-                try {
-                    final List<Term> t = q.length() >= 2 ?
-                            dict.get().search(q, 50) :
-                            Collections.<Term>emptyList();
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            results.setTerms(t);
-                        }
-                    });
-                } catch (ExecutionException | InterruptedException e) {
-                    throw new RuntimeException("Error querying in background.", e);
-                }
+                final List<Term> t = q.length() >= 2 ?
+                        dict.get().search(q, 50) :
+                        Collections.<Term>emptyList();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        results.setTerms(t);
+                    }
+                });
             }
         });
     }
