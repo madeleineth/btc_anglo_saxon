@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Uses a SQLite database to answer search queries. See {@link #search}.
  */
-final class Dict {
+final class Dict implements AutoCloseable {
     // Scoring happens in Java, but we want to keep from returning a huge number of low-quality
     // results. So, we return all matches on "terms", but put a a LIMIT on the number of matches
     // in the rest of the entry (effectively, the "html" column).
@@ -121,6 +121,11 @@ final class Dict {
             }
         }
         return retVal;
+    }
+
+    @Override
+    public void close() {
+        db.close();
     }
 
     /**
