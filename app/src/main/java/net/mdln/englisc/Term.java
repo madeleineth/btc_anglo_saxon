@@ -2,18 +2,20 @@ package net.mdln.englisc;
 
 import com.google.auto.value.AutoValue;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Represents a result of a user's search. See {@link Dict}.
  */
 @AutoValue
 abstract class Term {
-    static Term create(String title, String html, int nid, double score) {
+    static Term create(@NotNull String title, @NotNull String html, int nid, double score) {
         return new AutoValue_Term(title, html, nid, score);
     }
 
-    abstract String title();
+    @NotNull abstract String title();
 
-    abstract String html();
+    @NotNull abstract String html();
 
     abstract int nid();
 
