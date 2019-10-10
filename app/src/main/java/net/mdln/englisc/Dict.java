@@ -157,14 +157,14 @@ final class Dict implements AutoCloseable {
      * Returns the term in the database with the specified row id, or null if none exists.
      */
     Term loadNid(int nid) {
-       try(Cursor cursor = db.rawQuery("SELECT title, html FROM defn_idx WHERE rowid = ?", new String[]{String.valueOf(nid)})) {
-           if (cursor.getCount() == 0) {
-               return null;
-           }
-           cursor.moveToNext();
-           String title = cursor.getString(0);
-           String html = cursor.getString(1);
-           return Term.create(title, html, nid, 0.0);
-       }
+        try (Cursor cursor = db.rawQuery("SELECT title, html FROM defn_idx WHERE rowid = ?", new String[]{String.valueOf(nid)})) {
+            if (cursor.getCount() == 0) {
+                return null;
+            }
+            cursor.moveToNext();
+            String title = cursor.getString(0);
+            String html = cursor.getString(1);
+            return Term.create(title, html, nid, 0.0);
+        }
     }
 }
