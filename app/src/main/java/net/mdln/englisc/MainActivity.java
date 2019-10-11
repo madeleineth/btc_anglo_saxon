@@ -65,9 +65,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        dict.close();
-        super.onDestroy();
+    protected void onStop() {
+        if (dict != null) {
+            dict.close();
+            dict = null;
+        }
+        super.onStop();
     }
 
     @Override
