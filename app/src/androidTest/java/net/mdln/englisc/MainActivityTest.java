@@ -2,7 +2,9 @@ package net.mdln.englisc;
 
 import android.content.Context;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
@@ -17,11 +19,12 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
-import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static net.mdln.englisc.SpannableClicker.clickClickableSpan;
+import static org.hamcrest.Matchers.allOf;
 
 public class MainActivityTest {
 
@@ -45,7 +48,9 @@ public class MainActivityTest {
         // Check that the screen for "Mt." comes up.
         onView(withId(R.id.defn_content)).check(matches(withSubstring("Gospel of St. Matthew")));
         // If it worked, there should be a DefnActivity with "up" navigation. Click it.
-        onView(withContentDescription("Navigate up")).perform(click());
+        onView(allOf(
+                isAssignableFrom(ImageButton.class),
+                withParent(isAssignableFrom(Toolbar.class)))).perform(click());
     }
 
     @Test
