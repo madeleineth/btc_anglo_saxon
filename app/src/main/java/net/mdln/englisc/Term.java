@@ -13,9 +13,11 @@ abstract class Term {
         return new AutoValue_Term(title, html, nid, score);
     }
 
-    @NotNull abstract String title();
+    @NotNull
+    abstract String title();
 
-    @NotNull abstract String html();
+    @NotNull
+    abstract String html();
 
     abstract int nid();
 
