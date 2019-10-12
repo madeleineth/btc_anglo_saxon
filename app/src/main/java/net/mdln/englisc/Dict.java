@@ -2,11 +2,13 @@ package net.mdln.englisc;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import androidx.annotation.VisibleForTesting;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,8 +23,16 @@ final class Dict implements AutoCloseable {
     // Scoring happens in Java, but we want to keep from returning a huge number of low-quality
     // results. So, we return all matches on "terms", but put a a LIMIT on the number of matches
     // in the rest of the entry (effectively, the "html" column).
-    private static final String QRY =
-            "SELECT * FROM ( SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE defn_idx MATCH ? LIMIT ? ) UNION SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE terms MATCH ?";
+    //
+    // The weird subexpression "ORDER BY CAST(substr(offsets(defn_idx), 5) AS INTEGER)" is a way of
+    // saying "strip off the first two numbers in the offsets (which are always one digit) extract
+    // the byte-offset of the match, and sort the results with early matches first." This is done by
+    // the scoring algorithm later in Java, but unless we do a rough version of it in SQL, we may
+    // never see some results that would otherwise score highly.
+    private static final String Q1 =
+            "SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE defn_idx MATCH ? ORDER BY CAST(substr(offsets(defn_idx), 5) AS INTEGER) LIMIT ?";
+    private static final String Q2 = "SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE terms MATCH ?";
+    private static final String QRY = "SELECT * FROM (  " + Q1 + ") UNION " + Q2;
 
     private static final double MINIMUM_SCORE = 0.003;
 
@@ -52,8 +62,11 @@ final class Dict implements AutoCloseable {
     @VisibleForTesting
     static String normalizeQuery(String q) {
         String term = q.toLowerCase().trim();
+        term = Normalizer.normalize(term, Normalizer.Form.NFKD);
         term = term.replaceAll("[ðþ]", "th");
         term = term.replaceAll("æ", "ae");
+        term = term.replaceAll("[^a-z ]", "");
+        term = term.replaceAll("  +", " ");
         return term;
     }
 
@@ -142,9 +155,9 @@ final class Dict implements AutoCloseable {
         String[] args = new String[]{ftsQuery, String.valueOf(limit), term};
         List<Term> retVal = new ArrayList<>();
         try (Cursor cursor = db.rawQuery(QRY, args)) {
+            Log.d("Dict", "Got " + cursor.getCount() + " results for '" + query + "'");
             while (cursor.moveToNext()) {
-                // Is this a bug? Maybe we should pass `term`, not `query`.
-                retVal.add(queryMatchToTerm(query, cursor));
+                retVal.add(queryMatchToTerm(term, cursor));
             }
         }
         sortByDescendingScore(retVal);
