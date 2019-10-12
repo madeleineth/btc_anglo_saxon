@@ -24,6 +24,9 @@ public class DictTest {
                 /* phrase search in modern English */ {"to write", "mis-writan"},
                 /* frequent word that should match canonical entry */ {"thaet", "þæt"},
                 /* word with non-ASCII characters in search */ {"þrittig", "þritig"},
+                /* variant spelling of very common word */ {"þonne", "þanne"},
+                /* manually-added variant */ {"Swylce", "swilc"},
+
         };
         Context ctx = InstrumentationRegistry.getInstrumentation().getTargetContext();
         try (SQLiteDatabase db = DictDB.get(ctx)) {
@@ -50,5 +53,10 @@ public class DictTest {
     @Test
     public void normalizeQuery() {
         assertEquals("thaet", Dict.normalizeQuery("þæt"));
+    }
+
+    @Test
+    public void normalizeAccentedQuery() {
+        assertEquals("aela", Dict.normalizeQuery("\u01fd-l\u00e1!"));
     }
 }

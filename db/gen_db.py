@@ -57,11 +57,33 @@ def add_inflected_terms_to_db(inflections_path: str,
             examples = ', '.join([x[0] for x in c if x[0] is not None])
             logging.info('{:,} inflected terms added, {:,} unmatched.'.format(
                 n_new, n_unmatched))
-            logging.info('unmatched examples: %s', examples)
+            logging.info('Unmatched examples: %s', examples)
             c.execute('DROP TABLE idx_new')
             c.execute('DROP TABLE idx_tmp')
         finally:
             c.close()
+
+
+def add_extra_forms_to_db(extra_forms_path: str,
+                          db: sqlite3.Connection) -> None:
+    """Add manually-collected forms to `idx`."""
+    n = 0
+    c = db.cursor()
+    try:
+        c.execute('CREATE TEMP TABLE idx_tmp (term TEXT, headword TEXT)')
+        with open(extra_forms_path, 'rt', encoding='UTF-8') as f:
+            for line in f:
+                headword, forms = line.split()
+                for form in forms.split(','):
+                    c.execute('INSERT INTO idx_tmp VALUES (?, ?)',
+                              (ascify(form), ascify(headword)))
+                    n += 1
+        c.execute('INSERT INTO idx SELECT DISTINCT idx_tmp.term, idx.nid '
+                  'FROM idx_tmp JOIN idx ON idx_tmp.headword = idx.term')
+        c.execute('DROP TABLE idx_tmp')
+    finally:
+        c.close()
+    logging.info('Added %d extra forms.', n)
 
 
 def max_nid_in_use(db: sqlite3.Connection) -> int:
@@ -79,6 +101,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument('--bt-dict', required=True)
     parser.add_argument('--inflections', required=True)
     parser.add_argument('--abbrevs', required=True)
+    parser.add_argument('--extra-forms', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--limit', type=int, default=None)
     return parser.parse_args()
@@ -226,6 +249,7 @@ def main() -> None:
     # `defns`.
     abbrev_nid = read_abbrevs_and_add_to_db(args.abbrevs, db)
     add_bt_terms_to_db(args.bt_dict, db, abbrev_nid)
+    add_extra_forms_to_db(args.extra_forms, db)
     add_inflected_terms_to_db(args.inflections, db, limit=args.limit)
 
     # Create `defn_content` and `defn_idx`, full-text-indexed versions of the

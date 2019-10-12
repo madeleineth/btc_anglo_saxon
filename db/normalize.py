@@ -206,10 +206,10 @@ def ascify(s: str) -> str:
     as search terms.
     """
     s = s.lower()
+    s = unicodedata.normalize('NFKD', s)
     s = s.replace('æ', 'ae')
     s = s.replace('þ', 'th')
     s = s.replace('ð', 'th')
-    s = unicodedata.normalize('NFKD', s)
     s = re.sub('[^a-z ]', '', s)
     s = re.sub('[^a-z]+', ' ', s).strip()
     return s
