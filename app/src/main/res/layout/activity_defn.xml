@@ -17,19 +17,22 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/colorPrimary"
-            app:navigationIcon="@drawable/close"
-            android:elevation="4dp"/>
+            android:elevation="4dp"
+            app:navigationIcon="@drawable/close" />
 
         <TextView
             android:id="@+id/defn_content"
             style="@android:style/TextAppearance.Medium"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:paddingStart="22dp"
-            android:paddingEnd="14dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="5dp"
+            android:fadeScrollbars="false"
             android:lineSpacingMultiplier="1.2"
+            android:paddingStart="22dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="5dp"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="vertical"
             android:textIsSelectable="true" />
 
     </LinearLayout>
