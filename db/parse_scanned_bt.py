@@ -154,7 +154,19 @@ def extract_headwords(e: str) -> List[str]:
     assert m, e
     words = [unaccented_letters(s.lower()) for s in m.group(1).split(',')]
     short_words = [remove_trailing_part_refs(w) for w in words]
-    return [w for w in short_words if w]
+    short_words = [w for w in short_words if w]
+    # If the headwords are of the form ['foo-', 'bar-baz'] drop the one with
+    # the dash, since it's a prefix. It would be better to include 'foo-baz' as
+    # well, but that's harder.
+    full_words = [
+        w for i, w in enumerate(short_words)
+        if not w.endswith('-') or i + 1 == len(short_words)
+    ]
+    # Again, but this time dropping "-baz" from ['foo-bar', '-baz']
+    full_words = [
+        w for i, w in enumerate(full_words) if not w.startswith('-') or i == 0
+    ]
+    return full_words
 
 
 def collect_entries(entries: Iterable[str]) -> Dict[str, Entry]:
