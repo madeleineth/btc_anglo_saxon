@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 from html import escape
-from typing import Dict, List, Optional
+from sqlite3 import Connection
+from typing import Any, Dict, Iterable, List, Optional
 import argparse
 import base64
 import csv
@@ -14,9 +15,25 @@ import sqlite3
 from abbrevs import Abbrev, read_abbrevs
 from normalize import ascify
 
+# This can be made more rigorous, but these are words appearing at least 50
+# times in Beowulf.
+VERY_COMMON_WORDS = set([
+    'ac', 'aefter', 'aer', 'aet', 'he', 'hie', 'him', 'his', 'ic', 'in', 'mid',
+    'ne', 'ofer', 'on', 'ond', 'se', 'swa', 'tha', 'thaer', 'thaes', 'thaet',
+    'tham', 'the', 'thone', 'thonne', 'thu', 'to', 'under', 'waes', 'with'
+])
+
+# Don't link these, since they overlap with Mod. E. words.
+MOD_ENG_WORDS = set([
+    'both', 'consul', 'corn', 'gold', 'grimm', 'hand', 'here', 'find', 'ford',
+    'form', 'from', 'full', 'head', 'horn', 'line', 'medio', 'next', 'note',
+    'other', 'part', 'same', 'sang', 'strong', 'table', 'thing', 'things',
+    'this', 'thomas', 'thus', 'were', 'west', 'wind', 'words'
+])
+
 
 def add_inflected_terms_to_db(inflections_path: str,
-                              db: sqlite3.Connection,
+                              db: Connection,
                               limit: Optional[int] = None) -> None:
     """Add output from the morphological generator to `idx`."""
     fieldnames = [
@@ -24,8 +41,10 @@ def add_inflected_terms_to_db(inflections_path: str,
         'probability', 'function', 'wright', 'paradigm', 'para_id',
         'wordclass', 'class1', 'class2', 'class3', 'comment'
     ]
+    formi_idx = fieldnames.index('formi')
+    title_idx = fieldnames.index('title')
     with open(inflections_path, 'rt', encoding='UTF-8') as f:
-        rd = csv.DictReader(f, fieldnames=fieldnames, dialect=csv.excel_tab)
+        rd = csv.reader(f, dialect=csv.excel_tab)
         c = db.cursor()
         try:
             # Put inflected terms, including duplicates, in `idx_tmp`. `term`
@@ -34,10 +53,11 @@ def add_inflected_terms_to_db(inflections_path: str,
             n = 0
             for row in rd:
                 n += 1
-                term = ascify(row['formi'].strip())
-                join_term = ascify(row['title'].strip())
-                c.execute('INSERT INTO idx_tmp VALUES (?, ?)',
-                          (term, join_term))
+                term = ascify(row[formi_idx].strip())
+                join_term = ascify(row[title_idx].strip())
+                if len(term) > 0 and len(join_term) > 0:
+                    c.execute('INSERT INTO idx_tmp VALUES (?, ?)',
+                              (term, join_term))
                 if n % 100000 == 0:
                     logging.info('Loaded {:,} inflected terms...'.format(n))
                 if limit is not None and n >= limit:
@@ -64,8 +84,7 @@ def add_inflected_terms_to_db(inflections_path: str,
             c.close()
 
 
-def add_extra_forms_to_db(extra_forms_path: str,
-                          db: sqlite3.Connection) -> None:
+def add_extra_forms_to_db(extra_forms_path: str, db: Connection) -> None:
     """Add manually-collected forms to `idx`."""
     n = 0
     c = db.cursor()
@@ -86,7 +105,7 @@ def add_extra_forms_to_db(extra_forms_path: str,
     logging.info('Added %d extra forms.', n)
 
 
-def max_nid_in_use(db: sqlite3.Connection) -> int:
+def max_nid_in_use(db: Connection) -> int:
     c = db.cursor()
     try:
         c.execute('SELECT MAX(nid) FROM defns')
@@ -107,20 +126,7 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def linkify_abbrevs(html: str, abbrev_nid: Dict[str, int]) -> str:
-    # This is ugly. The extra complexity is to handle the case where we have
-    # abbreviations where one is a substring of another, e.g. "A B" and "B". We
-    # don't want a result like <a href="...">A <a href="...">B</a></a>.
-    for ab, nid in sorted(abbrev_nid.items(), key=lambda x: -len(x[0])):
-        replacement = '<a href="btc://%d">XXNID%dXX</a>' % (nid, nid)
-        html = html.replace(ab, replacement)
-    for ab, nid in abbrev_nid.items():
-        html = html.replace('XXNID%dXX' % (nid, ), ab)
-    return html
-
-
-def add_bt_terms_to_db(oe_bt_path: str, db: sqlite3.Connection,
-                       abbrev_nid: Dict[str, int]) -> None:
+def add_bt_terms_to_db(oe_bt_path: str, db: Connection) -> None:
     """Add terms from `oe_bt_path` to `idx` and `defns` in `db`."""
     c = db.cursor()
     with open(oe_bt_path, 'rt', encoding='UTF-8') as oe_bt_file:
@@ -129,7 +135,6 @@ def add_bt_terms_to_db(oe_bt_path: str, db: sqlite3.Connection,
         for term, entry in oe_bt.items():
             n += 1
             html = ''.join('<div>' + h + '</div>' for h in entry['defns'])
-            html = linkify_abbrevs(html, abbrev_nid)
             title = ' / '.join(sorted(entry['headwords']))
             c.execute('INSERT INTO idx VALUES (?, ?)', (term, n))
             c.execute("INSERT INTO defns VALUES (?, ?, ?, 'e')",
@@ -149,7 +154,7 @@ def tokenize_html(h: str) -> str:
     return h
 
 
-def build_defn_idx(db: sqlite3.Connection) -> None:
+def build_defn_idx(db: Connection) -> None:
     """Generate a full-text index in `defn_idx` and `defn_content`.
 
     We use an external-content table so that we can index on definitions with
@@ -182,8 +187,7 @@ def build_defn_idx(db: sqlite3.Connection) -> None:
         c.close()
 
 
-def add_abbrevs_to_db(abbrevs: List[Abbrev],
-                      db: sqlite3.Connection) -> Dict[str, int]:
+def add_abbrevs_to_db(abbrevs: List[Abbrev], db: Connection) -> Dict[str, int]:
     """Add entries to `defns` and `idx` for abbreviations in `abbrevs`."""
     nid = 1 + max_nid_in_use(db)
     abbrev_nid = {}  # type: Dict[str, int]
@@ -202,7 +206,7 @@ def add_abbrevs_to_db(abbrevs: List[Abbrev],
 
 
 def read_abbrevs_and_add_to_db(abbrevs_path: str,
-                               db: sqlite3.Connection) -> Dict[str, int]:
+                               db: Connection) -> Dict[str, int]:
     """Add abbreviations from `abbrevs_path` to `idx` and `defns`."""
     with open(abbrevs_path, 'rt') as ab:
         abbrevs = read_abbrevs(ab)
@@ -223,6 +227,89 @@ def write_rev_file(output_base_path: str, nbytes=16) -> None:
             rr = base64.b16encode(rand.read(nbytes))
         rev.write(rr)
     logging.info('Wrote rev %s to %s.', rr, rev_path)
+
+
+def read_term_nid_mapping(db: Connection) -> Dict[str, int]:
+    logging.info('Reading term-nid mapping...')
+    c = db.cursor()
+    # When deciding what a term links to, give abbreviations precedence, then
+    # long entries.
+    c.execute(
+        'SELECT term, idx.nid FROM idx LEFT JOIN defns ON idx.nid = defns.nid '
+        'ORDER BY entry_type = \'a\' DESC, LENGTH(html) DESC')
+    term_nid = {}  # type: Dict[str, int]
+    for row in c:
+        term, nid = row
+        if term not in term_nid:
+            term_nid[term] = nid
+    return term_nid
+
+
+def linkify(defn: str, term_nid: Dict[str, int], rex: Any, current_nid: int,
+            skip: int) -> str:
+    """Return `defn` with HTML links added for terms in `term_nid`.
+
+    `rex` is a regex, generated by `compile_linkify_regex`, for matching
+    linkable strings. `current_nid` is the nid of `defn`; it makes no sense to
+    link to yourself. `skip` is how many characters from the beginning of the
+    entry not to link. This is a hack to avoid noisy links to variant
+    spellings.
+    """
+
+    def preceded_by_v(m):
+        return (m.start(0) >= 3
+                and m.string[(m.start(0) - 3):m.start(0)] == 'v. ')
+
+    def replace(m):
+        if (m[0].startswith('<') or
+            (m.start(0) < skip and not preceded_by_v(m) and ' ' not in m[0])
+                or re.search('[0-9]', m[0])):
+            return m[0]
+        nid = term_nid.get(ascify(m[0]))
+        if nid is not None and nid != current_nid:
+            return '<a href="btc://%d">%s</a>' % (nid, m[0])
+        else:
+            return m[0]
+
+    return rex.sub(replace, defn)
+
+
+def compile_linkify_regex(abbrevs: Iterable[str], min_len: int) -> Any:
+    # There are three parts of the regex:
+    #
+    # (1) An explicit match of <B> and <I> HTML blocks, so they can be ignored.
+    #     Otherwise we'd match individual tagged words.
+    # (2) An explicit OR of the abbreviation literals. This way we can match
+    #     multi-word terms with periods. There are only a few hundred, so we
+    #     can put them all in a regex.
+    # (3) A generic "word" term, used for regular O.E. words. Dashes can only
+    #     show up in the middle.
+    #
+    # Matches to this regex are considered for linkification in `linkify`
+    # though (1) is always dropped.
+    ab = '|'.join(re.escape(a) for a in sorted(abbrevs, key=lambda x: -len(x)))
+    return re.compile(r'(<[BI]>.*?</[BI]>|%s|\w[\w-]{%d,}\w)' %
+                      (ab, min_len - 2))
+
+
+def linkify_defns(db: Connection, term_nid: Dict[str, int],
+                  abbrevs: Iterable[str]) -> None:
+    """Replace the `html` column of `defns` in `db` with linkified entries.
+
+    `term_nid` has the link information. `abbrevs` is a list of abbreviations;
+    it is used when generating a regex so that it can match multi-word terms.
+    """
+    logging.info('Linkifying definitions...')
+    new_defn = {}
+    c = db.cursor()
+    c.execute('SELECT nid, html FROM defns')
+    rex = compile_linkify_regex(abbrevs, min_len=4)
+    for row in c:
+        nid = int(row[0])
+        new_defn[nid] = linkify(row[1], term_nid, rex, nid, skip=40)
+    logging.info('Writing linkified definitions...')
+    for n, d in new_defn.items():
+        c.execute('UPDATE defns SET html = ? WHERE nid = ?', (d, n))
 
 
 def main() -> None:
@@ -248,9 +335,15 @@ def main() -> None:
     # Add the definitions, inflected forms, and abbreviations to `idx` and
     # `defns`.
     abbrev_nid = read_abbrevs_and_add_to_db(args.abbrevs, db)
-    add_bt_terms_to_db(args.bt_dict, db, abbrev_nid)
+    add_bt_terms_to_db(args.bt_dict, db)
     add_extra_forms_to_db(args.extra_forms, db)
     add_inflected_terms_to_db(args.inflections, db, limit=args.limit)
+
+    term_nid = read_term_nid_mapping(db)
+    for w in VERY_COMMON_WORDS.union(MOD_ENG_WORDS):
+        if w in term_nid:
+            del term_nid[w]
+    linkify_defns(db, term_nid, abbrev_nid.keys())
 
     # Create `defn_content` and `defn_idx`, full-text-indexed versions of the
     # dictionary.
