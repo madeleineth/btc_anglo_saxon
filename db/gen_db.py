@@ -27,8 +27,8 @@ VERY_COMMON_WORDS = set([
 MOD_ENG_WORDS = set([
     'both', 'consul', 'corn', 'gold', 'grimm', 'hand', 'here', 'find', 'ford',
     'form', 'from', 'full', 'head', 'horn', 'line', 'medio', 'next', 'note',
-    'other', 'part', 'same', 'sang', 'strong', 'table', 'thing', 'things',
-    'this', 'thomas', 'thus', 'were', 'west', 'wind', 'words'
+    'other', 'part', 'same', 'sang', 'sing', 'strong', 'table', 'thing',
+    'things', 'this', 'thomas', 'thus', 'were', 'west', 'wind', 'words'
 ])
 
 
