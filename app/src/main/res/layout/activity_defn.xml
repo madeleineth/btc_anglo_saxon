@@ -10,7 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:divider="?android:dividerHorizontal"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/defn_toolbar"
@@ -24,7 +26,8 @@
             android:id="@+id/defn_content"
             style="@android:style/TextAppearance.Medium"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:fadeScrollbars="false"
             android:lineSpacingMultiplier="1.2"
             android:paddingStart="22dp"
@@ -34,6 +37,21 @@
             android:scrollbarStyle="outsideInset"
             android:scrollbars="vertical"
             android:textIsSelectable="true" />
+
+        <TextView
+            android:id="@+id/defn_preview"
+            style="@android:style/TextAppearance.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingStart="22dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="5dp"
+            android:singleLine="true"
+            android:visibility="gone" />
 
     </LinearLayout>
 
