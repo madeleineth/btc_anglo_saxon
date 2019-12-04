@@ -28,7 +28,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class DefnActivity extends AppCompatActivity {
     static final String EXTRA_BTC_URL = "net.mdln.englisc.DefnActivity.BTC_URL";
     static final String BTC_URL_PREFIX = "btc://";
-    static final int PREVIEW_DISAPPEAR_MS = 5000;
+    private static final int PREVIEW_DISAPPEAR_MS = 5000;
     private LazyDict dict;
     private AtomicLong previewDisappearTime = new AtomicLong(0);
 
