@@ -45,6 +45,8 @@ public class MainActivityTest {
         onView(withId(R.id.results_row)).perform(click());
         // In the definition of "forthmesto", click on the abbreviation, "Mt."
         onView(withId(R.id.defn_content)).perform(clickClickableSpan("Mt."));
+        // Click on the preview at the bottom.
+        onView(withId(R.id.defn_preview)).perform(click());
         // Check that the screen for "Mt." comes up.
         onView(withId(R.id.defn_content)).check(matches(withSubstring("Gospel of St. Matthew")));
         // If it worked, there should be a DefnActivity with "up" navigation. Click it.
