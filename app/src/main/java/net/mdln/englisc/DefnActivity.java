@@ -10,6 +10,8 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -31,6 +33,7 @@ public class DefnActivity extends AppCompatActivity {
     private static final int PREVIEW_DISAPPEAR_MS = 5000;
     private LazyDict dict;
     private AtomicLong previewDisappearTime = new AtomicLong(0);
+    private Term term;
 
     /**
      * Given a URL like "btc://345" returns the int 345.
@@ -56,7 +59,7 @@ public class DefnActivity extends AppCompatActivity {
             throw new RuntimeException("expected " + EXTRA_BTC_URL);
         }
         dict = new LazyDict(this);
-        Term term = dict.get().loadNid(urlToNid(btcUrl));
+        term = dict.get().loadNid(urlToNid(btcUrl));
 
         setContentView(R.layout.activity_defn);
         Toolbar toolbar = findViewById(R.id.defn_toolbar);
@@ -66,6 +69,21 @@ public class DefnActivity extends AppCompatActivity {
         TextView content = findViewById(R.id.defn_content);
         content.setText(linkifyHtml(term.html()));
         content.setMovementMethod(LinkMovementMethod.getInstance());  //  clickable links
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
+        if (new MenuHandler(this).handleSelection(item, "Current term: " + term.title())) {
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
     }
 
     /**
