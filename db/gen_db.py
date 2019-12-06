@@ -23,13 +23,9 @@ VERY_COMMON_WORDS = set([
     'tham', 'the', 'thone', 'thonne', 'thu', 'to', 'under', 'waes', 'with'
 ])
 
-# Don't link these, since they overlap with Mod. E. words.
-MOD_ENG_WORDS = set([
-    'both', 'consul', 'corn', 'gold', 'grimm', 'hand', 'here', 'find', 'ford',
-    'form', 'from', 'full', 'head', 'horn', 'line', 'medio', 'next', 'note',
-    'other', 'part', 'same', 'sang', 'sing', 'strong', 'table', 'thing',
-    'things', 'this', 'thomas', 'thus', 'were', 'west', 'wind', 'words'
-])
+# Don't link these, since they overlap with Mod. E. words (and also aren't in
+# "web2").
+EXTRA_MOD_ENG_WORDS = ['grimm', 'things', 'thomas', 'words']
 
 
 def add_inflected_terms_to_db(inflections_path: str,
@@ -123,6 +119,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument('--extra-forms', required=True)
     parser.add_argument('--output', required=True)
     parser.add_argument('--limit', type=int, default=None)
+    parser.add_argument('--mod-eng-dictionary', required=True)
     return parser.parse_args()
 
 
@@ -261,9 +258,17 @@ def linkify(defn: str, term_nid: Dict[str, int], rex: Any, current_nid: int,
                 and m.string[(m.start(0) - 3):m.start(0)] == 'v. ')
 
     def replace(m):
+        assert len(m[0]) > 0, 'm = %r, should have nonzero length' % (m, )
         if (m[0].startswith('<') or
             (m.start(0) < skip and not preceded_by_v(m) and ' ' not in m[0])
                 or re.search('[0-9]', m[0])):
+            return m[0]
+        # Don't linkify words beginning or ending with dashes, since they tend
+        # to refer to variant spellings of compounds, not the affix itself.
+        # e.g. the "here-" in "here- or hare-toga" does not refer to "here-",
+        # it refers to "heretoga". Parsing that out is beyond the scope of this
+        # code now.
+        if m[0][0] == '-' or m[0][-1] == '-':
             return m[0]
         nid = term_nid.get(ascify(m[0]))
         if nid is not None and nid != current_nid:
@@ -281,15 +286,19 @@ def compile_linkify_regex(abbrevs: Iterable[str], min_len: int) -> Any:
     #     Otherwise we'd match individual tagged words.
     # (2) An explicit OR of the abbreviation literals. This way we can match
     #     multi-word terms with periods. There are only a few hundred, so we
-    #     can put them all in a regex.
+    #     can put them all in a regex. It is preceded by \b to keep things like
+    #     "DER." from matching "R.", but since abbreviations tend to have "."
+    #     at the end, we omit the \b at the end, since it wouldn't match and is
+    #     not necessary.
     # (3) A generic "word" term, used for regular O.E. words. Dashes can only
-    #     show up in the middle.
+    #     show up in the middle, but that is enforced by `linkify`.
     #
     # Matches to this regex are considered for linkification in `linkify`
     # though (1) is always dropped.
     ab = '|'.join(re.escape(a) for a in sorted(abbrevs, key=lambda x: -len(x)))
-    return re.compile(r'(<[BI]>.*?</[BI]>|%s|\w[\w-]{%d,}\w)' %
-                      (ab, min_len - 2))
+    if ab == '':
+        ab = 'PLACEHOLDER ABBREV FOR TESTS WITH NO ABBREVS'
+    return re.compile(r'(<[BI]>.*?</[BI]>|\b(%s)|[-\w]{%d,})' % (ab, min_len))
 
 
 def linkify_defns(db: Connection, term_nid: Dict[str, int],
@@ -318,6 +327,11 @@ def main() -> None:
                         level=logging.INFO,
                         datefmt='%Y-%m-%dT%H:%M:%S')
 
+    with open(args.mod_eng_dictionary, 'rt') as mod_eng_dict:
+        mod_e_words = mod_eng_dict.read().strip().split()
+        exclude_words = set(mod_e_words).union(
+            set(EXTRA_MOD_ENG_WORDS)).union(VERY_COMMON_WORDS)
+
     # Create a new dictionary file with temporary tables for the terms.
     # `entry_type` is 'a' for abbreviations and 'e' for dictionary entries.
     try:
@@ -340,7 +354,7 @@ def main() -> None:
     add_inflected_terms_to_db(args.inflections, db, limit=args.limit)
 
     term_nid = read_term_nid_mapping(db)
-    for w in VERY_COMMON_WORDS.union(MOD_ENG_WORDS):
+    for w in exclude_words:
         if w in term_nid:
             del term_nid[w]
     linkify_defns(db, term_nid, abbrev_nid.keys())

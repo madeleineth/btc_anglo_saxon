@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Install python
-          command: sudo apt-get update && sudo apt-get install -y python3 python3-virtualenv
+          command: sudo apt-get update && sudo apt-get install -y python3 python3-virtualenv wamerican
       - run:
           name: Set up virtualenv
           command: python3 /usr/lib/python3/dist-packages/virtualenv.py -p python3 venv
