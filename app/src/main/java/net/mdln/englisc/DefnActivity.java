@@ -122,7 +122,7 @@ public class DefnActivity extends AppCompatActivity {
             Log.e("DefnActivity", "could not load URL:" + url);
             return;
         }
-        preview.setText(HtmlCompat.fromHtml(term.html(), HtmlCompat.FROM_HTML_MODE_COMPACT));
+        preview.setText(HtmlCompat.fromHtml(Term.unlinkifyTermHtml(term.html()), HtmlCompat.FROM_HTML_MODE_COMPACT));
         preview.setVisibility(View.VISIBLE);
         preview.setOnClickListener(new View.OnClickListener() {
             @Override

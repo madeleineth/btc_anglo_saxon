@@ -13,6 +13,13 @@ abstract class Term {
         return new AutoValue_Term(title, html, nid, score);
     }
 
+    /**
+     * Remove all opening and closing {@code <a>} tags.
+     */
+    static String unlinkifyTermHtml(String html) {
+        return html.replaceAll("</?[aA][^>]*>", "");
+    }
+
     @NotNull
     abstract String title();
 
