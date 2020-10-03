@@ -8,10 +8,6 @@ import android.view.MenuItem;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-
 /**
  * This class factors out the code for handling the hamburger menu that is common between
  * {@link MainActivity} and {@link DefnActivity}.
@@ -29,7 +25,8 @@ final class MenuHandler {
     boolean handleSelection(@NotNull MenuItem item, String contextString) {
         switch (item.getItemId()) {
             case R.id.main_menu_info:
-                HtmlDialog.create(activity, activity.getString(R.string.long_app_name), readUtf8Resource(R.raw.info));
+                String info = Streams.readUtf8Resource(activity, R.raw.info);
+                HtmlDialog.create(activity, activity.getString(R.string.long_app_name), info);
                 return true;
             case R.id.main_menu_feedback:
                 sendFeedback(contextString);
@@ -51,14 +48,6 @@ final class MenuHandler {
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
         emailIntent.putExtra(Intent.EXTRA_TEXT, body);
         activity.startActivity(Intent.createChooser(emailIntent, "Send feedback email..."));
-    }
-
-    private String readUtf8Resource(int id) {
-        try (InputStream stream = activity.getResources().openRawResource(id)) {
-            return new String(Streams.toByteArray(stream), StandardCharsets.UTF_8);
-        } catch (IOException e) {
-            throw new RuntimeException("can't load raw resource " + id, e);
-        }
     }
 
 }

@@ -1,0 +1,9 @@
+body {
+  font-size: 18px;
+  line-height: 150%;
+  filter: grayscale(60%); /* Make link colors less distracting, while still tracking overall theme. */
+}
+
+div {
+  margin-bottom: 1em; /* Put space between definitions. */
+}

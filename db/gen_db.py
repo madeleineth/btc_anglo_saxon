@@ -272,7 +272,7 @@ def linkify(defn: str, term_nid: Dict[str, int], rex: Any, current_nid: int,
             return m[0]
         nid = term_nid.get(ascify(m[0]))
         if nid is not None and nid != current_nid:
-            return '<a href="btc://%d">%s</a>' % (nid, m[0])
+            return '<a href="https://btc.invalid/%d">%s</a>' % (nid, m[0])
         else:
             return m[0]
 

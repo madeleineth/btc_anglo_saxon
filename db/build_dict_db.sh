@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 # Use `oe_bosworthtoller.txt.bz2`, `oebt_abbreviations.xml`, and
 # `generator-output.txt` to generate the sqlite3 databases
@@ -8,6 +8,8 @@
 # If `DICT_LIMIT_LINES` is set, limit the number of lines used in the input
 # files each to that many lines. This can be used to smoke-test the process;
 # otherwise it takes around ten minutes to run.
+
+set -eux -o pipefail
 
 bzip2 -ckd db/oe_bosworthtoller.txt.bz2 | db/parse_scanned_bt.py > db/oe_bt.json
 

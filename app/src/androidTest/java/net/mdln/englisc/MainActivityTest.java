@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.test.espresso.web.webdriver.Locator;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
@@ -16,18 +17,22 @@ import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
-import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static net.mdln.englisc.SpannableClicker.clickClickableSpan;
+import static androidx.test.espresso.web.assertion.WebViewAssertions.webMatches;
+import static androidx.test.espresso.web.sugar.Web.onWebView;
+import static androidx.test.espresso.web.webdriver.DriverAtoms.findElement;
+import static androidx.test.espresso.web.webdriver.DriverAtoms.getText;
+import static androidx.test.espresso.web.webdriver.DriverAtoms.webClick;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.containsString;
 
 public class MainActivityTest {
 
+    // TODO: Migrate to https://developer.android.com/reference/androidx/test/core/app/ActivityScenario
     @Rule
     public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class);
 
@@ -44,11 +49,10 @@ public class MainActivityTest {
         // Click on the one search result.
         onView(withId(R.id.results_row)).perform(click());
         // In the definition of "forthmesto", click on the abbreviation, "Mt."
-        onView(withId(R.id.defn_content)).perform(clickClickableSpan("Mt."));
-        // Click on the preview at the bottom.
-        onView(withId(R.id.defn_preview)).perform(click());
+        onWebView().withElement(findElement(Locator.LINK_TEXT, "Mt.")).perform(webClick());
         // Check that the screen for "Mt." comes up.
-        onView(withId(R.id.defn_content)).check(matches(withSubstring("Gospel of St. Matthew")));
+        onWebView().withElement(findElement(Locator.TAG_NAME, "body")).check(
+                webMatches(getText(), containsString("Gospel of St. Matthew")));
         // If it worked, there should be a DefnActivity with "up" navigation. Click it.
         onView(allOf(
                 isAssignableFrom(ImageButton.class),
