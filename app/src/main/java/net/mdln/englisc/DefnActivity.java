@@ -56,6 +56,10 @@ public class DefnActivity extends AppCompatActivity {
         } else {
             int nid = urlToNid(btcUrl);
             term = dict.get().loadNid(nid);
+            // Record the fact that we viewed this term in the on-disk history.
+            try (TermHistory h = new TermHistory(this, TermHistory.Location.ON_DISK, 0)) {
+                h.recordId(nid, System.currentTimeMillis());
+            }
         }
 
         setContentView(R.layout.activity_defn);
