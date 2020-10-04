@@ -1,9 +1,13 @@
 body {
   font-size: 18px;
   line-height: 150%;
-  filter: grayscale(60%); /* Make link colors less distracting, while still tracking overall theme. */
 }
 
 div {
   margin-bottom: 0.8em; /* Put space between definitions. */
+}
+
+a, a:visited {
+  color: inherit;
+  text-decoration-style: dotted;
 }
