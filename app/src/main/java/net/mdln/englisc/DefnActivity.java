@@ -1,9 +1,7 @@
 package net.mdln.englisc;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,8 +10,6 @@ import android.webkit.WebViewClient;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.webkit.WebSettingsCompat;
-import androidx.webkit.WebViewFeature;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -61,12 +57,7 @@ public class DefnActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         WebView.setWebContentsDebuggingEnabled(true);
         WebView content = findViewById(R.id.defn_content);
-        content.setBackgroundColor(android.graphics.Color.TRANSPARENT);  // Otherwise it flashes white before rendering in dark mode.
-        content.getSettings().setJavaScriptEnabled(BuildConfig.DEBUG); // Espresso needs JavaScript.
-
-        String cssBlock = "<style type=\"text/css\">" + Streams.readUtf8Resource(this, R.raw.defn) + "</style>";
-        String encodedHtml = Base64.encodeToString((cssBlock + term.html()).getBytes(), Base64.NO_PADDING);
-        content.loadData(encodedHtml, "text/html", "base64");
+        WebViewStyle.apply(this, content, term.html());
 
         content.setWebViewClient(new WebViewClient() {
             // Don't use the WebResourceRequest version of shouldOverrideUrlLoading; it doesn't work before API 24.
@@ -83,15 +74,6 @@ public class DefnActivity extends AppCompatActivity {
                 }
             }
         });
-        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && inNightMode()) {
-            WebSettingsCompat.setForceDark(content.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
-        }
-    }
-
-    private boolean inNightMode() {
-        Configuration cfg = getResources().getConfiguration();
-        int nightMode = cfg.uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        return nightMode == Configuration.UI_MODE_NIGHT_YES;
     }
 
     @Override

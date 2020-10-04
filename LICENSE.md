@@ -8,8 +8,7 @@ Mrowicki, Michael O'Keefe, Sarah Hartman, Finlay Logan, Sean Crist, Thomas
 McFadden, David Harrison, and Sean Crist; that data is in the public domain.
 
 The `gradle` directory and the `gradlew` file are from Gradle, which is
-licensed under the Apache License version 2.0. `SpannableClicker.java` is based
-on code by Lavekush Agrawal on StackOverflow, licensed under the MIT license.
+licensed under the Apache License version 2.0.
 
 Everything else this repository itself is released under the MIT license:
 
