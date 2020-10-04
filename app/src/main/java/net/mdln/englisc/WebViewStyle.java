@@ -19,12 +19,19 @@ public class WebViewStyle {
         WebView.setWebContentsDebuggingEnabled(true);
         view.setBackgroundColor(android.graphics.Color.TRANSPARENT);  // Otherwise it flashes white before rendering in dark mode.
         view.getSettings().setJavaScriptEnabled(BuildConfig.DEBUG); // Espresso needs JavaScript.
-        String cssBlock = "<style type=\"text/css\">" + Streams.readUtf8Resource(activity, R.raw.defn) + "</style>";
-        String encodedHtml = Base64.encodeToString((cssBlock + html).getBytes(), Base64.NO_PADDING);
+        boolean night = inNightMode(activity);
+        String encodedHtml = Base64.encodeToString(styledHtml(activity, html, night).getBytes(), Base64.NO_PADDING);
         view.loadData(encodedHtml, "text/html", "base64");
-        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && inNightMode(activity)) {
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && night) {
             WebSettingsCompat.setForceDark(view.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
         }
+    }
+
+    private static String styledHtml(Activity activity, String html, boolean night) {
+        String headBlock = "<head><style type=\"text/css\">" + Streams.readUtf8Resource(activity, R.raw.defn) + "</style></head>";
+        String styleClass = night ? "dark" : "light";
+        String bodyBlock = "<body class=\"" + styleClass + "\">" +  html + "</body>";
+        return "<html>" + headBlock + bodyBlock + "</html>";
     }
 
     private static boolean inNightMode(Activity activity) {
