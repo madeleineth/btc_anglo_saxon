@@ -80,12 +80,13 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
     private void searchInBackground() {
+        // Get this on the UI thread because SearchView.getQuery is not thread-safe.
+        final String qry = search.getQuery().toString();
         AsyncTask.execute(new Runnable() {
             @Override
             public void run() {
-                String q = search.getQuery().toString();
-                final List<Term> t = q.length() >= 2 ?
-                        dict.get().search(q, 50) :
+                final List<Term> t = qry.length() >= 2 ?
+                        dict.get().search(qry, 50) :
                         Collections.<Term>emptyList();
                 runOnUiThread(new Runnable() {
                     @Override
