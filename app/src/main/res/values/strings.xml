@@ -5,5 +5,5 @@
     <string name="close_button">Close</string>
     <string name="feedback_subject">Feedback on %s</string>
     <string name="type_feedback_here">TYPE FEEDBACK HERE</string>
-    <string name="main_help_text">Type \'th\' for \'þ\' or \'ð\', and \'ae\' for \'æ\'. You can search for Anglo-Saxon words, Modern English words, and abbreviations. Got ideas for how to make the app better? Please let me know by selecting Feedback in the ⋮ menu.</string>
+    <string name="main_help_text">Type \'th\' for \'þ\' or \'ð\', and \'ae\' for \'æ\'. You can search for Anglo-Saxon and Modern English words.</string>
 </resources>
