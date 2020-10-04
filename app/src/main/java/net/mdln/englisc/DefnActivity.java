@@ -61,6 +61,7 @@ public class DefnActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         WebView.setWebContentsDebuggingEnabled(true);
         WebView content = findViewById(R.id.defn_content);
+        content.setBackgroundColor(android.graphics.Color.TRANSPARENT);  // Otherwise it flashes white before rendering in dark mode.
         content.getSettings().setJavaScriptEnabled(BuildConfig.DEBUG); // Espresso needs JavaScript.
 
         String cssBlock = "<style type=\"text/css\">" + Streams.readUtf8Resource(this, R.raw.defn) + "</style>";
