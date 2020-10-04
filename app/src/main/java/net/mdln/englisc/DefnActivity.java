@@ -3,7 +3,6 @@ package net.mdln.englisc;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
@@ -64,8 +63,7 @@ public class DefnActivity extends AppCompatActivity {
         WebView content = findViewById(R.id.defn_content);
         content.getSettings().setJavaScriptEnabled(BuildConfig.DEBUG); // Espresso needs JavaScript.
 
-        String css = Streams.readUtf8Resource(this, R.raw.defn);
-        String cssBlock = "<style type=\"text/css\">" + Html.escapeHtml(css) + "</style>";
+        String cssBlock = "<style type=\"text/css\">" + Streams.readUtf8Resource(this, R.raw.defn) + "</style>";
         String encodedHtml = Base64.encodeToString((cssBlock + term.html()).getBytes(), Base64.NO_PADDING);
         content.loadData(encodedHtml, "text/html", "base64");
 

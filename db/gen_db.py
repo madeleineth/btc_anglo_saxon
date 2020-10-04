@@ -13,7 +13,7 @@ import re
 import sqlite3
 
 from abbrevs import Abbrev, read_abbrevs
-from normalize import ascify
+from normalize import acute_to_macron_in_nonitalic, ascify
 
 # This can be made more rigorous, but these are words appearing at least 50
 # times in Beowulf.
@@ -301,21 +301,25 @@ def compile_linkify_regex(abbrevs: Iterable[str], min_len: int) -> Any:
     return re.compile(r'(<[BI]>.*?</[BI]>|\b(%s)|[-\w]{%d,})' % (ab, min_len))
 
 
-def linkify_defns(db: Connection, term_nid: Dict[str, int],
-                  abbrevs: Iterable[str]) -> None:
+def linkify_and_normalize_defns(db: Connection, term_nid: Dict[str, int],
+                                abbrevs: Iterable[str]) -> None:
     """Replace the `html` column of `defns` in `db` with linkified entries.
 
     `term_nid` has the link information. `abbrevs` is a list of abbreviations;
     it is used when generating a regex so that it can match multi-word terms.
+
+    Also convert acute accents in nonitalic text to macrons to match current
+    usage.
     """
     logging.info('Linkifying definitions...')
-    new_defn = {}
+    new_defn: Dict[int, str] = {}
     c = db.cursor()
     c.execute('SELECT nid, html FROM defns')
     rex = compile_linkify_regex(abbrevs, min_len=4)
     for row in c:
         nid = int(row[0])
-        new_defn[nid] = linkify(row[1], term_nid, rex, nid, skip=40)
+        linkified = linkify(row[1], term_nid, rex, nid, skip=40)
+        new_defn[nid] = acute_to_macron_in_nonitalic(linkified)
     logging.info('Writing linkified definitions...')
     for n, d in new_defn.items():
         c.execute('UPDATE defns SET html = ? WHERE nid = ?', (d, n))
@@ -357,7 +361,7 @@ def main() -> None:
     for w in exclude_words:
         if w in term_nid:
             del term_nid[w]
-    linkify_defns(db, term_nid, abbrev_nid.keys())
+    linkify_and_normalize_defns(db, term_nid, abbrev_nid.keys())
 
     # Create `defn_content` and `defn_idx`, full-text-indexed versions of the
     # dictionary.

@@ -213,3 +213,20 @@ def ascify(s: str) -> str:
     s = re.sub('[^a-z ]', '', s)
     s = re.sub('[^a-z]+', ' ', s).strip()
     return s
+
+
+def acute_to_macron(s: str) -> str:
+    s = unicodedata.normalize('NFKD', s)
+    s = s.replace('\u0301', '\u0304')
+    s = unicodedata.normalize('NFKC', s)
+    return s
+
+
+def acute_to_macron_in_nonitalic(text: str) -> str:
+    # Map text like 'foo<I>bar</I>baz' to ['foo', '<I>bar</I>', 'baz']
+    groups = re.split(r'(<I>.*?</I>)', text, flags=re.DOTALL)
+    # Remove macrons only in the non-italic elements.
+    converted_groups = [
+        x if x.startswith('<I>') else acute_to_macron(x) for x in groups
+    ]
+    return ''.join(converted_groups)
