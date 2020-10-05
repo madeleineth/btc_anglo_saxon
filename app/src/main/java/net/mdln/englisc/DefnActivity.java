@@ -1,6 +1,7 @@
 package net.mdln.englisc;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,11 +17,13 @@ import org.jetbrains.annotations.NotNull;
 /**
  * An activity for viewing definitions. In the intent that starts it, it must be passed
  * {@link #EXTRA_BTC_URL}, which is of the form https://btc.invalid/N where N is the nid of the
- * term. The weird URL format is to ensure Android's WebView triggers a navigation.
+ * term. The weird URL format is to ensure Android's WebView triggers a navigation. (As a hack,
+ * {@link #BTC_ABOUT_URL} lets us use this Activity for showing the "About" content.)
  */
 public class DefnActivity extends AppCompatActivity {
     static final String EXTRA_BTC_URL = "net.mdln.englisc.DefnActivity.BTC_URL";
     static final String BTC_URL_PREFIX = "https://btc.invalid/";
+    static final String BTC_ABOUT_URL = BTC_URL_PREFIX + "about";
     private LazyDict dict;
     private Term term;
 
@@ -48,7 +51,12 @@ public class DefnActivity extends AppCompatActivity {
             throw new RuntimeException("expected " + EXTRA_BTC_URL);
         }
         dict = new LazyDict(this);
-        term = dict.get().loadNid(urlToNid(btcUrl));
+        if (btcUrl.equals(BTC_ABOUT_URL)) {
+            term = fakeAboutTerm();
+        } else {
+            int nid = urlToNid(btcUrl);
+            term = dict.get().loadNid(nid);
+        }
 
         setContentView(R.layout.activity_defn);
         Toolbar toolbar = findViewById(R.id.defn_toolbar);
@@ -69,11 +77,25 @@ public class DefnActivity extends AppCompatActivity {
                     intent.putExtra(DefnActivity.EXTRA_BTC_URL, url);
                     DefnActivity.this.startActivity(intent);
                     return true;
-                } else {
+                } else if (url.startsWith("data:")) {
                     return false;
+                } else {
+                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                    intent.setData(Uri.parse(url));
+                    startActivity(intent);
+                    return true;
                 }
             }
         });
+    }
+
+    /**
+     * Returns a fake {@link Term} that represents the "About" page.
+     */
+    private Term fakeAboutTerm() {
+        String html = Streams.readUtf8Resource(this, R.raw.about);
+        String title = this.getString(R.string.about_page_title);
+        return Term.create(title, html, 0 /* invalid nid */, 0.0 /* score */);
     }
 
     @Override

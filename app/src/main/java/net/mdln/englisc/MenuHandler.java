@@ -25,8 +25,9 @@ final class MenuHandler {
     boolean handleSelection(@NotNull MenuItem item, String contextString) {
         switch (item.getItemId()) {
             case R.id.main_menu_info:
-                String info = Streams.readUtf8Resource(activity, R.raw.info);
-                HtmlDialog.create(activity, activity.getString(R.string.long_app_name), info);
+                Intent intent = new Intent(activity, DefnActivity.class);
+                intent.putExtra(DefnActivity.EXTRA_BTC_URL, DefnActivity.BTC_ABOUT_URL);
+                activity.startActivity(intent);
                 return true;
             case R.id.main_menu_feedback:
                 sendFeedback(contextString);
