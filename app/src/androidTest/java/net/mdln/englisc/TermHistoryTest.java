@@ -19,6 +19,7 @@ public class TermHistoryTest {
         try (TermHistory history = new TermHistory(ctx, TermHistory.Location.IN_MEMORY, 0)) {
             history.recordId(100, 1000);
             history.recordId(101, 1001);
+            history.recordId(101, 1002);
             Set<Integer> expectedIds = new HashSet();
             assertEquals(expectedIds, history.getIds(0));
             expectedIds.add(101);
