@@ -33,7 +33,7 @@ public class TermHistory implements AutoCloseable {
     Set<Integer> getIds(int limit) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
         Set<Integer> ids = new HashSet<>();
-        String sql = "SELECT nid FROM history ORDER BY timestamp_secs DESC LIMIT " + limit;
+        String sql = "SELECT DISTINCT nid FROM history ORDER BY timestamp_secs DESC LIMIT " + limit;
         try (Cursor cursor = db.rawQuery(sql, new String[]{})) {
             while (cursor.moveToNext()) {
                 ids.add(cursor.getInt(0));
