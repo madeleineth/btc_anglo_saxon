@@ -1,6 +1,5 @@
 package net.mdln.englisc;
 
-import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,13 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.Collator;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private LazyDict dict = null;
     private ResultsAdapter results = null;
     private SearchView search = null;
+    private TermHistory history = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
 
         dict = new LazyDict(this);
+        long tenDaysAgoMillis = System.currentTimeMillis() - 10 * 24 * 3600 * 1000;
+        history = new TermHistory(this, TermHistory.Location.ON_DISK, tenDaysAgoMillis);
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -55,11 +61,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
         search.requestFocus();
+        searchInBackground();  // to show terms from the history
     }
 
     @Override
     protected void onDestroy() {
-        dict.close();
+        if (dict != null) {
+            dict.close();
+        }
+        if (history != null) {
+            history.close();
+        }
         super.onDestroy();
     }
 
@@ -78,23 +90,51 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @SuppressLint("StaticFieldLeak")
     private void searchInBackground() {
         // Get this on the UI thread because SearchView.getQuery is not thread-safe.
         final String qry = search.getQuery().toString();
         AsyncTask.execute(new Runnable() {
+            private List<Term> getTerms() {
+                // running off the UI thread
+                if (qry.length() >= 2) {
+                    return dict.get().search(qry, 50);
+                } else if (qry.length() == 0) {
+                    return historyTerms();
+                } else {
+                    return Collections.emptyList();
+                }
+            }
+
             @Override
             public void run() {
-                final List<Term> t = qry.length() >= 2 ?
-                        dict.get().search(qry, 50) :
-                        Collections.<Term>emptyList();
+                final List<Term> t = getTerms();
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         results.setTerms(t);
+                        // Show or hide the "recent:" label.
+                        String q = ((SearchView) findViewById(R.id.searchView)).getQuery().toString();
+                        boolean historyActive = q.equals("") && results.getItemCount() > 0;
+                        findViewById(R.id.recentLabel).setVisibility(historyActive ? View.VISIBLE : View.GONE);
                     }
                 });
             }
         });
+    }
+
+    private List<Term> historyTerms() {
+        List<Term> terms = new ArrayList<>();
+        for (int nid : history.getIds(5)) {
+            terms.add(dict.get().loadNid(nid));
+        }
+        // Sort alphabetically by term title.
+        final Collator coll = Collator.getInstance(new Locale("ANG"));
+        Collections.sort(terms, new Comparator<Term>() {
+            @Override
+            public int compare(Term a, Term b) {
+                return coll.compare(a.title(), b.title());
+            }
+        });
+        return terms;
     }
 }
