@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Anglo-Saxon</string>
     <string name="long_app_name">Bosworth–Toller/Charles Anglo-Saxon Dictionary</string>
+    <string name="about_page_title">Bosworth–Toller/Charles</string>
     <string name="feedback_email">anglosaxon@mdln.net</string>
     <string name="close_button">Close</string>
     <string name="feedback_subject">Feedback on %s</string>

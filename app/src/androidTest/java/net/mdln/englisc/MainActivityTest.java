@@ -17,7 +17,6 @@ import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
-import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
@@ -65,6 +64,7 @@ public class MainActivityTest {
         Context ctx = InstrumentationRegistry.getInstrumentation().getTargetContext();
         openActionBarOverflowOrOptionsMenu(ctx);
         onView(withText("About")).perform(click());
-        onView(withText("Close")).inRoot(isDialog()).perform(click());
+        onWebView().withElement(findElement(Locator.TAG_NAME, "body")).check(
+                webMatches(getText(), containsString("Joseph Bosworth")));
     }
 }
