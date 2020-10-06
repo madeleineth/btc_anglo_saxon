@@ -14,12 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private LazyDict dict = null;
@@ -36,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         // We specify search results to the RecyclerView by calling `results.setTerms(...)`.
         results = new ResultsAdapter();
-        RecyclerView rv = findViewById(R.id.recyclerView);
+        RecyclerView rv = findViewById(R.id.search_results);
         rv.setAdapter(results);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
@@ -123,18 +120,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Term> historyTerms() {
+        final int numHistoryTermsToShow =  20;
         List<Term> terms = new ArrayList<>();
-        for (int nid : history.getIds(5)) {
+        for (int nid : history.getIds(numHistoryTermsToShow)) {
             terms.add(dict.get().loadNid(nid));
         }
-        // Sort alphabetically by term title.
-        final Collator coll = Collator.getInstance(new Locale("ANG"));
-        Collections.sort(terms, new Comparator<Term>() {
-            @Override
-            public int compare(Term a, Term b) {
-                return coll.compare(a.title(), b.title());
-            }
-        });
         return terms;
     }
 }

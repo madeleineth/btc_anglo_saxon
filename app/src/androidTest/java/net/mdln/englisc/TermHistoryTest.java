@@ -6,8 +6,8 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import org.junit.Test;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +20,7 @@ public class TermHistoryTest {
             history.recordId(100, 1000);
             history.recordId(101, 1001);
             history.recordId(101, 1002);
-            Set<Integer> expectedIds = new HashSet();
+            List<Integer> expectedIds = new ArrayList();
             assertEquals(expectedIds, history.getIds(0));
             expectedIds.add(101);
             assertEquals(expectedIds, history.getIds(1));
