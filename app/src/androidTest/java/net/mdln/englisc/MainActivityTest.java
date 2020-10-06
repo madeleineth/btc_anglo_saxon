@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.web.webdriver.Locator;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -17,6 +18,8 @@ import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
@@ -56,6 +59,9 @@ public class MainActivityTest {
         onView(allOf(
                 isAssignableFrom(ImageButton.class),
                 withParent(isAssignableFrom(Toolbar.class)))).perform(click());
+        // The last item we viewed was "Mt." Check that it's the first item in the history list.
+        onView(withId(R.id.search_results)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.defn_toolbar)).check(matches(hasDescendant(withText("Mt."))));
     }
 
     @Test

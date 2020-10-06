@@ -8,8 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Keeps track of term ids viewed and their timestamps so we can show recently viewed items
@@ -30,10 +30,11 @@ public class TermHistory implements AutoCloseable {
         databaseHelper.getWritableDatabase().execSQL(sql, new Object[]{nid, timeMillis / 1000.0});
     }
 
-    Set<Integer> getIds(int limit) {
+    List<Integer> getIds(int limit) {
         SQLiteDatabase db = databaseHelper.getReadableDatabase();
-        Set<Integer> ids = new HashSet<>();
-        String sql = "SELECT DISTINCT nid FROM history ORDER BY timestamp_secs DESC LIMIT " + limit;
+        List<Integer> ids = new ArrayList<>();
+        String sql = "SELECT nid FROM ( SELECT nid, MAX(timestamp_secs) AS t FROM history GROUP by nid ) AS tb " +
+                "ORDER BY t DESC LIMIT " + limit;
         try (Cursor cursor = db.rawQuery(sql, new String[]{})) {
             while (cursor.moveToNext()) {
                 ids.add(cursor.getInt(0));
