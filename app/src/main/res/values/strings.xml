@@ -8,4 +8,5 @@
     <string name="type_feedback_here">TYPE FEEDBACK HERE</string>
     <string name="main_help_text">Type \'th\' for \'þ\' or \'ð\', and \'ae\' for \'æ\'. You can search for Anglo-Saxon and Modern English words.</string>
     <string name="recent_label_text">recent:</string>
+    <string name="search_results_label">search results</string>
 </resources>

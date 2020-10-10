@@ -21,7 +21,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private LazyDict dict = null;
     private ResultsAdapter results = null;
-    private SearchView search = null;
+    private SearchView searchBox = null;
     private TermHistory history = null;
 
     @Override
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-        search = findViewById(R.id.searchView);
+        searchBox = findViewById(R.id.search_box);
 
         // We specify search results to the RecyclerView by calling `results.setTerms(...)`.
         results = new ResultsAdapter();
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         long tenDaysAgoMillis = System.currentTimeMillis() - 10 * 24 * 3600 * 1000;
         history = new TermHistory(this, TermHistory.Location.ON_DISK, tenDaysAgoMillis);
 
-        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        searchBox.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextChange(String text) {
                 // Hide the help text when there is a query, so that it doesn't steal useful screen real estate.
@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-
-        search.requestFocus();
-        searchInBackground();  // to show terms from the history
     }
 
     @Override
@@ -73,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        searchBox.requestFocus();
+        searchInBackground();  // to update terms from the history, if necessary
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
@@ -80,16 +84,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NotNull MenuItem item) {
-        if (new MenuHandler(this).handleSelection(item, "Current search text: " + search.getQuery().toString())) {
+        if (new MenuHandler(this).handleSelection(item, "Current search text: " + searchBox.getQuery().toString())) {
             return true;
         } else {
             return super.onOptionsItemSelected(item);
         }
     }
 
+
     private void searchInBackground() {
         // Get this on the UI thread because SearchView.getQuery is not thread-safe.
-        final String qry = search.getQuery().toString();
+        final String qry = searchBox.getQuery().toString();
         AsyncTask.execute(new Runnable() {
             private List<Term> getTerms() {
                 // running off the UI thread
@@ -110,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         results.setTerms(t);
                         // Show or hide the "recent:" label.
-                        String q = ((SearchView) findViewById(R.id.searchView)).getQuery().toString();
+                        String q = ((SearchView) findViewById(R.id.search_box)).getQuery().toString();
                         boolean historyActive = q.equals("") && results.getItemCount() > 0;
                         findViewById(R.id.recentLabel).setVisibility(historyActive ? View.VISIBLE : View.GONE);
                     }
@@ -120,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Term> historyTerms() {
-        final int numHistoryTermsToShow =  20;
+        final int numHistoryTermsToShow = 20;
         List<Term> terms = new ArrayList<>();
         for (int nid : history.getIds(numHistoryTermsToShow)) {
             terms.add(dict.get().loadNid(nid));
