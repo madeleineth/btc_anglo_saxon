@@ -5,7 +5,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.test.espresso.contrib.RecyclerViewActions;
 import androidx.test.espresso.web.webdriver.Locator;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -15,11 +14,11 @@ import org.junit.Test;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.hasDescendant;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
@@ -59,9 +58,10 @@ public class MainActivityTest {
         onView(allOf(
                 isAssignableFrom(ImageButton.class),
                 withParent(isAssignableFrom(Toolbar.class)))).perform(click());
-        // The last item we viewed was "Mt." Check that it's the first item in the history list.
-        onView(withId(R.id.search_results)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
-        onView(withId(R.id.defn_toolbar)).check(matches(hasDescendant(withText("Mt."))));
+        // The last item we viewed was "Mt." Clear the search box so that we see history and check
+        // that it's the first item in the history list.
+        onView(isAssignableFrom(EditText.class)).perform(clearText());
+        onView(new RecyclerViewMatcher(R.id.search_results).atPosition(0)).check(matches(withText(containsString("Mt."))));
     }
 
     @Test
