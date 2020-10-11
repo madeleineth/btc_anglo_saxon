@@ -14,6 +14,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 /**
  * An activity for viewing definitions. In the intent that starts it, it must be passed
  * {@link #EXTRA_BTC_URL}, which is of the form https://btc.invalid/N where N is the nid of the
@@ -66,7 +68,7 @@ public class DefnActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.defn_toolbar);
         toolbar.setTitle(term.title());
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         WebView.setWebContentsDebuggingEnabled(true);
         WebView content = findViewById(R.id.defn_content);
         WebViewStyle.apply(this, content, term.html());

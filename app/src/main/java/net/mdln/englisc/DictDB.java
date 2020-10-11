@@ -11,11 +11,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * A factory class for the SQLiteDatabase embedded as the "dictdb" resource. See the "get" method for details.
  */
 final class DictDB {
+    // This keeps us from interleaving expansions of resources.
+    private static final ReentrantLock lock = new ReentrantLock();
+
     private DictDB() {
     }
 
@@ -66,13 +70,18 @@ final class DictDB {
     static SQLiteDatabase get(Context appCtx) {
         File dictDBPath = new File(appCtx.getNoBackupFilesDir(), "dict.db");
         File revPath = new File(appCtx.getNoBackupFilesDir(), "dict.rev");
-        if (!dictDBPath.canRead() || !revPath.canRead() || needsCopy(appCtx, revPath)) {
-            long startCopyMillis = System.currentTimeMillis();
-            copyResourceToFile(appCtx, R.raw.dictdb, dictDBPath);
-            copyResourceToFile(appCtx, R.raw.dictdb_rev, revPath);
-            long copyMillis = System.currentTimeMillis() - startCopyMillis;
-            Log.i("DictDB", "Installed new dictionary at '" + dictDBPath + "' in " + copyMillis + "ms." );
+        try {
+            lock.lock();
+            if (!dictDBPath.canRead() || !revPath.canRead() || needsCopy(appCtx, revPath)) {
+                long startCopyMillis = System.currentTimeMillis();
+                copyResourceToFile(appCtx, R.raw.dictdb, dictDBPath);
+                copyResourceToFile(appCtx, R.raw.dictdb_rev, revPath);
+                long copyMillis = System.currentTimeMillis() - startCopyMillis;
+                Log.i("DictDB", "Installed new dictionary at '" + dictDBPath + "' in " + copyMillis + "ms.");
+            }
+            return SQLiteDatabase.openDatabase(dictDBPath.toString(), null, SQLiteDatabase.OPEN_READONLY);
+        } finally {
+            lock.unlock();
         }
-        return SQLiteDatabase.openDatabase(dictDBPath.toString(), null, SQLiteDatabase.OPEN_READONLY);
     }
 }

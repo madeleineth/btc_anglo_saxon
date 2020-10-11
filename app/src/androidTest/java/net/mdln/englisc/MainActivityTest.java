@@ -47,8 +47,10 @@ public class MainActivityTest {
         // "forthmesto" into it. This term is only notable for having a single result, which
         // contains a clickable abbreviation.
         onView(isAssignableFrom(EditText.class)).perform(typeText("forthmesto"), closeSoftKeyboard());
-        // Click on the one search result.
-        onView(withId(R.id.results_row)).perform(click());
+        // Check that the search result has the right text and click on it.
+        onView(new RecyclerViewMatcher(R.id.search_results).atPosition(0))
+                .check(matches(withText(containsString("forþmest"))))
+                .perform(click());
         // In the definition of "forthmesto", click on the abbreviation, "Mt."
         onWebView().withElement(findElement(Locator.LINK_TEXT, "Mt.")).perform(webClick());
         // Check that the screen for "Mt." comes up.

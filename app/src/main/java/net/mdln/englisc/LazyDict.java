@@ -2,9 +2,12 @@ package net.mdln.englisc;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.AsyncTask;
 
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * We may need to copy a large dictionary resource to the file system before we can use a Dict,
@@ -13,16 +16,18 @@ import java.util.concurrent.ExecutionException;
  * is not ready yet.
  */
 class LazyDict implements AutoCloseable {
-    private AsyncTask<?, ?, Dict> dict;
+    private final Future<Dict> dict;
 
     @SuppressLint("StaticFieldLeak")
     LazyDict(final Context ctx) {
-        dict = (new AsyncTask<Void, Void, Dict>() {
+        ExecutorService ex = Executors.newSingleThreadExecutor();
+        dict = ex.submit(new Callable<Dict>() {
             @Override
-            protected Dict doInBackground(Void... params) {
+            public Dict call() {
                 return new Dict(DictDB.get(ctx));
             }
-        }).execute();
+        });
+        ex.shutdown();
     }
 
     /**

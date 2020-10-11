@@ -59,7 +59,7 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
     /**
      * A single row in the search results RecyclerView, representing a single {@link Term}.
      */
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView view;
         private Term term = null;
 

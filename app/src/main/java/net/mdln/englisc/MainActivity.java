@@ -1,6 +1,5 @@
 package net.mdln.englisc;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +16,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
     private LazyDict dict = null;
@@ -95,7 +96,8 @@ public class MainActivity extends AppCompatActivity {
     private void searchInBackground() {
         // Get this on the UI thread because SearchView.getQuery is not thread-safe.
         final String qry = searchBox.getQuery().toString();
-        AsyncTask.execute(new Runnable() {
+        ExecutorService ex = Executors.newSingleThreadExecutor();
+        ex.submit(new Runnable() {
             private List<Term> getTerms() {
                 // running off the UI thread
                 if (qry.length() >= 2) {
@@ -122,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
+        ex.shutdown();
     }
 
     private List<Term> historyTerms() {
