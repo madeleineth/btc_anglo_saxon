@@ -28,7 +28,8 @@ public class WebViewStyle {
     }
 
     private static String styledHtml(Activity activity, String html, boolean night) {
-        String headBlock = "<head><style type=\"text/css\">" + Streams.readUtf8Resource(activity, R.raw.defn) + "</style></head>";
+        String headBlock = "<head><meta charset=\"utf-8\"><style type=\"text/css\">" +
+                Streams.readUtf8Resource(activity, R.raw.defn) + "</style></head>";
         String styleClass = night ? "dark" : "light";
         String bodyBlock = "<body class=\"" + styleClass + "\">" + html + "</body>";
         return "<html>" + headBlock + bodyBlock + "</html>";
