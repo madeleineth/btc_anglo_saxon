@@ -67,9 +67,11 @@ final class DictDB {
         File dictDBPath = new File(appCtx.getNoBackupFilesDir(), "dict.db");
         File revPath = new File(appCtx.getNoBackupFilesDir(), "dict.rev");
         if (!dictDBPath.canRead() || !revPath.canRead() || needsCopy(appCtx, revPath)) {
+            long startCopyMillis = System.currentTimeMillis();
             copyResourceToFile(appCtx, R.raw.dictdb, dictDBPath);
             copyResourceToFile(appCtx, R.raw.dictdb_rev, revPath);
-            Log.i("DictDB", "Installed new dictionary at '" + dictDBPath + "'");
+            long copyMillis = System.currentTimeMillis() - startCopyMillis;
+            Log.i("DictDB", "Installed new dictionary at '" + dictDBPath + "' in " + copyMillis + "ms." );
         }
         return SQLiteDatabase.openDatabase(dictDBPath.toString(), null, SQLiteDatabase.OPEN_READONLY);
     }
