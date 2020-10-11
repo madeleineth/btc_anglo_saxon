@@ -82,10 +82,10 @@ final class Dict implements AutoCloseable {
         ArrayList<MatchOffset> ret = new ArrayList<>();
         for (int i = 0; i < e.length; i += 4) {
             MatchOffset off = MatchOffset.create(
-                    Integer.valueOf(e[i]),
-                    Integer.valueOf(e[i + 1]),
-                    Integer.valueOf(e[i + 2]),
-                    Integer.valueOf(e[i + 3]));
+                    Integer.parseInt(e[i]),
+                    Integer.parseInt(e[i + 1]),
+                    Integer.parseInt(e[i + 2]),
+                    Integer.parseInt(e[i + 3]));
             ret.add(off);
         }
         return ret;

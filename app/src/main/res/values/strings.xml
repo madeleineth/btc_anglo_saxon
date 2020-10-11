@@ -3,10 +3,11 @@
     <string name="long_app_name">Bosworth–Toller/Charles Anglo-Saxon Dictionary</string>
     <string name="about_page_title">Bosworth–Toller/Charles</string>
     <string name="feedback_email">anglosaxon@mdln.net</string>
-    <string name="close_button">Close</string>
     <string name="feedback_subject">Feedback on %s</string>
     <string name="type_feedback_here">TYPE FEEDBACK HERE</string>
     <string name="main_help_text">Type \'th\' for \'þ\' or \'ð\', and \'ae\' for \'æ\'. You can search for Anglo-Saxon and Modern English words.</string>
     <string name="recent_label_text">recent:</string>
     <string name="search_results_label">search results</string>
+    <string name="about">About</string>
+    <string name="feedback">Feedback</string>
 </resources>
