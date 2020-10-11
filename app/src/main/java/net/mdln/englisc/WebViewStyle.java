@@ -21,15 +21,14 @@ public class WebViewStyle {
         view.getSettings().setJavaScriptEnabled(BuildConfig.DEBUG); // Espresso needs JavaScript.
         boolean night = inNightMode(activity);
         String encodedHtml = Base64.encodeToString(styledHtml(activity, html, night).getBytes(), Base64.NO_PADDING);
-        view.loadData(encodedHtml, "text/html", "base64");
+        view.loadData(encodedHtml, "text/html; charset=utf-8", "base64");
         if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && night) {
             WebSettingsCompat.setForceDark(view.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
         }
     }
 
     private static String styledHtml(Activity activity, String html, boolean night) {
-        String headBlock = "<head><meta charset=\"utf-8\"><style type=\"text/css\">" +
-                Streams.readUtf8Resource(activity, R.raw.defn) + "</style></head>";
+        String headBlock = "<head><style type=\"text/css\">" + Streams.readUtf8Resource(activity, R.raw.defn) + "</style></head>";
         String styleClass = night ? "dark" : "light";
         String bodyBlock = "<body class=\"" + styleClass + "\">" + html + "</body>";
         return "<html>" + headBlock + bodyBlock + "</html>";
