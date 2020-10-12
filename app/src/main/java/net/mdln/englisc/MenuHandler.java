@@ -38,17 +38,16 @@ final class MenuHandler {
     }
 
     private void sendFeedback(String contextString) {
-        Uri uri = Uri.parse("mailto:" + activity.getString(R.string.feedback_email));
         String body = activity.getString(R.string.type_feedback_here) + "\n\n" +
                 "Hardware: " + Build.BRAND + " / " + Build.MODEL + "\n" +
                 "Android version: " + Build.VERSION.RELEASE + "\n" +
                 "App version: " + BuildConfig.VERSION_NAME + "\n" +
                 contextString;
-        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, uri);
         String subject = String.format(activity.getString(R.string.feedback_subject), activity.getString(R.string.long_app_name));
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        emailIntent.putExtra(Intent.EXTRA_TEXT, body);
-        activity.startActivity(Intent.createChooser(emailIntent, "Send feedback email..."));
+        String mailto = "mailto:" + activity.getString(R.string.feedback_email) +
+                "?subject=" + Uri.encode(subject) + "&body=" + Uri.encode(body);
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse(mailto));
+        activity.startActivity(emailIntent);
     }
 
 }
