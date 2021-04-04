@@ -1,6 +1,7 @@
 package net.mdln.englisc;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,10 +19,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
     private final AtomicInteger numPendingSearches = new AtomicInteger(0);
+    // `readySemaphore` is has one permit when `dict` and `history` are valid but not in active use.
+    // This way, `onDestroy` can wait to close them if they're in use by `getTerms` on another thread.
+    private final Semaphore readySemaphore = new Semaphore(0);
     private LazyDict dict = null;
     private ResultsAdapter results = null;
     private SearchView searchBox = null;
@@ -60,10 +65,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+        readySemaphore.release();
     }
 
     @Override
     protected void onDestroy() {
+        // Wait for all pending searches to complete so that they don't use closed resources.
+        readySemaphore.acquireUninterruptibly();
         if (dict != null) {
             dict.close();
         }
@@ -115,7 +123,17 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-                final List<Term> t = getTerms();
+                boolean wasReady = readySemaphore.tryAcquire();
+                if (!wasReady) {
+                    Log.w("MainActivity", "Aborting search because Activity was not ready.");
+                    return;
+                }
+                final List<Term> t;
+                try {
+                    t = getTerms();
+                } finally {
+                    readySemaphore.release();
+                }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
