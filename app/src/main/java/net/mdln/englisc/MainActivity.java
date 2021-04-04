@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void searchInBackground() {
         numPendingSearches.incrementAndGet();
         // Get this on the UI thread because SearchView.getQuery is not thread-safe.
