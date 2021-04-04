@@ -18,12 +18,15 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
+    private final AtomicInteger numPendingSearches = new AtomicInteger(0);
     private LazyDict dict = null;
     private ResultsAdapter results = null;
     private SearchView searchBox = null;
     private TermHistory history = null;
+    private Runnable searchFinishedCallback = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void searchInBackground() {
+        numPendingSearches.incrementAndGet();
         // Get this on the UI thread because SearchView.getQuery is not thread-safe.
         final String qry = searchBox.getQuery().toString();
         ExecutorService ex = Executors.newSingleThreadExecutor();
@@ -120,6 +124,10 @@ public class MainActivity extends AppCompatActivity {
                         String q = ((SearchView) findViewById(R.id.search_box)).getQuery().toString();
                         boolean historyActive = q.equals("") && results.getItemCount() > 0;
                         findViewById(R.id.recentLabel).setVisibility(historyActive ? View.VISIBLE : View.GONE);
+                        numPendingSearches.decrementAndGet();
+                        if (searchFinishedCallback != null) {
+                            searchFinishedCallback.run();
+                        }
                     }
                 });
             }
@@ -134,5 +142,19 @@ public class MainActivity extends AppCompatActivity {
             terms.add(dict.get().loadNid(nid));
         }
         return terms;
+    }
+
+    int pendingSearches() {
+        return numPendingSearches.get();
+    }
+
+    /**
+     * Registers {@code fn} to be called whenever a search finishes.
+     */
+    void onSearchFinished(Runnable fn) {
+        if (searchFinishedCallback != null) {
+            throw new RuntimeException("Only one search-finished callback may be specified.");
+        }
+        searchFinishedCallback = fn;
     }
 }

@@ -5,6 +5,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.test.espresso.IdlingRegistry;
 import androidx.test.espresso.web.webdriver.Locator;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -42,6 +43,7 @@ public class MainActivityTest {
      */
     @Test
     public void searchForAWord() {
+        IdlingRegistry.getInstance().register(new SearchPendingIdlingResource(activityRule.getActivity()));
         // SearchView has an opaque hierarchy, but there's only one EditText in it, so type
         // "forthmesto" into it. This term is only notable for having a single result, which
         // contains a clickable abbreviation.
