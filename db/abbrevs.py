@@ -3,9 +3,12 @@ import xml.etree.ElementTree as ET
 
 import normalize
 
-Abbrev = NamedTuple('Abbrev', [('spellouts', List[str]), ('heading', str),
-                               ('body', str)])
-"""Python representation of an entry in oebt_abbreviations.xml."""
+
+class Abbrev(NamedTuple):
+    """Python representation of an entry in oebt_abbreviations.xml."""
+    spellouts: List[str]
+    heading: str
+    body: str
 
 
 def read_abbrevs(abbrevs: IO[str]) -> List[Abbrev]:

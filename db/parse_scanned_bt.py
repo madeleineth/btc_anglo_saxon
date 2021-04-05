@@ -51,8 +51,10 @@ HEADWORD_SPECIAL_CASES = {
     '<B>Ó</B> <I>ever.</I>': 'a',
     '<B>ī.</B> es; <I>m. A letter</I>': 'i',
     '<B>á</B> = on :-- Á felda': 'a',
-    '<B>á</B> <I>ever.</I> <B>B.': 'a'
+    '<B>á</B> <I>ever.</I> <B>B.': 'a',
 }
+
+TYPOS = {'<B>[soulan, sceolan]</B>': '<B>sculan, sceolan</B>'}
 
 
 class S(Enum):
@@ -63,7 +65,9 @@ class S(Enum):
     PAGE_BREAK = 4  # after page break, which may or may not separate entries
 
 
-Entry = NamedTuple('Entry', [('headwords', Set[str]), ('defns', List[str])])
+class Entry(NamedTuple):
+    headwords: Set[str]
+    defns: List[str]
 
 
 def read_entries(in_file: Iterable[str]) -> List[str]:
@@ -79,6 +83,8 @@ def read_entries(in_file: Iterable[str]) -> List[str]:
     for line in in_file:
         n += 1
         line = line.strip()
+        for from_str, to_str in TYPOS.items():
+            line = line.replace(from_str, to_str)
         # If we're in the intro or a break, and we see an entry start,
         # start accumulating it into `partial`.
         if line.startswith('<B>') and n not in NOT_AN_ENTRY:
@@ -176,7 +182,7 @@ def collect_entries(entries: Iterable[str]) -> Dict[str, Entry]:
     that normalization, and a list of the HTML definitions associated with
     them.
     """
-    collected = defaultdict(lambda: Entry(set(), []))  # type: Dict[str, Entry]
+    collected: Dict[str, Entry] = defaultdict(lambda: Entry(set(), []))
     for e in entries:
         e = normalize.fix_entities(e)
         headwords = extract_headwords(e)
