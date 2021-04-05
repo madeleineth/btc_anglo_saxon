@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -69,12 +71,13 @@ public class DefnActivity extends AppCompatActivity {
         toolbar.setTitle(term.title());
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        WebView.setWebContentsDebuggingEnabled(true);
-        WebView content = findViewById(R.id.defn_content);
-        WebViewStyle.apply(this, content, term.html());
 
+        WebView.setWebContentsDebuggingEnabled(true);
+        final WebView content = findViewById(R.id.defn_content);
+        WebViewStyle.apply(this, content, term.html());
         content.setWebViewClient(new WebViewClient() {
             // Don't use the WebResourceRequest version of shouldOverrideUrlLoading; it doesn't work before API 24.
+            @SuppressWarnings("deprecation")
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 if (url.startsWith(BTC_URL_PREFIX)) {
@@ -93,6 +96,28 @@ public class DefnActivity extends AppCompatActivity {
                 }
             }
         });
+
+        final SearchView search = findViewById(R.id.defn_search);
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                content.findNext(true);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String searchText) {
+                content.findAllAsync(searchText);
+                return true;
+            }
+        });
+        search.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                search.setVisibility(View.GONE);
+                return false;
+            }
+        });
     }
 
     /**
@@ -107,6 +132,7 @@ public class DefnActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.main_menu_find).setVisible(true);
         return true;
     }
 
@@ -131,5 +157,14 @@ public class DefnActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(intent);
         return false;
+    }
+
+    void toggleSearchBox() {
+        View view = findViewById(R.id.defn_search);
+        if (view.getVisibility() == View.VISIBLE) {
+            view.setVisibility(View.GONE);
+        } else {
+            view.setVisibility(View.VISIBLE);
+        }
     }
 }

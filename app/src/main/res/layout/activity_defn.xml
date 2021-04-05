@@ -22,6 +22,15 @@
             android:elevation="4dp"
             app:navigationIcon="@drawable/close" />
 
+        <SearchView
+            android:id="@+id/defn_search"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginBottom="4dp"
+            android:iconifiedByDefault="false"
+            android:visibility="gone" />
+
         <WebView
             android:id="@+id/defn_content"
             android:layout_width="fill_parent"

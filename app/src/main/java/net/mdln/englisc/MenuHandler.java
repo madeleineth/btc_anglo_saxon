@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.util.Log;
 import android.view.MenuItem;
 
 import org.jetbrains.annotations.NotNull;
@@ -32,6 +33,8 @@ final class MenuHandler {
             case R.id.main_menu_feedback:
                 sendFeedback(contextString);
                 return true;
+            case R.id.main_menu_find:
+                findInDefn();
             default:
                 return false;
         }
@@ -50,4 +53,11 @@ final class MenuHandler {
         activity.startActivity(emailIntent);
     }
 
+    private void findInDefn() {
+        if (!(activity instanceof DefnActivity)) {
+            Log.e("MenuHandler", "findInDefn called when the activity is not a DefnActivity.");
+            return;
+        }
+        ((DefnActivity) activity).toggleSearchBox();
+    }
 }
