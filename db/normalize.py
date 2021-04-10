@@ -1,6 +1,10 @@
 import unicodedata
 import re
 
+# Match bolded roman numerals that look like sense starts, not references to a
+# sense (which are preceded by "cf.").
+SENSE_START_REGEX = re.compile(r'(?<!cf\. )(<B> *[IVX]{1,4}\. *</B>)')
+
 
 def fix_entities(e: str) -> str:
     """Change XML entities used in raw BT data to regular unicode."""
@@ -230,3 +234,8 @@ def acute_to_macron_in_nonitalic(text: str) -> str:
         x if x.startswith('<I>') else acute_to_macron(x) for x in groups
     ]
     return ''.join(converted_groups)
+
+
+def split_senses_into_paragraphs(text: str) -> str:
+    """Insert paragraph tags (which auto-close) at the beginning of senses."""
+    return SENSE_START_REGEX.sub(r'<p>\1', text)

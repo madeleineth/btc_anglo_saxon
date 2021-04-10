@@ -13,7 +13,8 @@ import re
 import sqlite3
 
 from abbrevs import Abbrev, read_abbrevs
-from normalize import acute_to_macron_in_nonitalic, ascify
+from normalize import (acute_to_macron_in_nonitalic, ascify,
+                       split_senses_into_paragraphs)
 
 # This can be made more rigorous, but these are words appearing at least 50
 # times in Beowulf.
@@ -316,10 +317,12 @@ def linkify_and_normalize_defns(db: Connection, term_nid: Dict[str, int],
     c = db.cursor()
     c.execute('SELECT nid, html FROM defns')
     rex = compile_linkify_regex(abbrevs, min_len=4)
-    for row in c:
-        nid = int(row[0])
-        linkified = linkify(row[1], term_nid, rex, nid, skip=40)
-        new_defn[nid] = acute_to_macron_in_nonitalic(linkified)
+    for nid_str, term_html in c:
+        nid = int(nid_str)
+        term_html = linkify(term_html, term_nid, rex, nid, skip=40)
+        term_html = split_senses_into_paragraphs(term_html)
+        term_html = acute_to_macron_in_nonitalic(term_html)
+        new_defn[nid] = term_html
     logging.info('Writing linkified definitions...')
     for n, d in new_defn.items():
         c.execute('UPDATE defns SET html = ? WHERE nid = ?', (d, n))
