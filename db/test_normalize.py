@@ -23,6 +23,11 @@ class TestNormalize(unittest.TestCase):
         s = normalize.acute_to_macron_in_nonitalic('foó<I>bǽr\n</I>báz')
         self.assertEqual('foō<I>bǽr\n</I>bāz', s)
 
+    def test_split_senses_into_paragraphs(self) -> None:
+        s1 = 'foo <B>II.</B> bar cf. <B>I.</B><B> III. </B>baz'
+        s2 = 'foo <p><B>II.</B> bar cf. <B>I.</B><p><B> III. </B>baz'
+        self.assertEqual(s2, normalize.split_senses_into_paragraphs(s1))
+
 
 if __name__ == '__main__':
     unittest.main()
