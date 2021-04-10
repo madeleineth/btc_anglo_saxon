@@ -118,6 +118,19 @@ public class DefnActivity extends AppCompatActivity {
                 return false;
             }
         });
+        content.setFindListener(new WebView.FindListener() {
+            @Override
+            public void onFindResultReceived(int activeMatch, int numMatches, boolean done) {
+                // If an in-page search fails and contains "th", try again after replacing "th" with "þ".
+                // We don't need to worry about ð or æ because Android's WebView search matches ð if you
+                // type "d" and æ if you type "ae".
+                String q1 = search.getQuery().toString();
+                String q2 = q1.replaceAll("t[hH]", "þ").replaceAll("T[hH]", "Þ");
+                if (numMatches == 0 && !q1.equals(q2)) {
+                    search.setQuery(q2, false);
+                }
+            }
+        });
     }
 
     /**
@@ -160,8 +173,9 @@ public class DefnActivity extends AppCompatActivity {
     }
 
     void toggleSearchBox() {
-        View view = findViewById(R.id.defn_search);
+        SearchView view = findViewById(R.id.defn_search);
         if (view.getVisibility() == View.VISIBLE) {
+            view.setQuery("", false);
             view.setVisibility(View.GONE);
         } else {
             view.setVisibility(View.VISIBLE);
