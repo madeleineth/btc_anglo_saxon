@@ -33,5 +33,5 @@ dependencies {
     api 'com.google.auto.value:auto-value-annotations:1.6.6'
     annotationProcessor 'com.google.auto.value:auto-value:1.6.6'
     implementation 'org.jetbrains:annotations-java5:15.0'
-    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.0'
 }
