@@ -54,7 +54,13 @@ HEADWORD_SPECIAL_CASES = {
     '<B>á</B> <I>ever.</I> <B>B.': 'a',
 }
 
-TYPOS = {'<B>[soulan, sceolan]</B>': '<B>sculan, sceolan</B>'}
+TYPOS = {
+    '<B>[soulan, sceolan]</B>': '<B>sculan, sceolan</B>',
+    '<B>BTSGU,</B>': '<B>B&Iacute;SGU,</B>',
+    '<B>EOB&THORN;E,</B>': '<B>EOR&THORN;E,</B>',
+    '<B>woacute;h;</B> <I>adj.</I>': '<B>w&oacute;h;</B> <I>adj.</I>',
+    '<B>&aacute;-pe&oacute;wan</B>': '<B>&aacute;-&thorn;e&oacute;wan</B>',
+}
 
 
 class S(Enum):
