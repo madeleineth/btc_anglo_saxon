@@ -1,5 +1,10 @@
 package net.mdln.englisc;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -9,11 +14,6 @@ import org.junit.Test;
 
 import java.util.Collections;
 import java.util.List;
-
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.lessThan;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 public class DictTest {
 

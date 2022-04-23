@@ -14,8 +14,8 @@
 
     <item
         android:id="@+id/main_menu_find"
-        android:title="@string/find"
-        app:showAsAction="ifRoom"
         android:icon="@drawable/outline_find_in_page_24"
-        android:visible="false"/>
+        android:title="@string/find"
+        android:visible="false"
+        app:showAsAction="ifRoom" />
 </menu>
