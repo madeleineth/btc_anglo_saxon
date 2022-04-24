@@ -1,18 +1,5 @@
 package net.mdln.englisc;
 
-import android.content.Context;
-import android.widget.EditText;
-import android.widget.ImageButton;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.test.espresso.IdlingRegistry;
-import androidx.test.espresso.web.webdriver.Locator;
-import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.rule.ActivityTestRule;
-
-import org.junit.Rule;
-import org.junit.Test;
-
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.clearText;
@@ -30,6 +17,19 @@ import static androidx.test.espresso.web.webdriver.DriverAtoms.getText;
 import static androidx.test.espresso.web.webdriver.DriverAtoms.webClick;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.containsString;
+
+import android.content.Context;
+import android.widget.EditText;
+import android.widget.ImageButton;
+
+import androidx.appcompat.widget.Toolbar;
+import androidx.test.espresso.IdlingRegistry;
+import androidx.test.espresso.web.webdriver.Locator;
+import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.test.rule.ActivityTestRule;
+
+import org.junit.Rule;
+import org.junit.Test;
 
 public class MainActivityTest {
 

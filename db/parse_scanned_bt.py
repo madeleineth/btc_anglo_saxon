@@ -60,6 +60,7 @@ TYPOS = {
     '<B>EOB&THORN;E,</B>': '<B>EOR&THORN;E,</B>',
     '<B>woacute;h;</B> <I>adj.</I>': '<B>w&oacute;h;</B> <I>adj.</I>',
     '<B>&aacute;-pe&oacute;wan</B>': '<B>&aacute;-&thorn;e&oacute;wan</B>',
+    '<B>of-pyncan</B>': '<B>of-&thorn;yncan</B>',
 }
 
 
