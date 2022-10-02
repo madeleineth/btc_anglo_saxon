@@ -2,11 +2,12 @@ package net.mdln.englisc;
 
 import android.app.Activity;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.os.Build;
 import android.util.Base64;
 import android.webkit.WebView;
 
 import androidx.webkit.WebSettingsCompat;
-import androidx.webkit.WebViewFeature;
 
 public class WebViewStyle {
     private WebViewStyle() {
@@ -17,13 +18,13 @@ public class WebViewStyle {
      */
     public static void apply(Activity activity, WebView view, String html) {
         WebView.setWebContentsDebuggingEnabled(true);
-        view.setBackgroundColor(android.graphics.Color.TRANSPARENT);  // Otherwise it flashes white before rendering in dark mode.
+        view.setBackgroundColor(Color.TRANSPARENT);  // Otherwise it flashes white before rendering in dark mode.
         view.getSettings().setJavaScriptEnabled(BuildConfig.DEBUG); // Espresso needs JavaScript.
         boolean night = inNightMode(activity);
         String encodedHtml = Base64.encodeToString(styledHtml(activity, html, night).getBytes(), Base64.NO_PADDING);
         view.loadData(encodedHtml, "text/html; charset=utf-8", "base64");
-        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK) && night) {
-            WebSettingsCompat.setForceDark(view.getSettings(), WebSettingsCompat.FORCE_DARK_ON);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(view.getSettings(), true);
         }
     }
 

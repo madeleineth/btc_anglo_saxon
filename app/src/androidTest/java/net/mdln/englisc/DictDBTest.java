@@ -27,7 +27,6 @@ public class DictDBTest {
                 String title = cursor.getString(0);
                 assertEquals("wicing", title);
             }
-
         }
     }
 }
