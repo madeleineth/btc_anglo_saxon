@@ -12,10 +12,27 @@ a, a:visited {
   text-decoration-style: dotted;
 }
 
-.light i {
+i {
     color: #060;
+}
+
+/* These get used for dark mode in API levels 29-32. */
+
+.dark {
+    color: #eee;
 }
 
 .dark i {
     color: #cec;
+}
+
+/* These get used for dark mode in API levels 33+. */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #eee;
+    }
+    i {
+        color: #cec;
+    }
 }

@@ -6,8 +6,8 @@ android {
         applicationId "net.mdln.englisc"
         minSdkVersion 22
         targetSdkVersion 33
-        versionCode 506
-        versionName "5.6"
+        versionCode 507
+        versionName "5.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

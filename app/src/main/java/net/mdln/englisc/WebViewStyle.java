@@ -8,6 +8,7 @@ import android.util.Base64;
 import android.webkit.WebView;
 
 import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 public class WebViewStyle {
     private WebViewStyle() {
@@ -24,7 +25,9 @@ public class WebViewStyle {
         String encodedHtml = Base64.encodeToString(styledHtml(activity, html, night).getBytes(), Base64.NO_PADDING);
         view.loadData(encodedHtml, "text/html; charset=utf-8", "base64");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            WebSettingsCompat.setAlgorithmicDarkeningAllowed(view.getSettings(), true);
+            if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
+                WebSettingsCompat.setAlgorithmicDarkeningAllowed(view.getSettings(), false);
+            }
         }
     }
 
