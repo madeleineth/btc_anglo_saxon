@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-from html import escape
-from sqlite3 import Connection
-from typing import Any, Dict, Iterable, List, Optional
 import argparse
 import base64
 import csv
@@ -11,6 +8,9 @@ import logging
 import os
 import re
 import sqlite3
+from html import escape
+from sqlite3 import Connection
+from typing import Any, Dict, Iterable, List, Optional
 
 from abbrevs import Abbrev, read_abbrevs
 from normalize import (acute_to_macron_in_nonitalic, ascify,

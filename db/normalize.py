@@ -1,5 +1,5 @@
-import unicodedata
 import re
+import unicodedata
 
 # Match bolded roman numerals that look like sense starts, not references to a
 # sense (which are preceded by "cf.").

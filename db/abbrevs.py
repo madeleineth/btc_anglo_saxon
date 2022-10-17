@@ -1,5 +1,5 @@
-from typing import IO, List, NamedTuple
 import xml.etree.ElementTree as ET
+from typing import IO, List, NamedTuple
 
 import normalize
 
