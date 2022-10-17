@@ -10,13 +10,13 @@ Bosworth and one from Toller, in that order.
 This script is ugly. Its main purpose is to stich together the different parts
 of entries from different pages of BT into single HTML parts."""
 
-from collections import defaultdict
-from enum import Enum
-from typing import Any, Dict, Iterable, List, NamedTuple, Set
 import json
 import re
 import sys
 import unicodedata
+from collections import defaultdict
+from enum import Enum
+from typing import Any, Dict, Iterable, List, NamedTuple, Set
 
 import normalize
 
