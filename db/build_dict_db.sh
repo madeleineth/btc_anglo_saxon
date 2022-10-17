@@ -17,4 +17,4 @@ head "-${DICT_LIMIT_LINES:-1000000000}" < db/generator-output.txt > db/generator
 
 db/gen_db.py ${DICT_LIMIT_LINES:+--limit $DICT_LIMIT_LINES} --bt-dict db/oe_bt.json \
     --inflections db/generator-output-trimmed.txt --abbrevs db/oebt_abbreviations.xml --extra-forms db/extra-forms.txt \
-    --mod-eng-dictionary /usr/share/dict/words --output app/src/main/res/raw/dictdb
+    --verbs db/verbs.json --mod-eng-dictionary /usr/share/dict/words --output app/src/main/res/raw/dictdb

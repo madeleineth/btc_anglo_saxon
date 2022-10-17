@@ -12,6 +12,8 @@ from html import escape
 from sqlite3 import Connection
 from typing import Any, Dict, Iterable, List, Optional
 
+import chevron
+
 from abbrevs import Abbrev, read_abbrevs
 from normalize import (acute_to_macron_in_nonitalic, ascify,
                        split_senses_into_paragraphs)
@@ -115,6 +117,7 @@ def max_nid_in_use(db: Connection) -> int:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument('--bt-dict', required=True)
+    parser.add_argument('--verbs', required=True)
     parser.add_argument('--inflections', required=True)
     parser.add_argument('--abbrevs', required=True)
     parser.add_argument('--extra-forms', required=True)
@@ -124,19 +127,29 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def add_bt_terms_to_db(oe_bt_path: str, db: Connection) -> None:
+def make_conj_html(forms: dict[str, str]) -> str:
+    with open('db/conj.mustache', 'rt') as tmpl:
+        return chevron.render(tmpl, forms)
+
+
+def add_bt_terms_to_db(oe_bt_path: str, verbs_path: str,
+                       db: Connection) -> None:
     """Add terms from `oe_bt_path` to `idx` and `defns` in `db`."""
-    c = db.cursor()
     with open(oe_bt_path, 'rt', encoding='UTF-8') as oe_bt_file:
         oe_bt = json.load(oe_bt_file)
-        n = max_nid_in_use(db)
-        for term, entry in oe_bt.items():
-            n += 1
-            html = ''.join('<div>' + h + '</div>' for h in entry['defns'])
-            title = ' / '.join(sorted(entry['headwords']))
-            c.execute('INSERT INTO idx VALUES (?, ?)', (term, n))
-            c.execute("INSERT INTO defns VALUES (?, ?, ?, 'e')",
-                      (n, title, html))
+    with open(verbs_path, 'rt') as verbs_in:
+        conj0 = json.load(verbs_in)
+        conj = {ascify(w['plain-inf']): w for w in conj0}
+    c = db.cursor()
+    n = max_nid_in_use(db)
+    for term, entry in oe_bt.items():
+        n += 1
+        conj_keys = [h.lower() for h in entry['headwords'] if h.lower() in conj]
+        html = make_conj_html(conj[conj_keys[0]]) if conj_keys else ''
+        html += ''.join('<div>' + h + '</div>' for h in entry['defns'])
+        title = ' / '.join(sorted(entry['headwords']))
+        c.execute('INSERT INTO idx VALUES (?, ?)', (term, n))
+        c.execute("INSERT INTO defns VALUES (?, ?, ?, 'e')", (n, title, html))
     c.close()
     logging.info('Wrote {:,} terms from {}.'.format(n, oe_bt_path))
 
@@ -356,7 +369,7 @@ def main() -> None:
     # Add the definitions, inflected forms, and abbreviations to `idx` and
     # `defns`.
     abbrev_nid = read_abbrevs_and_add_to_db(args.abbrevs, db)
-    add_bt_terms_to_db(args.bt_dict, db)
+    add_bt_terms_to_db(args.bt_dict, args.verbs, db)
     add_extra_forms_to_db(args.extra_forms, db)
     add_inflected_terms_to_db(args.inflections, db, limit=args.limit)
 

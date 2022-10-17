@@ -1,4 +1,6 @@
+chevron
 flake8
 isort
 mypy
+types-chevron
 yapf

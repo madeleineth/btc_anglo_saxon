@@ -12,7 +12,7 @@ a, a:visited {
   text-decoration-style: dotted;
 }
 
-i {
+i,.conj th {
     color: #060;
 }
 
@@ -22,7 +22,7 @@ i {
     color: #eee;
 }
 
-.dark i {
+.dark i,.dark .conj th {
     color: #cec;
 }
 
@@ -32,7 +32,29 @@ i {
     body {
         color: #eee;
     }
-    i {
+    i,.conj th {
         color: #cec;
     }
+}
+
+.conj-group-head {
+  padding-top: 0.3em:
+}
+
+.conj {
+  display: flex;
+  justify-content: center;
+}
+
+.conj th {
+  text-align: left;
+  font-weight: normal;
+}
+
+.conj th:nth-of-type(1) {
+  text-align: right;
+}
+
+.conj th,.conj td {
+  padding: 0.2em;
 }

@@ -18,4 +18,9 @@
         android:title="@string/find"
         android:visible="false"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/main_menu_conj"
+        android:title="@string/conjugate"
+        app:showAsAction="ifRoom" />
 </menu>
