@@ -22,7 +22,7 @@ i,.conj th {
     color: #eee;
 }
 
-.dark i,.dark .conj th {
+.dark i,.dark .conj .part {
     color: #cec;
 }
 
@@ -32,7 +32,7 @@ i,.conj th {
     body {
         color: #eee;
     }
-    i,.conj th {
+    i,.conj .part {
         color: #cec;
     }
 }

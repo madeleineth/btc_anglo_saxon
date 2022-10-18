@@ -30,8 +30,8 @@ final class Dict implements AutoCloseable {
     // the scoring algorithm later in Java, but unless we do a rough version of it in SQL, we may
     // never see some results that would otherwise score highly.
     private static final String Q1 =
-            "SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE defn_idx MATCH ? ORDER BY CAST(substr(offsets(defn_idx), 5) AS INTEGER) LIMIT ?";
-    private static final String Q2 = "SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE terms MATCH ?";
+            "SELECT title, html, conj_html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE defn_idx MATCH ? ORDER BY CAST(substr(offsets(defn_idx), 5) AS INTEGER) LIMIT ?";
+    private static final String Q2 = "SELECT title, html, conj_html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE terms MATCH ?";
     private static final String QRY = "SELECT * FROM (  " + Q1 + ") UNION " + Q2;
 
     private static final double MINIMUM_SCORE = 0.003;
@@ -93,16 +93,17 @@ final class Dict implements AutoCloseable {
 
     private static Term queryMatchToTerm(String query, Cursor cursor) {
         String title = cursor.getString(0);
-        String html = cursor.getString(1);
-        int rowId = cursor.getInt(2);
-        String terms = cursor.getString(3);
+        String defnHtml = cursor.getString(1);
+        String conjHtml = cursor.getString(2);
+        int rowId = cursor.getInt(3);
+        String terms = cursor.getString(4);
         // The "terms" column is of the form "/form1/form2/.../" so if we see "/query/" then we got
         // an exact term match.
         boolean termMatch = terms.contains("/" + query + "/");
-        String entryType = cursor.getString(4);
+        String entryType = cursor.getString(5);
         List<MatchOffset> offsets = parseOffsets(cursor.getString(5));
         double score = scoreTerm(termMatch, entryType, offsets);
-        return Term.create(title, html, rowId, score);
+        return Term.create(title, defnHtml, conjHtml, rowId, score);
     }
 
     private static void sortByDescendingScore(List<Term> terms) {
@@ -170,14 +171,15 @@ final class Dict implements AutoCloseable {
      * Returns the term in the database with the specified row id, or null if none exists.
      */
     Term loadNid(int nid) {
-        try (Cursor cursor = db.rawQuery("SELECT title, html FROM defn_idx WHERE rowid = ?", new String[]{String.valueOf(nid)})) {
+        try (Cursor cursor = db.rawQuery("SELECT title, html, conj_html FROM defn_idx WHERE rowid = ?", new String[]{String.valueOf(nid)})) {
             if (cursor.getCount() == 0) {
                 return null;
             }
             cursor.moveToNext();
             String title = cursor.getString(0);
-            String html = cursor.getString(1);
-            return Term.create(title, html, nid, 0.0);
+            String defnHtml = cursor.getString(1);
+            String conjHtml = cursor.getString(2);
+            return Term.create(title, defnHtml, conjHtml, nid, 0.0);
         }
     }
 }

@@ -145,11 +145,11 @@ def add_bt_terms_to_db(oe_bt_path: str, verbs_path: str,
     for term, entry in oe_bt.items():
         n += 1
         conj_keys = [h.lower() for h in entry['headwords'] if h.lower() in conj]
-        html = make_conj_html(conj[conj_keys[0]]) if conj_keys else ''
-        html += ''.join('<div>' + h + '</div>' for h in entry['defns'])
+        conj_html = make_conj_html(conj[conj_keys[0]]) if conj_keys else None
+        html = ''.join('<div>' + h + '</div>' for h in entry['defns'])
         title = ' / '.join(sorted(entry['headwords']))
         c.execute('INSERT INTO idx VALUES (?, ?)', (term, n))
-        c.execute("INSERT INTO defns VALUES (?, ?, ?, 'e')", (n, title, html))
+        c.execute("INSERT INTO defns VALUES (?, ?, ?, ?, 'e')", (n, title, html, conj_html))
     c.close()
     logging.info('Wrote {:,} terms from {}.'.format(n, oe_bt_path))
 
@@ -178,17 +178,17 @@ def build_defn_idx(db: Connection) -> None:
     try:
         c.execute('CREATE TEMP TABLE idx_uniq AS SELECT DISTINCT * FROM idx')
         c.execute('CREATE TABLE defn_content (id INTEGER PRIMARY KEY, '
-                  'title TEXT, html TEXT, terms TEXT, entry_type TEXT)')
+                  'title TEXT, html TEXT, conj_html TEXT, terms TEXT, entry_type TEXT)')
         c.execute('CREATE VIRTUAL TABLE defn_idx '
-                  'USING fts4(title, html, terms, entry_type, '
+                  'USING fts4(title, html, conj_html, terms, entry_type, '
                   'content="defn_content", notindexed="title",'
-                  'notindexed="entry_type")')
-        c.execute("INSERT INTO defn_content SELECT defns.nid, title, html, "
+                  'notindexed="entry_type",notindexed="conj_html")')
+        c.execute("INSERT INTO defn_content SELECT defns.nid, title, html, conj_html, "
                   "'/' || GROUP_CONCAT(term, '/') || '/', entry_type "
                   "FROM defns LEFT JOIN idx_uniq ON defns.nid = idx_uniq.nid "
                   "GROUP BY defns.nid")
         c.execute('DROP TABLE idx_uniq')
-        for row in c.execute('SELECT id, title, html, terms, entry_type '
+        for row in c.execute('SELECT id, title, html, conj_html, terms, entry_type '
                              'FROM defn_content').fetchall():
             html_tokens = tokenize_html(row[2])
             c.execute(('INSERT INTO defn_idx (docid, title, html, terms, '
@@ -207,7 +207,7 @@ def add_abbrevs_to_db(abbrevs: List[Abbrev], db: Connection) -> Dict[str, int]:
         for sp in a.spellouts:
             c.execute('INSERT INTO idx VALUES (?, ?)', (ascify(sp), nid))
         html = '<B>%s</B> (abbrev.) %s' % (escape(a.heading), escape(a.body))
-        c.execute("INSERT INTO defns VALUES (?, ?, ?, 'a')",
+        c.execute("INSERT INTO defns VALUES (?, ?, ?, NULL, 'a')",
                   (nid, a.heading, html))
         for s in a.spellouts:
             abbrev_nid[s] = nid
@@ -362,7 +362,7 @@ def main() -> None:
     c = db.cursor()
     c.execute('CREATE TEMP TABLE idx (term TEXT NOT NULL, nid INT NOT NULL)')
     c.execute('CREATE TEMP TABLE defns (nid INT PRIMARY KEY, '
-              'title TEXT NOT NULL, html TEXT NOT NULL, '
+              'title TEXT NOT NULL, html TEXT NOT NULL, conj_html TEXT, '
               'entry_type CHAR(1) NOT NULL)')
     c.close()
 

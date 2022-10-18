@@ -9,8 +9,8 @@ import org.jetbrains.annotations.NotNull;
  */
 @AutoValue
 abstract class Term {
-    static Term create(@NotNull String title, @NotNull String html, int nid, double score) {
-        return new AutoValue_Term(title, html, nid, score);
+    static Term create(@NotNull String title, @NotNull String defnHtml, @NotNull String conjHtml, int nid, double score) {
+        return new AutoValue_Term(title, defnHtml, conjHtml, nid, score);
     }
 
     /**
@@ -24,7 +24,10 @@ abstract class Term {
     abstract String title();
 
     @NotNull
-    abstract String html();
+    abstract String defnHtml();
+
+    @NotNull
+    abstract String conjHtml();
 
     abstract int nid();
 

@@ -27,7 +27,7 @@ final class MenuHandler {
         switch (item.getItemId()) {
             case R.id.main_menu_info:
                 Intent intent = new Intent(activity, DefnActivity.class);
-                intent.putExtra(DefnActivity.EXTRA_BTC_URL, DefnActivity.BTC_ABOUT_URL);
+                intent.putExtra(DefnActivity.EXTRA_BTC_URL, PrivateURL.BTC_ABOUT_URL);
                 activity.startActivity(intent);
                 return true;
             case R.id.main_menu_feedback:

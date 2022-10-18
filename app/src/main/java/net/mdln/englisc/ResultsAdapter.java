@@ -76,7 +76,7 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
 
         void setTerm(Term term) {
             this.term = term;
-            view.setText(HtmlCompat.fromHtml(Term.unlinkifyTermHtml(term.html()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+            view.setText(HtmlCompat.fromHtml(Term.unlinkifyTermHtml(term.defnHtml()), HtmlCompat.FROM_HTML_MODE_COMPACT));
         }
 
         private void openFullDefinition(Context ctx) {
@@ -84,7 +84,7 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
                 return;
             }
             Intent intent = new Intent(ctx, DefnActivity.class);
-            intent.putExtra(DefnActivity.EXTRA_BTC_URL, DefnActivity.BTC_URL_PREFIX + term.nid());
+            intent.putExtra(DefnActivity.EXTRA_BTC_URL, PrivateURL.forDefn(term.nid()));
             ctx.startActivity(intent);
         }
     }
