@@ -8,6 +8,7 @@ import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.espresso.web.assertion.WebViewAssertions.webMatches;
@@ -65,6 +66,23 @@ public class MainActivityTest {
         // that it's the first item in the history list.
         onView(isAssignableFrom(EditText.class)).perform(clearText());
         onView(new RecyclerViewMatcher(R.id.search_results).atPosition(0)).check(matches(withText(containsString("Mt."))));
+    }
+
+    /**
+     * Check that you can search for a Modern English verb, click on it, and
+     * then click on the conjugation button. See {@link #searchForAWord} for a
+     * more-commented test.
+     */
+    @Test
+    public void searchForVerb() {
+        IdlingRegistry.getInstance().register(new SearchPendingIdlingResource(activityRule.getActivity()));
+        onView(isAssignableFrom(EditText.class)).perform(typeText("mediate"), closeSoftKeyboard());
+        onView(new RecyclerViewMatcher(R.id.search_results).atPosition(0))
+                .check(matches(withText(containsString("to mediate"))))
+                .perform(click());
+        onView(withId(R.id.main_menu_conj)).perform(click());
+        onWebView().withElement(findElement(Locator.TAG_NAME, "body")).check(
+                webMatches(getText(), containsString("(ge)sunnen")));
     }
 
     @Test

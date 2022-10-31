@@ -22,10 +22,10 @@ public class DictDBTest {
     public void get() {
         Context ctx = InstrumentationRegistry.getInstrumentation().getTargetContext();
         try (SQLiteDatabase db = DictDB.get(ctx)) {
-            try (Cursor cursor = db.rawQuery("SELECT title FROM defn_idx WHERE terms MATCH 'wicingum'", new String[]{})) {
+            try (Cursor cursor = db.rawQuery("SELECT title FROM defn_idx WHERE terms MATCH 'wirest'", new String[]{})) {
                 assertTrue(cursor.moveToFirst());
                 String title = cursor.getString(0);
-                assertEquals("wicing", title);
+                assertEquals("yfele", title);
             }
         }
     }

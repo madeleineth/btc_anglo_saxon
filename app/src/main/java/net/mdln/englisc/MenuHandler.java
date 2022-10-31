@@ -35,9 +35,24 @@ final class MenuHandler {
                 return true;
             case R.id.main_menu_find:
                 findInDefn();
+                return true;
+            case R.id.main_menu_defn:
+                setDefnMode(DefnActivity.Mode.DEFN);
+                return true;
+            case R.id.main_menu_conj:
+                setDefnMode(DefnActivity.Mode.CONJ);
+                return true;
             default:
                 return false;
         }
+    }
+
+    private void setDefnMode(DefnActivity.Mode mode) {
+        if (!(activity instanceof DefnActivity)) {
+            Log.e("MenuHandler", "setDefnMode called when the activity is not a DefnActivity.");
+            return;
+        }
+        ((DefnActivity) activity).setMode(mode);
     }
 
     private void sendFeedback(String contextString) {

@@ -42,7 +42,7 @@ final class DictDB {
              OutputStream out = new FileOutputStream(f)) {
             pipe(in, out);
         } catch (IOException e) {
-            Log.e("DictDB", "copying resource " + resourceId + " to " + f + ":" + e);
+            Log.e("DictDB", "Error copying resource " + resourceId + " to " + f + ".", e);
             if (ctx instanceof Activity) {  // Doesn't happen in unit tests.
                 errorAlert((Activity) ctx);
             }
@@ -58,7 +58,6 @@ final class DictDB {
                         .create()
                         .show());
     }
-
 
     private static void pipe(InputStream in, OutputStream out) throws IOException {
         final int bufSize = 8196;

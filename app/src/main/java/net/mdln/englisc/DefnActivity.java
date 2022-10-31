@@ -30,6 +30,7 @@ public class DefnActivity extends AppCompatActivity {
     static final String BTC_ABOUT_URL = BTC_URL_PREFIX + "about";
     private LazyDict dict;
     private Term term;
+    private Mode mode;
 
     /**
      * Given a URL like "https://btc.invalid/345" returns the int 345.
@@ -55,6 +56,7 @@ public class DefnActivity extends AppCompatActivity {
             throw new RuntimeException("expected " + EXTRA_BTC_URL);
         }
         dict = new LazyDict(this);
+        mode = Mode.DEFN;
         if (btcUrl.equals(BTC_ABOUT_URL)) {
             term = fakeAboutTerm();
         } else {
@@ -67,13 +69,11 @@ public class DefnActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_defn);
-        Toolbar toolbar = findViewById(R.id.defn_toolbar);
-        toolbar.setTitle(term.title());
-        setSupportActionBar(toolbar);
+        updateHtmlContent();
+        setSupportActionBar(findViewById(R.id.defn_toolbar));
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         WebView.setWebContentsDebuggingEnabled(true);
-        updateHtmlContent();
         setUpEventListeners();
     }
 
@@ -115,24 +115,18 @@ public class DefnActivity extends AppCompatActivity {
                 return true;
             }
         });
-        search.setOnCloseListener(new SearchView.OnCloseListener() {
-            @Override
-            public boolean onClose() {
-                search.setVisibility(View.GONE);
-                return false;
-            }
+        search.setOnCloseListener(() -> {
+            search.setVisibility(View.GONE);
+            return false;
         });
-        content.setFindListener(new WebView.FindListener() {
-            @Override
-            public void onFindResultReceived(int activeMatch, int numMatches, boolean done) {
-                // If an in-page search fails and contains "th", try again after replacing "th" with "þ".
-                // We don't need to worry about ð or æ because Android's WebView search matches ð if you
-                // type "d" and æ if you type "ae".
-                String q1 = search.getQuery().toString();
-                String q2 = q1.replaceAll("t[hH]", "þ").replaceAll("T[hH]", "Þ");
-                if (numMatches == 0 && !q1.equals(q2)) {
-                    search.setQuery(q2, false);
-                }
+        content.setFindListener((activeMatch, numMatches, done) -> {
+            // If an in-page search fails and contains "th", try again after replacing "th" with "þ".
+            // We don't need to worry about ð or æ because Android's WebView search matches ð if you
+            // type "d" and æ if you type "ae".
+            String q1 = search.getQuery().toString();
+            String q2 = q1.replaceAll("t[hH]", "þ").replaceAll("T[hH]", "Þ");
+            if (numMatches == 0 && !q1.equals(q2)) {
+                search.setQuery(q2, false);
             }
         });
     }
@@ -143,13 +137,16 @@ public class DefnActivity extends AppCompatActivity {
     private Term fakeAboutTerm() {
         String html = Streams.readUtf8Resource(this, R.raw.about);
         String title = this.getString(R.string.about_page_title);
-        return Term.create(title, html, 0 /* invalid nid */, 0.0 /* score */);
+        return Term.create(title, html, "", null /* modE */, 0 /* invalid nid */, 0.0 /* score */);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         menu.findItem(R.id.main_menu_find).setVisible(true);
+        if (term.conjHtml() != null) {
+            menu.findItem(R.id.main_menu_conj).setVisible(true);
+        }
         return true;
     }
 
@@ -186,8 +183,28 @@ public class DefnActivity extends AppCompatActivity {
         }
     }
 
-    private void updateHtmlContent() {
-        WebView content = findViewById(R.id.defn_content);
-        WebViewStyle.apply(this, content, term.html());
+    void setMode(Mode mode) {
+        if (mode == this.mode) {
+            return;
+        }
+        this.mode = mode;
+        findViewById(R.id.defn_search).setVisibility(View.GONE);
+        updateHtmlContent();
+        Menu menu = ((Toolbar) findViewById(R.id.defn_toolbar)).getMenu();
+        menu.findItem(R.id.main_menu_conj).setVisible(mode == Mode.DEFN);
+        menu.findItem(R.id.main_menu_defn).setVisible(mode == Mode.CONJ);
     }
+
+    private void updateHtmlContent() {
+        String title = Character.toTitleCase(term.title().charAt(0)) + term.title().substring(1);
+        if (mode == Mode.CONJ) {
+            title += " " + getString(R.string.conj_suffix);
+        }
+        ((Toolbar) findViewById(R.id.defn_toolbar)).setTitle(title);
+        WebView content = findViewById(R.id.defn_content);
+        String html = mode == Mode.DEFN ? term.defnHtml() : term.conjHtml();
+        WebViewStyle.apply(this, content, html);
+    }
+
+    enum Mode {DEFN, CONJ}
 }
