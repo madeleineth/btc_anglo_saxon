@@ -22,50 +22,86 @@ import normalize
 
 # Line numbers that do not start an entry, even though they may begin with a
 # bolded phrase.
-NOT_AN_ENTRY = set([
-    326, 330, 332, 692, 1845, 6016, 17859, 24005, 49675, 97466, 110519, 118045,
-    119186, 126386
-])
+NOT_AN_ENTRY = set(
+    [
+        326,
+        330,
+        332,
+        692,
+        1845,
+        6016,
+        17859,
+        24005,
+        49675,
+        97466,
+        110519,
+        118045,
+        119186,
+        126386,
+    ]
+)
 
 # Line numbers that do start an entry, even though whether they do or not is
 # ambiguous (perhaps because they're at the beginning of a page).
-ALWAYS_AN_ENTRY = set([
-    12470, 17858, 60157, 60555, 60820, 75155, 75330, 77825, 83439, 84266,
-    94282, 97998, 102650, 102655, 102810, 102822, 102895, 103897, 113712,
-    113834, 119068, 123676
-])
+ALWAYS_AN_ENTRY = set(
+    [
+        12470,
+        17858,
+        60157,
+        60555,
+        60820,
+        75155,
+        75330,
+        77825,
+        83439,
+        84266,
+        94282,
+        97998,
+        102650,
+        102655,
+        102810,
+        102822,
+        102895,
+        103897,
+        113712,
+        113834,
+        119068,
+        123676,
+    ]
+)
 
 # Some entries run afoul of the normalization rules because they look too much
 # like subparts of other headwords. This is a map from entry prefix to the
 # correct headword.
 HEADWORD_SPECIAL_CASES = {
-    '<B>a;</B>': 'a',
-    '<B>Á,</B>': 'a',
-    '<B>á,</B> <I>indecl': 'a',
-    '<B>B</B> THE sound of b is produced': 'b',
-    '<B>D</B> is sometimes changed': 'd',
-    '<B>A.</B> Anglo-Saxon words, containing the short or un': 'e',
-    '<B>F</B> At the end of syllable': 'f',
-    '<B>I</B> THE Runic character': 'i',
-    '<B>Ii,</B> Hii, <I>Iona</I>': 'hii',
-    '<B>Ó</B> <I>ever.</I>': 'a',
-    '<B>ī.</B> es; <I>m. A letter</I>': 'i',
-    '<B>á</B> = on :-- Á felda': 'a',
-    '<B>á</B> <I>ever.</I> <B>B.': 'a',
+    "<B>a;</B>": "a",
+    "<B>Á,</B>": "a",
+    "<B>á,</B> <I>indecl": "a",
+    "<B>B</B> THE sound of b is produced": "b",
+    "<B>D</B> is sometimes changed": "d",
+    "<B>A.</B> Anglo-Saxon words, containing the short or un": "e",
+    "<B>F</B> At the end of syllable": "f",
+    "<B>I</B> THE Runic character": "i",
+    "<B>Ii,</B> Hii, <I>Iona</I>": "hii",
+    "<B>Ó</B> <I>ever.</I>": "a",
+    "<B>ī.</B> es; <I>m. A letter</I>": "i",
+    "<B>á</B> = on :-- Á felda": "a",
+    "<B>á</B> <I>ever.</I> <B>B.": "a",
 }
 
 TYPOS = {
-    '<B>[soulan, sceolan]</B>': '<B>sculan, sceolan</B>',
-    '<B>BTSGU,</B>': '<B>B&Iacute;SGU,</B>',
-    '<B>EOB&THORN;E,</B>': '<B>EOR&THORN;E,</B>',
-    '<B>woacute;h;</B> <I>adj.</I>': '<B>w&oacute;h;</B> <I>adj.</I>',
-    '<B>&aacute;-pe&oacute;wan</B>': '<B>&aacute;-&thorn;e&oacute;wan</B>',
-    '<B>of-pyncan</B>': '<B>of-&thorn;yncan</B>',
+    "<B>[soulan, sceolan]</B>": "<B>sculan, sceolan</B>",
+    "<B>BTSGU,</B>": "<B>B&Iacute;SGU,</B>",
+    "<B>EOB&THORN;E,</B>": "<B>EOR&THORN;E,</B>",
+    "<B>woacute;h;</B> <I>adj.</I>": "<B>w&oacute;h;</B> <I>adj.</I>",
+    "<B>&aacute;-pe&oacute;wan</B>": "<B>&aacute;-&thorn;e&oacute;wan</B>",
+    "<B>of-pyncan</B>": "<B>of-&thorn;yncan</B>",
 }
 
 
 class S(Enum):
     """State of the line-reading state machine."""
+
     INTRO = 1  # in the prefix, before entries are read
     ENTRY = 2  # in the middle of an entry
     BREAK = 3  # after blanks, which separate entries except at page breaks
@@ -84,7 +120,7 @@ def read_entries(in_file: Iterable[str]) -> List[str]:
     entries by looking for lines that begin with bolded terms.
     """
     state = S.INTRO
-    partial = ''  # in-progress entry HTML
+    partial = ""  # in-progress entry HTML
     entries = []  # type: List[str]
     n = 0
     for line in in_file:
@@ -94,14 +130,15 @@ def read_entries(in_file: Iterable[str]) -> List[str]:
             line = line.replace(from_str, to_str)
         # If we're in the intro or a break, and we see an entry start,
         # start accumulating it into `partial`.
-        if line.startswith('<B>') and n not in NOT_AN_ENTRY:
-            assert (state in (S.BREAK, S.PAGE_BREAK, S.INTRO)
-                    or (n in ALWAYS_AN_ENTRY and state == S.ENTRY)), (state, n)
+        if line.startswith("<B>") and n not in NOT_AN_ENTRY:
+            assert state in (S.BREAK, S.PAGE_BREAK, S.INTRO) or (
+                n in ALWAYS_AN_ENTRY and state == S.ENTRY
+            ), (state, n)
             if state == S.INTRO:
-                assert partial == '', (partial, n)
+                assert partial == "", (partial, n)
             if partial:
                 entries.append(partial)
-                partial = ''
+                partial = ""
             partial = line
             state = S.ENTRY
             continue
@@ -116,8 +153,11 @@ def read_entries(in_file: Iterable[str]) -> List[str]:
         # Ignore page headers. They should only follow blank lines. But if we
         # see this, we're definitely between pages and not in the middle of
         # one.
-        if (line.startswith('<HEADER>') or line.startswith('<PAGE NUM')
-                or line.startswith('<letterheader')):
+        if (
+            line.startswith("<HEADER>")
+            or line.startswith("<PAGE NUM")
+            or line.startswith("<letterheader")
+        ):
             assert state == S.BREAK or state == S.PAGE_BREAK
             state = S.PAGE_BREAK
             continue
@@ -133,9 +173,9 @@ def read_entries(in_file: Iterable[str]) -> List[str]:
         # from new entries.
         assert partial
         assert state in (S.ENTRY, S.PAGE_BREAK, S.BREAK)
-        assert n in NOT_AN_ENTRY or not line.startswith('<B>')
+        assert n in NOT_AN_ENTRY or not line.startswith("<B>")
         state = S.ENTRY
-        partial += line + '\n'
+        partial += line + "\n"
     # We're done. If we're in the middle of an entry, add it to `entries`.
     if partial:
         entries.append(partial)
@@ -144,8 +184,8 @@ def read_entries(in_file: Iterable[str]) -> List[str]:
 
 def unaccented_letters(s: str) -> str:
     """Return the letters of `s` with accents removed."""
-    s = unicodedata.normalize('NFKD', s)
-    s = re.sub(r'[^\w -]', '', s)
+    s = unicodedata.normalize("NFKD", s)
+    s = re.sub(r"[^\w -]", "", s)
     return s
 
 
@@ -155,7 +195,7 @@ def remove_trailing_part_refs(s: str) -> str:
     Entirely heuristic. E.g. if `s` is "ge-reafian; i", returns "ge-reafian".
     If the heuristics don't work, override with HEADWORD_SPECIAL_CASES.
     """
-    return re.sub('((^| )([ivx]+|[abcdefoα]|[0-9]+))+$', '', s.strip())
+    return re.sub("((^| )([ivx]+|[abcdefoα]|[0-9]+))+$", "", s.strip())
 
 
 def extract_headwords(e: str) -> List[str]:
@@ -163,22 +203,19 @@ def extract_headwords(e: str) -> List[str]:
     for pfx, hwd in HEADWORD_SPECIAL_CASES.items():
         if e.startswith(pfx):
             return [hwd]
-    m = re.match('^<B>([^<]+)</B>', e)  # bolded string at beginning
+    m = re.match("^<B>([^<]+)</B>", e)  # bolded string at beginning
     assert m, e
-    words = [unaccented_letters(s.lower()) for s in m.group(1).split(',')]
+    words = [unaccented_letters(s.lower()) for s in m.group(1).split(",")]
     short_words = [remove_trailing_part_refs(w) for w in words]
     short_words = [w for w in short_words if w]
     # If the headwords are of the form ['foo-', 'bar-baz'] drop the one with
     # the dash, since it's a prefix. It would be better to include 'foo-baz' as
     # well, but that's harder.
     full_words = [
-        w for i, w in enumerate(short_words)
-        if not w.endswith('-') or i + 1 == len(short_words)
+        w for i, w in enumerate(short_words) if not w.endswith("-") or i + 1 == len(short_words)
     ]
     # Again, but this time dropping "-baz" from ['foo-bar', '-baz']
-    full_words = [
-        w for i, w in enumerate(full_words) if not w.startswith('-') or i == 0
-    ]
+    full_words = [w for i, w in enumerate(full_words) if not w.startswith("-") or i == 0]
     return full_words
 
 
@@ -195,27 +232,26 @@ def collect_entries(entries: Iterable[str]) -> Dict[str, Entry]:
         headwords = extract_headwords(e)
         assert len(headwords) >= 1, e
         term = normalize.ascify(headwords[0])
-        if term == '' or any(h == '' for h in headwords):
+        if term == "" or any(h == "" for h in headwords):
             raise Exception(
-                'bad normalization, term = %r headwords = %r e = %r' %
-                (term, headwords, e))
+                "bad normalization, term = %r headwords = %r e = %r" % (term, headwords, e)
+            )
         collected[term].headwords.update(headwords)
         collected[term].defns.append(e)
     return collected
 
 
 def entry_as_dict(entry: Entry) -> Dict[str, Any]:
-    return {'headwords': list(entry.headwords), 'defns': entry.defns}
+    return {"headwords": list(entry.headwords), "defns": entry.defns}
 
 
 def main() -> None:
-    with open(sys.stdin.fileno(), 'r', errors='ignore',
-              encoding='ascii') as ascii_stdin:
+    with open(sys.stdin.fileno(), "r", errors="ignore", encoding="ascii") as ascii_stdin:
         entries = read_entries(ascii_stdin)
     collected = collect_entries(entries)
     collected_dict = {k: entry_as_dict(v) for k, v in collected.items()}
     json.dump(collected_dict, sys.stdout, indent=2, sort_keys=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
