@@ -1,0 +1,159 @@
+# Rules for generating inflected verb forms. See generation.py for discussion
+# of the format.
+
+base:
+  rules:
+    "root":
+      from: "plain-inf"
+      match: "(.*)[ao]n"
+      value: "\\1"
+    "to-inf": "{root}enne"
+    "pres-part": "{root}ende"
+    "mod-e": []
+strong:
+  inherit: base
+  rules:
+    "past-root":
+      from: "past-ind-pl"
+      match: "(.*).."
+      value: "\\1"
+    "pres-ind-1sg": "{root}e"
+    "pres-ind-2sg":
+      from: "pres-ind-3sg"
+      match: "(.*[^þ])þ*"
+      value: "\\1st"
+    "pres-ind-3sg": "{root}þ"
+    "pres-ind-pl": "{root}aþ"
+    "imp-sg": "{root}"
+    "imp-pl": "{root}aþ"
+    "pres-sub-sg": "{root}e"
+    "pres-sub-pl": "{root}en"
+    "past-ind-2sg": "{past-root}e"
+    "past-sub-sg": "{past-root}e"
+    "past-sub-pl": "{past-root}en"
+strong1:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)ī(.+)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)ī(.+)an"
+      value: "\\2"
+    "pres-ind-3sg": "{p1}ī{p2}þ"
+    "past-ind-3sg": "{p1}ā{p2}"
+    "past-ind-pl": "{p1}i{p2}on"
+    "past-part": "(ge){p1}i{p2}en"
+strong1_gh:
+  inherit: strong1
+  rules:
+    "past-ind-3sg": ["{p1}āg", "{p1}āh"]
+strong1_sþ:
+  inherit: strong1
+strong1_þd:
+  inherit: strong1
+  rules:
+    "pres-ind-3sg": ["{p1}iþþ", "{p1}iþ"]
+    "past-ind-pl": "{p1}idon"
+    "past-part": "(ge){p1}iden"
+strong2:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)ēo(.+)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)ēo(.+)an"
+      value: "\\2"
+    "pres-ind-3sg": "{p1}ēo{p2}þ"
+    "past-ind-3sg": "{p1}ēa{p2}"
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "(ge){p1}o{p2}en"
+strong2_g:
+  inherit: strong2
+  rules:
+    "past-ind-3sg": ["{p1}ēag", "{p1}ēah"]
+strong2_sr:
+  inherit: strong2
+  rules:
+    "pres-ind-2sg": "{p1}īest"
+    "pres-ind-3sg": "{p1}īest"
+    "past-ind-3sg": "{p1}ēa{p2}"
+    "past-ind-pl": "{p1}uron"
+    "past-part": "(ge){p1}oren"
+#strong2_þd:
+#  inherit: strong2
+#  rules:
+#    "pres-ind-3sg": ["{p1}īeþþ", "{p1}īeþ"]
+#    "past-ind-pl": "{p1}udon"
+#    "past-part": "(ge){p1}uden"
+strong3_iau:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)i([^aeiou]+)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)i([^aeiou]+)an"
+      value: "\\2"
+    "pres-ind-3sg": "{p1}i{p2}þ"
+    "past-ind-3sg": ["{p1}a{p2}", "{p1}o{p2}"]
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "(ge){p1}u{p2}en"
+strong3_iau_nd:
+  inherit: strong3_iau
+  rules:
+    "pres-ind-3sg": "{p1}int"
+strong3_e_ea_u_o:  # Wright §499, p. 258
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)e(..)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)e(..)an"
+      value: "\\2"
+    "pres-ind-3sg": "{p1}i{p2}þ"
+    "past-ind-3sg": "{p1}ea{p2}"
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "(ge){p1}o{p2}en"
+strong3_ie_ea_u_o:
+  inherit: strong3_e_ea_u_o
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)ie(..)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)ie(..)an"
+      value: "\\2"
+    "pres-ind-3sg": "{p1}ie{p2}þ"
+strong3_eo_ea_u_o:  # Wright §500
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)eo?(..)an"  # The o is optional for melcan, a spelling variant of meolcan.
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)eo?(..)an"
+      value: "\\2"
+    "pres-ind-3sg": "{p1}eo{p2}þ"
+    "past-ind-3sg": "{p1}ea{p2}"
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "(ge){p1}o{p2}en"
+strong3_eo_ea_u_o_þd:
+  inherit: strong3_eo_ea_u_o
+  rules:
+    "past-ind-pl": "{p1}urdon"
+    "past-part": "(ge){p1}orden"

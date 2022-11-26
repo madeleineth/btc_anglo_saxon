@@ -1,0 +1,160 @@
+# Mapping from category (which are the keys in `rules.yaml`) to the words in
+# the category. Modern English translations after a comma are optional.
+# Spelling variations in Old English are separated by "/".
+
+strong1:
+  - ācwīnan
+  - ætwītan
+  - behlīdan
+  - belīfan
+  - bescītan
+  - besmītan
+  - bīdan
+  - bītan
+  - blīcan
+  - cīnan
+  - clīfan
+  - cnīdan
+  - drīdan
+  - dwīnan
+  - flītan
+  - geweītan
+  - gīnan
+  - glīdan
+  - gnīdan
+  - grīpan
+  - hnītan
+  - hrīnan
+  - hwīnan
+  - nīpan
+  - rīdan
+  - scīnan
+  - scrīfan
+  - sīcan
+  - slīdan
+  - slītan
+  - snīcan
+  - spīwan
+  - strīcan
+  - strīdan
+  - swīcan
+  - swīfan
+  - tōslīfan
+  - wīcan
+  - wlītan
+  - wrīdan
+  - wrītan
+  - þwīnan
+  - þwītan
+strong1_gh:
+  - stīgan
+  - hnīgan
+  - mīgan
+  - sīgan
+strong1_þd:
+  - līþan
+  - scrīþan
+  - snīþan
+strong1_sþ:
+  - ārīsan
+  - gerīsan
+  - mīþan
+  - wrīþan
+strong2:
+  - āþrēotan
+  - bēodan
+  - brēotan
+  - brēowan
+  - cēowan
+  - clēofan
+  - crēopan
+  - drēopan
+  - flēotan
+  - gēopan
+  - grēotan
+  - hlēotan
+  - hrēowan
+  - lēodan
+  - nēotan
+  - rēocan
+  - scēotan
+  - smēocan
+  - þēotan
+#strong2_þd:
+#  - sēoþan
+#  - ābrēoþan
+strong2_g:
+  - drēogan
+  - flēogan
+  - lēogan
+strong2_sr:
+  - cēosan
+  - drēosan
+  - forlēosan
+  - frēosan
+  - hrēosan
+strong3_iau:
+  - ācwincan, vanish
+  - climban, climb
+  - clingan, shrink
+  - crimman, insert
+  - crincan/cringan, fall or succumb
+  - grimman, rage
+  - hlimman, resound
+  - linnan, cease
+  - onginnan, begin
+  - rinnan, run or flow
+  - scrincan/scringan, shrink
+  - sinnan, mediate
+  - slincan, slink
+  - spinnan, spin
+  - springan, leap
+  - stincan, stink
+  - stingan, sting
+  - þringan, throng
+  - þrintan, swell
+  - winnan, toil or fight
+  - wringan, wring
+  - sincan, sing
+  - singan, sing
+  - swingcan, toil
+  - swingan, swing
+  - swimman, swim
+strong3_iau_nd:
+  - bindan, bind
+  - grindan, grind
+  - hrindan, push
+  - swindan, disappear
+  - windan, wind
+  - þindan, swell
+strong3_e_ea_u_o:
+  - belgan, swell with anger
+  - bellan, bellow
+  - beteldan, cover
+  - delfan, dig
+  - helpan
+  - meltan, melt
+  - swelgan, swallow
+  - swellan, swell
+  - sweltan, die
+strong3_ie_ea_u_o:
+  - gieldan, yield
+  - giellan, yell
+  - gielpan, boast
+strong3_eo_ea_u_o:
+  - weorpan, throw
+  - āseolcan, languish
+  - beorcan, bark
+  - beorgan, protect
+  - ceorfan, cut or carve
+  - deorfan, labour
+  - hweorfan, turn or go
+  - feohtan, fight
+  - meolcan/melcan, milk
+  - sceorfan, gnaw
+  - sceorpan, scrape
+  - steorfan, die
+  - sweorfan, rub
+  - sweorcan, become dark
+strong3_eo_ea_u_o_þd:
+  - weorþan, become

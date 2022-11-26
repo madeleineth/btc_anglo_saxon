@@ -1,0 +1,54 @@
+# This file contains verbs that don't fit precisely into a paradigm. The
+# alternative would be to have a list with one element in `words.yaml`, and a
+# set of rules in `rules.yaml` that was only used for that word. This is
+# simpler.
+
+bregdan:
+  inherit: strong
+  mod-e: brandish
+  rules:
+    past-ind-3sg: brægd
+    past-ind-pl: brugdon
+    past-part: brogden
+stregdan:
+  inherit: strong
+  mod-e: strew
+  rules:
+    past-ind-3sg: strægd
+    past-ind-pl: strugdon
+    past-part: strogden
+berstan:
+  inherit: strong
+  mod-e: burst
+  rules:
+    past-ind-3sg: bærst
+    past-ind-pl: brugdon
+    past-part: borsten
+þerscan:
+  inherit: strong
+  mod-e: thresh
+  rules:
+    past-ind-3sg: þærsc
+    past-ind-pl: þurscon
+    past-part: þorscen
+frignan:
+  inherit: strong
+  mod-e: ask
+  rules:
+    past-ind-3sg: frægn
+    past-ind-pl: frugnon
+    past-part: frugnen
+murnan:
+  inherit: strong
+  mod-e: mourn
+  rules:
+    past-ind-3sg: mearn
+    past-ind-pl: murnon
+    past-part: "-"
+spurnan:
+  inherit: strong
+  mod-e: kick or spurn
+  rules:
+    past-ind-3sg: spearn
+    past-ind-pl: spurnon
+    past-part: spornen
