@@ -5,7 +5,7 @@ import unittest
 
 from abbrevs import Abbrev, read_abbrevs
 
-TEST_ABBREV_XML = '''
+TEST_ABBREV_XML = """
 <!DOCTYPE document [
 <!ELEMENT document ((source | PAGEBREAK | section_header)+)>
 <!ELEMENT source (spellout+, heading, body)>
@@ -21,17 +21,16 @@ TEST_ABBREV_XML = '''
         <heading>C</heading>
         <body>&AElig;lfric</body>
     </source>
-</document>'''
+</document>"""
 
 
 class TestAbbrevs(unittest.TestCase):
-
     def test_read_abbrevs(self) -> None:
         with io.StringIO(TEST_ABBREV_XML) as ax:
             ab = read_abbrevs(ax)
-        expected = Abbrev(spellouts=['A', 'B'], heading='C', body='Ælfric')
+        expected = Abbrev(spellouts=["A", "B"], heading="C", body="Ælfric")
         self.assertEqual([expected], ab)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
