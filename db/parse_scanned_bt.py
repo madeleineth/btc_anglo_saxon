@@ -23,22 +23,7 @@ import normalize
 # Line numbers that do not start an entry, even though they may begin with a
 # bolded phrase.
 NOT_AN_ENTRY = set(
-    [
-        326,
-        330,
-        332,
-        692,
-        1845,
-        6016,
-        17859,
-        24005,
-        49675,
-        97466,
-        110519,
-        118045,
-        119186,
-        126386,
-    ]
+    [326, 330, 332, 692, 1845, 6016, 17859, 24005, 49675, 97466, 110519, 118045, 119186, 126386]
 )
 
 # Line numbers that do start an entry, even though whether they do or not is
