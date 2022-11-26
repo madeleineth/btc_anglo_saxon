@@ -73,8 +73,12 @@ public class DefnActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         WebView.setWebContentsDebuggingEnabled(true);
+        updateHtmlContent();
+        setUpEventListeners();
+    }
+
+    private void setUpEventListeners() {
         final WebView content = findViewById(R.id.defn_content);
-        WebViewStyle.apply(this, content, term.html());
         content.setWebViewClient(new WebViewClient() {
             // Don't use the WebResourceRequest version of shouldOverrideUrlLoading; it doesn't work before API 24.
             @SuppressWarnings("deprecation")
@@ -180,5 +184,10 @@ public class DefnActivity extends AppCompatActivity {
         } else {
             view.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void updateHtmlContent() {
+        WebView content = findViewById(R.id.defn_content);
+        WebViewStyle.apply(this, content, term.html());
     }
 }

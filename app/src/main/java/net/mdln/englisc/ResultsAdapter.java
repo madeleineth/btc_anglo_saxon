@@ -1,5 +1,6 @@
 package net.mdln.englisc;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -29,6 +30,7 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
         setHasStableIds(true);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     void setTerms(Collection<Term> terms) {
         this.terms = Collections.unmodifiableList(new ArrayList<>(terms));
         notifyDataSetChanged();
@@ -66,12 +68,7 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
         ViewHolder(final Context ctx, View itemView) {
             super(itemView);
             view = itemView.findViewById(R.id.results_row);
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openFullDefinition(ctx);
-                }
-            });
+            view.setOnClickListener(v -> openFullDefinition(ctx));
         }
 
         void setTerm(Term term) {
