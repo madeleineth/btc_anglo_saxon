@@ -129,21 +129,21 @@ public class MainActivity extends AppCompatActivity {
                 final List<Term> t;
                 try {
                     t = getTerms();
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Exception searching in the background.", e);
+                    return;
                 } finally {
                     readySemaphore.release();
                 }
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        results.setTerms(t);
-                        // Show or hide the "recent:" label.
-                        String q = ((SearchView) findViewById(R.id.search_box)).getQuery().toString();
-                        boolean historyActive = q.equals("") && results.getItemCount() > 0;
-                        findViewById(R.id.recentLabel).setVisibility(historyActive ? View.VISIBLE : View.GONE);
-                        numPendingSearches.decrementAndGet();
-                        if (searchFinishedCallback != null) {
-                            searchFinishedCallback.run();
-                        }
+                runOnUiThread(() -> {
+                    results.setTerms(t);
+                    // Show or hide the "recent:" label.
+                    String q = ((SearchView) findViewById(R.id.search_box)).getQuery().toString();
+                    boolean historyActive = q.equals("") && results.getItemCount() > 0;
+                    findViewById(R.id.recentLabel).setVisibility(historyActive ? View.VISIBLE : View.GONE);
+                    numPendingSearches.decrementAndGet();
+                    if (searchFinishedCallback != null) {
+                        searchFinishedCallback.run();
                     }
                 });
             }

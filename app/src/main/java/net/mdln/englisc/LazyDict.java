@@ -1,9 +1,8 @@
 package net.mdln.englisc;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -19,14 +18,9 @@ class LazyDict implements AutoCloseable {
     private final Future<Dict> dict;
 
     @SuppressLint("StaticFieldLeak")
-    LazyDict(final Context ctx) {
+    LazyDict(final Activity activity) {
         ExecutorService ex = Executors.newSingleThreadExecutor();
-        dict = ex.submit(new Callable<Dict>() {
-            @Override
-            public Dict call() {
-                return new Dict(DictDB.get(ctx));
-            }
-        });
+        dict = ex.submit(() -> new Dict(DictDB.get(activity)));
         ex.shutdown();
     }
 

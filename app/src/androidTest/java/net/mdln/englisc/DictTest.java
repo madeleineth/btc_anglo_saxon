@@ -26,7 +26,6 @@ public class DictTest {
                 /* word with non-ASCII characters in search */ {"þrittig", "þritig"},
                 /* variant spelling of very common word */ {"þonne", "þanne"},
                 /* manually-added variant */ {"Swylce", "swilc"},
-
         };
         Context ctx = InstrumentationRegistry.getInstrumentation().getTargetContext();
         try (SQLiteDatabase db = DictDB.get(ctx)) {
