@@ -73,7 +73,13 @@ final class ResultsAdapter extends RecyclerView.Adapter<ResultsAdapter.ViewHolde
 
         void setTerm(Term term) {
             this.term = term;
-            view.setText(HtmlCompat.fromHtml(Term.unlinkifyTermHtml(term.html()), HtmlCompat.FROM_HTML_MODE_COMPACT));
+            final String html;
+            if (term.modE() == null) {
+                html = Term.unlinkifyTermHtml(term.defnHtml());
+            } else {
+                html = "<b>" + term.title() + "</b>; " + term.modE();
+            }
+            view.setText(HtmlCompat.fromHtml(html, HtmlCompat.FROM_HTML_MODE_COMPACT));
         }
 
         private void openFullDefinition(Context ctx) {

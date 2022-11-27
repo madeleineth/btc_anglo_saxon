@@ -11,7 +11,10 @@
     <string name="about">About</string>
     <string name="feedback">Feedback</string>
     <string name="find">Find</string>
+    <string name="conjugate">Conj.</string>
+    <string name="definition">Defn.</string>
     <string name="unpack_dict_message">Could not expand compressed dictionary database. This app requires around 100MB free to run.</string>
     <string name="unpack_dict_title">Error initializing dictionary</string>
     <string name="unpack_dict_exit">Exit</string>
+    <string name="conj_suffix">(conj.)</string>
 </resources>

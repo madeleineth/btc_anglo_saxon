@@ -12,7 +12,7 @@ a, a:visited {
   text-decoration-style: dotted;
 }
 
-i {
+i, .conj .part {
     color: #060;
 }
 
@@ -22,7 +22,7 @@ i {
     color: #eee;
 }
 
-.dark i {
+.dark i,.dark .conj .part {
     color: #cec;
 }
 
@@ -32,7 +32,20 @@ i {
     body {
         color: #eee;
     }
-    i {
+    i,.conj .part {
         color: #cec;
     }
+}
+
+.conj {
+  display: flex;
+  justify-content: center;
+}
+
+.conj .mood {
+  text-align: center;
+}
+
+.conj td {
+  padding: 0.2em;
 }

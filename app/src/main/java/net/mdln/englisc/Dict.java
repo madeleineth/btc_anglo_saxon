@@ -29,10 +29,11 @@ final class Dict implements AutoCloseable {
     // the byte-offset of the match, and sort the results with early matches first." This is done by
     // the scoring algorithm later in Java, but unless we do a rough version of it in SQL, we may
     // never see some results that would otherwise score highly.
-    private static final String Q1 =
-            "SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE defn_idx MATCH ? ORDER BY CAST(substr(offsets(defn_idx), 5) AS INTEGER) LIMIT ?";
-    private static final String Q2 = "SELECT title, html, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx WHERE terms MATCH ?";
-    private static final String QRY = "SELECT * FROM (  " + Q1 + ") UNION " + Q2;
+    private static final String select = "SELECT title, html, conj_html, mod_e, rowid, terms, entry_type, offsets(defn_idx) FROM defn_idx";
+    private static final String Q1 = select + " WHERE defn_idx MATCH ? ORDER BY CAST(substr(offsets(defn_idx), 5) AS INTEGER) LIMIT ?";
+    private static final String Q2 = select + " WHERE terms MATCH ?";
+    private static final String Q3 = select + " WHERE mod_e MATCH ?";
+    private static final String QRY = "SELECT * FROM (  " + Q1 + ") UNION " + Q2 + " UNION " + Q3;
 
     private static final double MINIMUM_SCORE = 0.003;
 
@@ -43,13 +44,21 @@ final class Dict implements AutoCloseable {
     }
 
     /**
-     * Exact term matches and abbreviations go first. Then we rank by how early in the HTML the query terms were.
+     * Matches for Modern English equivalents go first, then exact term matches
+     * and abbreviations, then we rank by how early in the HTML the query terms
+     * were.
      */
-    private static double scoreTerm(boolean termMatch, String entryType, List<MatchOffset> offsets) {
+    private static double scoreTerm(boolean termMatch, boolean modEngMatch, boolean goodEntry, String entryType, List<MatchOffset> offsets) {
         if (!entryType.equals("a") /* abbrev */ && !entryType.equals("e") /* entry */) {
             throw new IllegalArgumentException("invalid entry type: '" + entryType + "'");
         }
         double score = (termMatch ? 2.0 : 0.0) + (entryType.equals("a") ? 1.0 : 0.0);
+        if (modEngMatch) {
+            score += 5;
+        }
+        if (goodEntry) {
+            score += 0.5;
+        }
         if (offsets.size() > 0) {
             score += 1.0 / offsets.get(0).offset();
         }
@@ -93,16 +102,20 @@ final class Dict implements AutoCloseable {
 
     private static Term queryMatchToTerm(String query, Cursor cursor) {
         String title = cursor.getString(0);
-        String html = cursor.getString(1);
-        int rowId = cursor.getInt(2);
-        String terms = cursor.getString(3);
+        String defnHtml = cursor.getString(1);
+        String conjHtml = cursor.getString(2);
+        String modE = cursor.getString(3);
+        int rowId = cursor.getInt(4);
+        String terms = cursor.getString(5);
+        String entryType = cursor.getString(6);
         // The "terms" column is of the form "/form1/form2/.../" so if we see "/query/" then we got
         // an exact term match.
         boolean termMatch = terms.contains("/" + query + "/");
-        String entryType = cursor.getString(4);
-        List<MatchOffset> offsets = parseOffsets(cursor.getString(5));
-        double score = scoreTerm(termMatch, entryType, offsets);
-        return Term.create(title, html, rowId, score);
+        boolean modEngMatch = modE != null && modE.contains(query.toLowerCase());
+        boolean goodEntry = modE != null;
+        List<MatchOffset> offsets = parseOffsets(cursor.getString(7));
+        double score = scoreTerm(termMatch, modEngMatch, goodEntry, entryType, offsets);
+        return Term.create(title, defnHtml, conjHtml, modE, rowId, score);
     }
 
     private static void sortByDescendingScore(List<Term> terms) {
@@ -152,7 +165,7 @@ final class Dict implements AutoCloseable {
     List<Term> search(@NotNull String query, int limit) {
         String term = normalizeQuery(query);
         String ftsQuery = term.contains(" ") ? "\"" + term + "\"" : "html:" + term + " OR terms:" + term + "*";
-        String[] args = new String[]{ftsQuery, String.valueOf(limit), term};
+        String[] args = new String[]{ftsQuery, String.valueOf(limit), term, term};
         List<Term> retVal = new ArrayList<>();
         try (Cursor cursor = db.rawQuery(QRY, args)) {
             Log.d("Dict", "Got " + cursor.getCount() + " results for '" + query + "'");
@@ -170,14 +183,16 @@ final class Dict implements AutoCloseable {
      * Returns the term in the database with the specified row id, or null if none exists.
      */
     Term loadNid(int nid) {
-        try (Cursor cursor = db.rawQuery("SELECT title, html FROM defn_idx WHERE rowid = ?", new String[]{String.valueOf(nid)})) {
+        try (Cursor cursor = db.rawQuery("SELECT title, html, conj_html, mod_e FROM defn_idx WHERE rowid = ?", new String[]{String.valueOf(nid)})) {
             if (cursor.getCount() == 0) {
                 return null;
             }
             cursor.moveToNext();
             String title = cursor.getString(0);
-            String html = cursor.getString(1);
-            return Term.create(title, html, nid, 0.0);
+            String defnHtml = cursor.getString(1);
+            String conjHtml = cursor.getString(2);
+            String modE = cursor.getString(3);
+            return Term.create(title, defnHtml, conjHtml, modE, nid, 0.0);
         }
     }
 }

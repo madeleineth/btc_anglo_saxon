@@ -1,5 +1,7 @@
 package net.mdln.englisc;
 
+import androidx.annotation.Nullable;
+
 import com.google.auto.value.AutoValue;
 
 import org.jetbrains.annotations.NotNull;
@@ -9,8 +11,8 @@ import org.jetbrains.annotations.NotNull;
  */
 @AutoValue
 abstract class Term {
-    static Term create(@NotNull String title, @NotNull String html, int nid, double score) {
-        return new AutoValue_Term(title, html, nid, score);
+    static Term create(@NotNull String title, @NotNull String defnHtml, String conjHtml, String modE, int nid, double score) {
+        return new AutoValue_Term(title, defnHtml, conjHtml, modE, nid, score);
     }
 
     /**
@@ -24,7 +26,13 @@ abstract class Term {
     abstract String title();
 
     @NotNull
-    abstract String html();
+    abstract String defnHtml();
+
+    @Nullable
+    abstract String conjHtml();
+
+    @Nullable
+    abstract String modE();
 
     abstract int nid();
 

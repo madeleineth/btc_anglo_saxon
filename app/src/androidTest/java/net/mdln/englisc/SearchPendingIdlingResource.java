@@ -16,13 +16,10 @@ class SearchPendingIdlingResource implements IdlingResource {
 
     SearchPendingIdlingResource(MainActivity activity) {
         this.activity = activity;
-        activity.onSearchFinished(new Runnable() {
-            @Override
-            public void run() {
-                if (isIdleNow()) {
-                    for (ResourceCallback cb : callbacks) {
-                        cb.onTransitionToIdle();
-                    }
+        activity.onSearchFinished(() -> {
+            if (isIdleNow()) {
+                for (ResourceCallback cb : callbacks) {
+                    cb.onTransitionToIdle();
                 }
             }
         });
