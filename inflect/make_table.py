@@ -82,11 +82,19 @@ def read_rule_based(data_dir: str) -> dict[str, dict[str, str]]:
     return words
 
 
+def read_wikidata(data_dir: str) -> dict[str, dict[str, str]]:
+    with open(os.path.join(data_dir, "wikidata.yaml"), "rt") as inp:
+        words: dict[str, dict[str, str]] = yaml.safe_load(inp)
+    for w in words:
+        if "mod-e" in words[w] and not words[w]["mod-e"].startswith("to "):
+            words[w]["mod-e"] = "to " + words[w]["mod-e"]
+    return words
+
+
 def read_all_forms() -> dict[str, dict[str, str]]:
     """Returns a mapping from infinitive to part-to-form."""
     data_dir = os.path.join(os.path.dirname(__file__), "data")
-    with open(os.path.join(data_dir, "wikidata.yaml"), "rt") as inp:
-        words: dict[str, dict[str, str]] = yaml.safe_load(inp)
+    words = read_wikidata(data_dir)
     rule_based = read_rule_based(data_dir)
     merge_forms(words, rule_based)
     return words

@@ -1,7 +1,9 @@
 black
+chevron
 flake8
 isort
 mypy
 pytest
 PyYAML
+types-chevron
 types-PyYAML
