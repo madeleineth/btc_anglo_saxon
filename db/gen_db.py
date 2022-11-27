@@ -12,6 +12,9 @@ from html import escape
 from sqlite3 import Connection
 from typing import Any, Dict, Iterable, List, Optional
 
+import chevron
+import yaml
+
 from abbrevs import Abbrev, read_abbrevs
 from normalize import acute_to_macron_in_nonitalic, ascify, split_senses_into_paragraphs
 
@@ -107,7 +110,7 @@ def add_inflected_terms_to_db(
                 "idx_tmp.term, idx.nid FROM idx_tmp LEFT JOIN idx ON "
                 "idx_tmp.join_term = idx.term"
             )
-            c.execute("INSERT INTO idx SELECT term, nid FROM idx_new " "WHERE nid IS NOT NULL")
+            c.execute("INSERT INTO idx SELECT term, nid FROM idx_new WHERE nid IS NOT NULL")
             # Log statistics.
             c.execute("SELECT COUNT(*) FROM idx_new WHERE nid IS NOT NULL")
             n_new = c.fetchone()[0]
@@ -158,6 +161,7 @@ def max_nid_in_use(db: Connection) -> int:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--bt-dict", required=True)
+    parser.add_argument("--verbs", required=True)
     parser.add_argument("--inflections", required=True)
     parser.add_argument("--abbrevs", required=True)
     parser.add_argument("--extra-forms", required=True)
@@ -167,20 +171,49 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def add_bt_terms_to_db(oe_bt_path: str, db: Connection) -> None:
-    """Add terms from `oe_bt_path` to `idx` and `defns` in `db`."""
-    c = db.cursor()
+def make_conj_html(forms: dict[str, str]) -> str:
+    reduced_forms = {k: v for k, v in forms.items() if v != "-"}
+    path = os.path.join(os.path.dirname(__file__), "conj.mustache")
+    with open(path, "rt") as tmpl:
+        return chevron.render(tmpl, reduced_forms)
+
+
+def read_verb_conjugations(path: str) -> dict[str, dict[str, str]]:
+    with open(path, "rt") as verbs_in:
+        verbs: dict[str, dict[str, str]] = yaml.safe_load(verbs_in)
+    for w in verbs:
+        verbs[w]["plain-inf"] = w
+    n_mod_e = sum(1 for w in verbs.values() if "mod-e" in w)
+    logging.info(
+        f"Read {len(verbs)} inflected verbs from {path}, {n_mod_e} of which have translations."
+    )
+    return verbs
+
+
+def add_bt_terms_to_db(oe_bt_path: str, verbs: dict[str, dict[str, str]], db: Connection) -> None:
+    """Add terms from `oe_bt_path` with optional conjugations to `idx` and `defns` in `db`."""
     with open(oe_bt_path, "rt", encoding="UTF-8") as oe_bt_file:
         oe_bt = json.load(oe_bt_file)
-        n = max_nid_in_use(db)
-        for term, entry in oe_bt.items():
-            n += 1
-            html = "".join("<div>" + h + "</div>" for h in entry["defns"])
-            title = " / ".join(sorted(entry["headwords"]))
-            c.execute("INSERT INTO idx VALUES (?, ?)", (term, n))
-            c.execute("INSERT INTO defns VALUES (?, ?, ?, 'e')", (n, title, html))
+    c = db.cursor()
+    n = max_nid_in_use(db)
+    for term, entry in oe_bt.items():
+        n += 1
+        verb_keys = [h.lower() for h in entry["headwords"] if h.lower() in verbs]
+        if verb_keys:
+            conj_html = make_conj_html(verbs[verb_keys[0]])
+            mod_e = verbs[verb_keys[0]].get("mod-e")
+        else:
+            conj_html = None
+            mod_e = None
+        html = "".join("<div>" + h + "</div>" for h in entry["defns"])
+        title = " / ".join(sorted(entry["headwords"]))
+        c.execute("INSERT INTO idx VALUES (?, ?)", (term, n))
+        c.execute(
+            "INSERT INTO defns (nid, title, html, conj_html, mod_e, entry_type) VALUES (?, ?, ?, ?, ?, 'e')",
+            (n, title, html, conj_html, mod_e),
+        )
     c.close()
-    logging.info("Wrote {:,} terms from {}.".format(n, oe_bt_path))
+    logging.info(f"Wrote {n:,} terms from {oe_bt_path}.")
 
 
 def tokenize_html(h: str) -> str:
@@ -208,31 +241,36 @@ def build_defn_idx(db: Connection) -> None:
         c.execute("CREATE TEMP TABLE idx_uniq AS SELECT DISTINCT * FROM idx")
         c.execute(
             "CREATE TABLE defn_content (id INTEGER PRIMARY KEY, "
-            "title TEXT, html TEXT, terms TEXT, entry_type TEXT)"
+            "title TEXT, html TEXT, conj_html TEXT, mod_e TEXT, terms TEXT, entry_type TEXT)"
         )
         c.execute(
-            "CREATE VIRTUAL TABLE defn_idx "
-            "USING fts4(title, html, terms, entry_type, "
-            'content="defn_content", notindexed="title",'
-            'notindexed="entry_type")'
+            """
+            CREATE VIRTUAL TABLE defn_idx USING fts4(
+                title, html, conj_html, mod_e, terms, entry_type,
+                content="defn_content",
+                notindexed="title",
+                notindexed="conj_html"
+                notindexed="entry_type",
+            )
+            """
         )
         c.execute(
-            "INSERT INTO defn_content SELECT defns.nid, title, html, "
+            "INSERT INTO defn_content SELECT defns.nid, title, html, conj_html, mod_e, "
             "'/' || GROUP_CONCAT(term, '/') || '/', entry_type "
             "FROM defns LEFT JOIN idx_uniq ON defns.nid = idx_uniq.nid "
             "GROUP BY defns.nid"
         )
         c.execute("DROP TABLE idx_uniq")
         for row in c.execute(
-            "SELECT id, title, html, terms, entry_type " "FROM defn_content"
+            "SELECT id, title, html, conj_html, mod_e, terms, entry_type FROM defn_content"
         ).fetchall():
             html_tokens = tokenize_html(row[2])
             c.execute(
-                (
-                    "INSERT INTO defn_idx (docid, title, html, terms, "
-                    "entry_type) VALUES (?, ?, ?, ?, ?)"
-                ),
-                (row[0], row[1], html_tokens, row[3], row[4]),
+                """
+                INSERT INTO defn_idx (docid, title, html, conj_html, mod_e, terms, entry_type)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (row[0], row[1], html_tokens, row[3], row[4], row[5], row[6]),
             )
     finally:
         c.close()
@@ -247,7 +285,10 @@ def add_abbrevs_to_db(abbrevs: List[Abbrev], db: Connection) -> Dict[str, int]:
         for sp in a.spellouts:
             c.execute("INSERT INTO idx VALUES (?, ?)", (ascify(sp), nid))
         html = "<B>%s</B> (abbrev.) %s" % (escape(a.heading), escape(a.body))
-        c.execute("INSERT INTO defns VALUES (?, ?, ?, 'a')", (nid, a.heading, html))
+        c.execute(
+            "INSERT INTO defns (nid, title, html, entry_type) VALUES (?, ?, ?, 'a')",
+            (nid, a.heading, html),
+        )
         for s in a.spellouts:
             abbrev_nid[s] = nid
         nid += 1
@@ -403,16 +444,24 @@ def main() -> None:
     c = db.cursor()
     c.execute("CREATE TEMP TABLE idx (term TEXT NOT NULL, nid INT NOT NULL)")
     c.execute(
-        "CREATE TEMP TABLE defns (nid INT PRIMARY KEY, "
-        "title TEXT NOT NULL, html TEXT NOT NULL, "
-        "entry_type CHAR(1) NOT NULL)"
+        """
+        CREATE TEMP TABLE defns (
+            nid INT PRIMARY KEY,
+            title TEXT NOT NULL,
+            html TEXT NOT NULL,
+            conj_html TEXT DEFAULT NULL,
+            mod_e TEXT DEFAULT NULL,
+            entry_type CHAR(1) NOT NULL
+        )
+        """
     )
     c.close()
 
     # Add the definitions, inflected forms, and abbreviations to `idx` and
     # `defns`.
     abbrev_nid = read_abbrevs_and_add_to_db(args.abbrevs, db)
-    add_bt_terms_to_db(args.bt_dict, db)
+    verbs = read_verb_conjugations(args.verbs)
+    add_bt_terms_to_db(args.bt_dict, verbs, db)
     add_extra_forms_to_db(args.extra_forms, db)
     add_inflected_terms_to_db(args.inflections, db, limit=args.limit)
 
