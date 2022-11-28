@@ -157,3 +157,87 @@ strong3_eo_ea_u_o_þd:
   rules:
     "past-ind-pl": "{p1}urdon"
     "past-part": "(ge){p1}orden"
+strong3_2cons_e:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)e([^aeiou]+)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)e([^aeiou]+)an"
+      value: "\\2"
+    "past-ind-3sg": "{p1}æ{p2}"
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "{p1}o{p2}en"
+strong3_2cons_i:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)i([^aeiou]{2})an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)i([^aeiou]{2})an"
+      value: "\\2"
+    "past-ind-3sg": "{p1}æ{p2}"
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "{p1}u{p2}en"
+strong3_2cons_u:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)u([^aeiou]{2})an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)u([^aeiou]{2})an"
+      value: "\\2"
+    "past-ind-3sg": "{p1}ea{p2}"
+    "past-ind-pl": "{p1}u{p2}on"
+    "past-part": "{p1}o{p2}en"
+strong4_e:
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)e([^aeiou]+)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)e([^aeiou]+)an"
+      value: "\\2"
+    "past-ind-3sg": "{p1}æ{p2}"
+    "past-ind-pl": "{p1}ǣ{p2}on"
+    "past-part": "{p1}o{p2}en"
+strong5_e: # Wright §505
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)e([^aeiou])an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)e([^aeiou])an"
+      value: "\\2"
+    "past-ind-3sg": "{p1}æ{p2}"
+    "past-ind-pl": "{p1}ǣ{p2}on"
+    "past-part": "{p1}e{p2}en"
+strong5_i_2cons: # Wright §507
+  inherit: strong
+  rules:
+    "p1":
+      from: "plain-inf"
+      match: "(.*)i([^aeiou]+)an"
+      value: "\\1"
+    "p2":
+      from: "plain-inf"
+      match: "(.*)i[^aeiou]([^aeiou])an"
+      value: "\\2"
+    "past-ind-3sg": "{p1}æ{p2}"
+    "past-ind-pl": "{p1}ǣ{p2}on"
+    "past-part": "{p1}e{p2}en"

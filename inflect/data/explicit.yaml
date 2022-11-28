@@ -52,3 +52,68 @@ spurnan:
     past-ind-3sg: spearn
     past-ind-pl: spurnon
     past-part: spornen
+scieran: # Wright §503
+  inherit: strong
+  mod-e: shear
+  rules:
+    past-ind-3sg: scear
+    past-ind-pl: scēaron
+    past-part: scoren
+cuman:  # Wright §504
+  inherit: strong
+  mod-e: come
+  rules:
+    past-ind-3sg: c(w)ōm
+    past-ind-pl: c(w)ōmon
+    past-part: [cumen, cymen]
+niman:  # Wright §504
+  inherit: strong
+  mod-e: take
+  rules:
+    past-ind-3sg: nōm
+    past-ind-pl: nōmon
+    past-part: numen
+brecan:  # Wright §505
+  inherit: strong
+  mod-e: break
+  rules:
+    past-ind-3sg: bræc
+    past-ind-pl: brǣcon
+    past-part: brocen
+drepan:  # Wright §505
+  inherit: strong
+  rules:
+    past-ind-3sg: dræp
+    past-ind-pl: drǣpon
+    past-part: ["drepen", "dropen"]
+wegan:  # Wright §505
+  inherit: strong
+  rules:
+    past-ind-3sg: wæg
+    past-ind-pl: ["wǣgon", "wāgon"]
+    past-part: wegen
+giefan:  # Wright §505
+  inherit: strong
+  mod-e: give
+  rules:
+    past-ind-3sg: geaf
+    past-ind-pl: gēafon
+    past-part: giefen
+forgietan:  # Wright §505
+  inherit: strong
+  mod-e: forget
+  rules:
+    past-ind-3sg: forgeat
+    past-ind-pl: forgēaton
+    past-part: forgieten
+cweþan:  # Wright §505
+  inherit: strong
+  mod-e: say
+  rules:
+    past-ind-3sg: cwæþ
+    past-ind-pl: cwǣdon
+    past-part: cweden
+licgan:  # Wright §507
+  inherit: strong5_i_2cons
+  mod-e: lie-down
+  past-ind-pl: ["lāgon", "lǣgon"]

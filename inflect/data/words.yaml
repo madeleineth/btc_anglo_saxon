@@ -158,3 +158,35 @@ strong3_eo_ea_u_o:
   - sweorcan, become dark
 strong3_eo_ea_u_o_þd:
   - weorþan, become
+strong3_2cons_e: # Wright §501
+  - bregdan, brandish
+  - stregdan, strew
+  - berstan, burst
+  - þerscan, thresh
+strong3_2cons_i: # Wright §501
+  - frignan, ask
+strong3_2cons_u: # Wright §501
+  - murnan, mourn
+  - spurnan, spurn
+strong4_e: # Wright §503
+  - beran, bear
+  - cwelan, die
+  - helan, conceal
+  - stelan, steal
+  - teran, tear
+  - þweran, stir
+strong5_e: # Wright 505
+  - metan, measure
+  - cnedan, knead
+  - screpan, scrape
+  - sprecan, speak
+  - specan, speak
+  - swefan, sleep
+  - tredan, tread
+  - wefan, weave
+  - wrecan, avenge
+  - etan, eat
+  - fretan, devour
+strong5_i_2cons: # Wright 507
+  - biddan, pray
+  - sittan, sit
