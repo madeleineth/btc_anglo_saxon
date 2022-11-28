@@ -24,7 +24,6 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 import androidx.appcompat.widget.Toolbar;
-import androidx.test.espresso.IdlingRegistry;
 import androidx.test.espresso.web.webdriver.Locator;
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
@@ -44,7 +43,7 @@ public class MainActivityTest {
      */
     @Test
     public void searchForAWord() {
-        IdlingRegistry.getInstance().register(new SearchPendingIdlingResource(activityRule.getActivity()));
+        activityRule.getActivity().setSynchronousSearches(true);
         // SearchView has an opaque hierarchy, but there's only one EditText in it, so type
         // "forthmesto" into it. This term is only notable for having a single result, which
         // contains a clickable abbreviation.
@@ -75,7 +74,7 @@ public class MainActivityTest {
      */
     @Test
     public void searchForVerb() {
-        IdlingRegistry.getInstance().register(new SearchPendingIdlingResource(activityRule.getActivity()));
+        activityRule.getActivity().setSynchronousSearches(true);
         onView(isAssignableFrom(EditText.class)).perform(typeText("mediate"), closeSoftKeyboard());
         onView(new RecyclerViewMatcher(R.id.search_results).atPosition(0))
                 .check(matches(withText(containsString("to mediate"))))
