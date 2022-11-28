@@ -19,10 +19,9 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
-    private final AtomicInteger numPendingSearches = new AtomicInteger(0);
     // `readySemaphore` is has one permit when `dict` and `history` are valid but not in active use.
     // This way, `onDestroy` can wait to close them if they're in use by `getTerms` on another thread.
     private final Semaphore readySemaphore = new Semaphore(0);
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private ResultsAdapter results = null;
     private SearchView searchBox = null;
     private TermHistory history = null;
-    private Runnable searchFinishedCallback = null;
+    private boolean synchronousSearches = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void searchInBackground() {
-        numPendingSearches.incrementAndGet();
         // Get this on the UI thread because SearchView.getQuery is not thread-safe.
         final String qry = searchBox.getQuery().toString();
         ExecutorService ex = Executors.newSingleThreadExecutor();
@@ -141,14 +139,17 @@ public class MainActivity extends AppCompatActivity {
                     String q = ((SearchView) findViewById(R.id.search_box)).getQuery().toString();
                     boolean historyActive = q.equals("") && results.getItemCount() > 0;
                     findViewById(R.id.recentLabel).setVisibility(historyActive ? View.VISIBLE : View.GONE);
-                    numPendingSearches.decrementAndGet();
-                    if (searchFinishedCallback != null) {
-                        searchFinishedCallback.run();
-                    }
                 });
             }
         });
         ex.shutdown();
+        if (synchronousSearches) {
+            try {
+                ex.awaitTermination(30, TimeUnit.SECONDS);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     private List<Term> historyTerms() {
@@ -160,17 +161,7 @@ public class MainActivity extends AppCompatActivity {
         return terms;
     }
 
-    int pendingSearches() {
-        return numPendingSearches.get();
-    }
-
-    /**
-     * Registers {@code fn} to be called whenever a search finishes.
-     */
-    void onSearchFinished(Runnable fn) {
-        if (searchFinishedCallback != null) {
-            throw new RuntimeException("Only one search-finished callback may be specified.");
-        }
-        searchFinishedCallback = fn;
+    void setSynchronousSearches(boolean s) {
+        synchronousSearches = s;
     }
 }
