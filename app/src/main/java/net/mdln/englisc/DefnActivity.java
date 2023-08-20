@@ -28,6 +28,7 @@ public class DefnActivity extends AppCompatActivity {
     static final String EXTRA_BTC_URL = "net.mdln.englisc.DefnActivity.BTC_URL";
     static final String BTC_URL_PREFIX = "https://btc.invalid/";
     static final String BTC_ABOUT_URL = BTC_URL_PREFIX + "about";
+    static final boolean ENABLE_CONJ = false;
     private LazyDict dict;
     private Term term;
     private Mode mode;
@@ -144,7 +145,7 @@ public class DefnActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         menu.findItem(R.id.main_menu_find).setVisible(true);
-        if (term.conjHtml() != null) {
+        if (ENABLE_CONJ && term.conjHtml() != null) {
             menu.findItem(R.id.main_menu_conj).setVisible(true);
         }
         return true;
@@ -191,7 +192,9 @@ public class DefnActivity extends AppCompatActivity {
         findViewById(R.id.defn_search).setVisibility(View.GONE);
         updateHtmlContent();
         Menu menu = ((Toolbar) findViewById(R.id.defn_toolbar)).getMenu();
-        menu.findItem(R.id.main_menu_conj).setVisible(mode == Mode.DEFN);
+        if (ENABLE_CONJ) {
+            menu.findItem(R.id.main_menu_conj).setVisible(mode == Mode.DEFN);
+        }
         menu.findItem(R.id.main_menu_defn).setVisible(mode == Mode.CONJ);
     }
 

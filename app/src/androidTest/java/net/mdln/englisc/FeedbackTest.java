@@ -22,7 +22,6 @@ import android.net.MailTo;
 import android.widget.EditText;
 
 import androidx.test.espresso.intent.Intents;
-import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import org.junit.Before;
@@ -33,8 +32,9 @@ import java.util.Objects;
 
 public class FeedbackTest {
 
+    @SuppressWarnings("deprecation")
     @Rule
-    public IntentsTestRule<MainActivity> intentsTestRule = new IntentsTestRule<>(MainActivity.class, true, true);
+    public androidx.test.espresso.intent.rule.IntentsTestRule<MainActivity> intentsTestRule = new androidx.test.espresso.intent.rule.IntentsTestRule<>(MainActivity.class, true, true);
 
     // Based on https://github.com/android/testing-samples/blob/master/ui/espresso/IntentsBasicSample/app/src/sharedTest/java/com/example/android/testing/espresso/IntentsBasicSample/DialerActivityTest.java.
     @Before

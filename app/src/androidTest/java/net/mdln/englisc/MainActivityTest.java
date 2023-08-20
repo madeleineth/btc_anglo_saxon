@@ -26,16 +26,17 @@ import android.widget.ImageButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.test.espresso.web.webdriver.Locator;
 import androidx.test.platform.app.InstrumentationRegistry;
-import androidx.test.rule.ActivityTestRule;
 
+import org.junit.Assume;
 import org.junit.Rule;
 import org.junit.Test;
 
 public class MainActivityTest {
 
     // TODO: Migrate to https://developer.android.com/reference/androidx/test/core/app/ActivityScenario
+    @SuppressWarnings("deprecation")
     @Rule
-    public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(MainActivity.class, true, true);
+    public androidx.test.rule.ActivityTestRule<MainActivity> activityRule = new androidx.test.rule.ActivityTestRule<>(MainActivity.class, true, true);
 
     /**
      * Check that you can type text and click on a result to get a dialog. This just tests UI
@@ -74,6 +75,7 @@ public class MainActivityTest {
      */
     @Test
     public void searchForVerb() {
+        Assume.assumeTrue(DefnActivity.ENABLE_CONJ);
         activityRule.getActivity().setSynchronousSearches(true);
         onView(isAssignableFrom(EditText.class)).perform(typeText("mediate"), closeSoftKeyboard());
         onView(new RecyclerViewMatcher(R.id.search_results).atPosition(0))
