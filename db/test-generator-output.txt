@@ -1,0 +1,10 @@
+0	eaþe	008772	éaþe	éaþe	éaþe	éaþe			Po	556			adverb				
+1	iþ	008772	éaþe	éaþe	íeþ	íeþ			Co	556			adverb				
+2	feorr	010448	feorr	feorr	feorr	feorr			Po	556			adverb				
+3	feor	010448	feorr	feorr	feorr	feorr		1	Po	556			adverb				
+4	firr	010448	feorr	feorr	fierr	fierr			Co	556			adverb				
+5	fir	010448	feorr	feorr	fierr	fierr		1	Co	556			adverb				
+6	firrest	010448	feorr	feorr	fierrest	fierrest			Su	556			adverb				
+7	firest	010448	feorr	feorr	fierrest	fierrest		1	Su	556			adverb				
+8	lange	021150	lange	lange	lange	lange			Po	556			adverb				
+9	leng	021150	lange	lange	leng	leng			Co	556			adverb				

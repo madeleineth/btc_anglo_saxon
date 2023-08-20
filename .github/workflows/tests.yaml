@@ -1,0 +1,19 @@
+name: Tests
+run-name: ${{ github.ref_name }} tests
+"on": "pull_request"
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: OS dependencies
+        run: sudo apt-get update && sudo apt-get install -qq shellcheck wamerican
+      - name: Shellcheck
+        run: find . -name '*.sh' | xargs shellcheck
+      - name: Python dependencies
+        run: python3 -m venv venv && venv/bin/pip install -U -r requirements.txt
+      - name: Run python static checks and unit tests
+        run: source venv/bin/activate && ./test_python.sh
+      - name: Build test database
+        run: cp db/test-generator-output.txt db/generator-output.txt && source venv/bin/activate && DICT_LIMIT_LINES=1000 ./db/build_dict_db.sh
