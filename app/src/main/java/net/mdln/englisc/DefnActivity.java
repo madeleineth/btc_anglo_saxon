@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.SearchView;
@@ -81,10 +82,9 @@ public class DefnActivity extends AppCompatActivity {
     private void setUpEventListeners() {
         final WebView content = findViewById(R.id.defn_content);
         content.setWebViewClient(new WebViewClient() {
-            // Don't use the WebResourceRequest version of shouldOverrideUrlLoading; it doesn't work before API 24.
-            @SuppressWarnings("deprecation")
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest req) {
+                String url = req.getUrl().toString();
                 if (url.startsWith(BTC_URL_PREFIX)) {
                     Log.i("DefnActivity", "Initiating DefnActivity with URL " + url);
                     Intent intent = new Intent(DefnActivity.this, DefnActivity.class);
