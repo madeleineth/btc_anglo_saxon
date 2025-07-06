@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setSupportActionBar(findViewById(R.id.toolbar));
         ViewUtil.setToolbarPadding(findViewById(R.id.toolbar));
+        ViewUtil.setLayoutInsets(findViewById(android.R.id.content));
         searchBox = findViewById(R.id.search_box);
 
         // We specify search results to the RecyclerView by calling `results.setTerms(...)`.
