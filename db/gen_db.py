@@ -243,8 +243,7 @@ def build_defn_idx(db: Connection) -> None:
             "CREATE TABLE defn_content (id INTEGER PRIMARY KEY, "
             "title TEXT, html TEXT, conj_html TEXT, mod_e TEXT, terms TEXT, entry_type TEXT)"
         )
-        c.execute(
-            """
+        c.execute("""
             CREATE VIRTUAL TABLE defn_idx USING fts4(
                 title, html, conj_html, mod_e, terms, entry_type,
                 content="defn_content",
@@ -252,8 +251,7 @@ def build_defn_idx(db: Connection) -> None:
                 notindexed="conj_html"
                 notindexed="entry_type",
             )
-            """
-        )
+            """)
         c.execute(
             "INSERT INTO defn_content SELECT defns.nid, title, html, conj_html, mod_e, "
             "'/' || GROUP_CONCAT(term, '/') || '/', entry_type "
@@ -443,8 +441,7 @@ def main() -> None:
     db = sqlite3.connect(args.output, timeout=3600)
     c = db.cursor()
     c.execute("CREATE TEMP TABLE idx (term TEXT NOT NULL, nid INT NOT NULL)")
-    c.execute(
-        """
+    c.execute("""
         CREATE TEMP TABLE defns (
             nid INT PRIMARY KEY,
             title TEXT NOT NULL,
@@ -453,8 +450,7 @@ def main() -> None:
             mod_e TEXT DEFAULT NULL,
             entry_type CHAR(1) NOT NULL
         )
-        """
-    )
+        """)
     c.close()
 
     # Add the definitions, inflected forms, and abbreviations to `idx` and
