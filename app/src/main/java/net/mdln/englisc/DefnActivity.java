@@ -75,7 +75,7 @@ public class DefnActivity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.defn_toolbar));
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         ViewUtil.setToolbarPadding(findViewById(R.id.defn_toolbar));
-        ViewUtil.setLayoutInsets(findViewById(android.R.id.content));
+        ViewUtil.setWebViewInsets(findViewById(R.id.defn_content));
         WebView.setWebContentsDebuggingEnabled(true);
         setUpEventListeners();
     }

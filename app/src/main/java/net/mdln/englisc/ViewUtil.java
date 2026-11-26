@@ -3,6 +3,9 @@ package net.mdln.englisc;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.view.View;
+import android.webkit.RenderProcessGoneDetail;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -10,6 +13,8 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 class ViewUtil {
+
+    static private float insetCssPx = 0.0f; // fine to be global, it is the same everywhere
 
     /**
      * Sets toolbar top padding so that it doesn't overlap the OS status bar.
@@ -40,6 +45,37 @@ class ViewUtil {
                 v.setPadding(insets.left, 0, insets.right, insets.bottom);
             }
             return windowInsets;
+        });
+    }
+
+
+    static private void pushCssInset(WebView w) {
+        w.evaluateJavascript(
+                "document.documentElement.style.setProperty('--nav-inset','" + insetCssPx + "px')",
+                null);
+    }
+
+    /**
+     * Similar to setLayoutInsets but for the inside of a webview.
+     */
+    static void setWebViewInsets(WebView webView) {
+        ViewCompat.setOnApplyWindowInsetsListener(webView, (v, insets) -> {
+            int px = insets.getInsets(WindowInsetsCompat.Type.tappableElement()).bottom;
+            insetCssPx = px / v.getResources().getDisplayMetrics().density;
+            pushCssInset(webView);
+            return insets;
+        });
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageCommitVisible(WebView view, String url) {
+                pushCssInset(view);
+            }
+
+            @Override
+            public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
+                return true;
+            }
         });
     }
 }
