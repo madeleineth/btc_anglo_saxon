@@ -3,9 +3,7 @@ package net.mdln.englisc;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.view.View;
-import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -14,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 class ViewUtil {
 
-    static private float insetCssPx = 0.0f; // fine to be global, it is the same everywhere
+    static private float navInsetCssPx = 0.0f; // fine to be global, it is the same everywhere
 
     /**
      * Sets toolbar top padding so that it doesn't overlap the OS status bar.
@@ -43,39 +41,35 @@ class ViewUtil {
                     == Configuration.ORIENTATION_LANDSCAPE;
             if (isLandscape) {
                 v.setPadding(insets.left, 0, insets.right, insets.bottom);
+                return windowInsets.inset(insets.left, 0, insets.right, insets.bottom);
             }
             return windowInsets;
         });
     }
 
 
-    static private void pushCssInset(WebView w) {
-        w.evaluateJavascript(
-                "document.documentElement.style.setProperty('--nav-inset','" + insetCssPx + "px')",
-                null);
+    /**
+     * The height of the bottom nav buttons in CSS pixels, as of the last time we were told. Zero
+     * until the first window insets arrive.
+     */
+    static float navInsetCssPx() {
+        return navInsetCssPx;
     }
 
     /**
-     * Similar to setLayoutInsets but for the inside of a webview.
+     * Similar to setLayoutInsets but for the inside of a webview. The inset has to go into the
+     * page's CSS (see {@link WebViewStyle}), so this just records it and runs {@code reload}
+     * when it differs from what the page was last built with.
      */
-    static void setWebViewInsets(WebView webView) {
+    static void setWebViewInsets(WebView webView, Runnable reload) {
         ViewCompat.setOnApplyWindowInsetsListener(webView, (v, insets) -> {
             int px = insets.getInsets(WindowInsetsCompat.Type.tappableElement()).bottom;
-            insetCssPx = px / v.getResources().getDisplayMetrics().density;
-            pushCssInset(webView);
+            float cssPx = px / v.getResources().getDisplayMetrics().density;
+            if (cssPx != navInsetCssPx) {
+                navInsetCssPx = cssPx;
+                reload.run();
+            }
             return insets;
-        });
-
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageCommitVisible(WebView view, String url) {
-                pushCssInset(view);
-            }
-
-            @Override
-            public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
-                return true;
-            }
         });
     }
 }
