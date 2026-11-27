@@ -22,7 +22,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
-    // `readySemaphore` is has one permit when `dict` and `history` are valid but not in active use.
+    // `readySemaphore` has one permit when `dict` and `history` are valid but not in active use.
     // This way, `onDestroy` can wait to close them if they're in use by `getTerms` on another thread.
     private final Semaphore readySemaphore = new Semaphore(0);
     private LazyDict dict = null;
